@@ -79,7 +79,7 @@
             }
       ],
       "relations": {
-            "doctor": {
+            "role": {
                   "type": "hasMany",
                   "model": "role",
                   "key": "type",
