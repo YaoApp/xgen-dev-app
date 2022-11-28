@@ -1,7 +1,6 @@
 function setData() {
 	Process(
-		'yao.table.Insert',
-		'hero',
+		'models.hero.Insert',
 		[
 			'avatar',
 			'name',
@@ -13,8 +12,8 @@ function setData() {
 			'defense',
 			'magic',
 			'difficulty',
-			'goldPrice',
-			'couponPrice'
+			'gold_price',
+			'coupon_price'
 		],
 		[
 			[
@@ -63,8 +62,7 @@ function setData() {
 	)
 
 	Process(
-		'yao.table.Insert',
-		'role',
+		'models.role.Insert',
 		['name', 'type'],
 		[
 			['法师', 'mage'],

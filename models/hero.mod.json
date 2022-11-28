@@ -68,12 +68,12 @@
                   "type": "integer"
             },
             {
-                  "name": "goldPrice",
+                  "name": "gold_price",
                   "comment": "价格（金币）",
                   "type": "integer"
             },
             {
-                  "name": "couponPrice",
+                  "name": "coupon_price",
                   "comment": "价格（点券）",
                   "type": "integer"
             }

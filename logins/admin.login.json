@@ -1,0 +1,14 @@
+{
+      "name": "::Admin Login",
+      "action": {
+            "process": "yao.login.Admin",
+            "args": [
+                  ":payload"
+            ]
+      },
+      "layout": {
+            "entry": "/x/Table/hero",
+            "captcha": "yao.utils.Captcha",
+            "site": "https://yaoapps.com"
+      }
+}

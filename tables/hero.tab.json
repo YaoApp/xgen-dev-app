@@ -9,14 +9,7 @@
                         }
                   }
             },
-            "search": {
-                  "process": "scripts.pet.Search",
-                  "default": [
-                        null,
-                        1,
-                        15
-                  ]
-            },
+            "search": {},
             "find": {},
             "get": {},
             "save": {},
@@ -45,10 +38,6 @@
                   "columns": [
                         {
                               "name": "名称",
-                              "width": 4
-                        },
-                        {
-                              "name": "别名",
                               "width": 4
                         },
                         {
@@ -84,9 +73,6 @@
             "table": {
                   "columns": [
                         {
-                              "name": "ID"
-                        },
-                        {
                               "name": "头像"
                         },
                         {
@@ -105,27 +91,33 @@
                               "name": "位置"
                         },
                         {
-                              "name": "物理伤害"
+                              "name": "物理伤害",
+                              "width": 60
                         },
                         {
-                              "name": "防御能力"
+                              "name": "防御能力",
+                              "width": 60
                         },
                         {
-                              "name": "魔法伤害"
+                              "name": "魔法伤害",
+                              "width": 60
                         },
                         {
-                              "name": "操作难度"
+                              "name": "操作难度",
+                              "width": 60
                         },
                         {
-                              "name": "价格（金币）"
+                              "name": "价格（金币）",
+                              "width": 80
                         },
                         {
-                              "name": "价格（点券）"
+                              "name": "价格（点券）",
+                              "width": 80
                         }
                   ],
                   "operation": {
                         "fold": false,
-                        "width": 200,
+                        "width": 60,
                         "actions": [
                               {
                                     "title": "查看",
@@ -172,13 +164,6 @@
             "filter": {
                   "名称": {
                         "bind": "where.name.like",
-                        "edit": {
-                              "type": "Input",
-                              "props": {}
-                        }
-                  },
-                  "别名": {
-                        "bind": "where.alias.like",
                         "edit": {
                               "type": "Input",
                               "props": {}
@@ -245,7 +230,12 @@
                         "bind": "avatar",
                         "view": {
                               "type": "Image",
-                              "compute": "Download"
+                              "compute": "Download",
+                              "props": {
+                                    "style": {
+                                          "borderRadius": "50%"
+                                    }
+                              }
                         },
                         "edit": {
                               "type": "Upload",
@@ -311,6 +301,7 @@
                         "edit": {
                               "type": "Select",
                               "props": {
+                                    "mode": "multiple",
                                     "xProps": {
                                           "$remote": {
                                                 "process": "yao.component.SelectOptions",
@@ -328,7 +319,30 @@
                         "bind": "position",
                         "view": {
                               "type": "Tag",
-                              "props": {}
+                              "props": {
+                                    "options": [
+                                          {
+                                                "label": "上单",
+                                                "value": "上单"
+                                          },
+                                          {
+                                                "label": "中单",
+                                                "value": "中单"
+                                          },
+                                          {
+                                                "label": "打野",
+                                                "value": "打野"
+                                          },
+                                          {
+                                                "label": "下路",
+                                                "value": "下路"
+                                          },
+                                          {
+                                                "label": "辅助",
+                                                "value": "辅助"
+                                          }
+                                    ]
+                              }
                         },
                         "edit": {
                               "type": "Select",
@@ -404,7 +418,7 @@
                         }
                   },
                   "价格（金币）": {
-                        "bind": "goldPrice",
+                        "bind": "gold_price",
                         "view": {
                               "type": "Text",
                               "props": {}
@@ -415,7 +429,7 @@
                         }
                   },
                   "价格（点券）": {
-                        "bind": "couponPrice",
+                        "bind": "coupon_price",
                         "view": {
                               "type": "Text",
                               "props": {}
