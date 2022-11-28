@@ -1,0 +1,230 @@
+{
+      "name": "Hero Form",
+      "action": {
+            "bind": {
+                  "model": "hero",
+                  "option": {
+                        "withs": {
+                              "doctor": {}
+                        }
+                  }
+            }
+      },
+      "layout": {
+            "primary": "id",
+            "operation": {
+                  "preset": {
+                        "save": {
+                              "back": true
+                        },
+                        "back": {}
+                  },
+                  "actions": [
+                        {
+                              "title": "删除",
+                              "icon": "icon-trash-2",
+                              "action": {
+                                    "Form.delete": {
+                                          "pathname": "/x/Table/env"
+                                    }
+                              },
+                              "style": "danger",
+                              "confirm": {
+                                    "title": "提示",
+                                    "desc": "确认删除，删除后数据无法恢复？"
+                              }
+                        }
+                  ]
+            },
+            "form": {
+                  "props": {},
+                  "sections": [
+                        {
+                              "columns": [
+                                    {
+                                          "name": "头像",
+                                          "width": 24
+                                    },
+                                    {
+                                          "name": "名称",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "别名",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "昵称",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "角色",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "位置",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "物理伤害",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "防御能力",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "魔法伤害",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "操作难度",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "价格（金币）",
+                                          "width": 12
+                                    },
+                                    {
+                                          "name": "价格（点券）",
+                                          "width": 12
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            "config": {
+                  "showAnchor": false
+            }
+      },
+      "fields": {
+            "form": {
+                  "头像": {
+                        "bind": "avatar",
+                        "edit": {
+                              "type": "Upload",
+                              "compute": "Upload",
+                              "props": {
+                                    "filetype": "image",
+                                    "$api": {
+                                          "process": "fs.system.Upload"
+                                    }
+                              }
+                        }
+                  },
+                  "名称": {
+                        "bind": "name",
+                        "edit": {
+                              "type": "Input",
+                              "props": {}
+                        }
+                  },
+                  "别名": {
+                        "bind": "alias",
+                        "edit": {
+                              "type": "Input",
+                              "props": {}
+                        }
+                  },
+                  "昵称": {
+                        "bind": "title",
+                        "edit": {
+                              "type": "Input",
+                              "props": {}
+                        }
+                  },
+                  "角色": {
+                        "bind": "roles",
+                        "edit": {
+                              "type": "Select",
+                              "props": {
+                                    "mode": "multiple",
+                                    "xProps": {
+                                          "$remote": {
+                                                "process": "yao.component.SelectOptions",
+                                                "query": {
+                                                      "model": "role",
+                                                      "label": "name",
+                                                      "value": "type"
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  },
+                  "位置": {
+                        "bind": "position",
+                        "edit": {
+                              "type": "Select",
+                              "props": {
+                                    "mode": "multiple",
+                                    "options": [
+                                          {
+                                                "label": "上单",
+                                                "value": "上单"
+                                          },
+                                          {
+                                                "label": "中单",
+                                                "value": "中单"
+                                          },
+                                          {
+                                                "label": "打野",
+                                                "value": "打野"
+                                          },
+                                          {
+                                                "label": "下路",
+                                                "value": "下路"
+                                          },
+                                          {
+                                                "label": "辅助",
+                                                "value": "辅助"
+                                          }
+                                    ]
+                              }
+                        }
+                  },
+                  "物理伤害": {
+                        "bind": "attack",
+                        "edit": {
+                              "type": "InputNumber",
+                              "props": {}
+                        }
+                  },
+                  "防御能力": {
+                        "bind": "defense",
+                        "edit": {
+                              "type": "InputNumber",
+                              "props": {}
+                        }
+                  },
+                  "魔法伤害": {
+                        "bind": "magic",
+                        "edit": {
+                              "type": "InputNumber",
+                              "props": {}
+                        }
+                  },
+                  "操作难度": {
+                        "bind": "difficulty",
+                        "edit": {
+                              "type": "InputNumber",
+                              "props": {}
+                        }
+                  },
+                  "价格（金币）": {
+                        "bind": "gold_price",
+                        "edit": {
+                              "type": "InputNumber",
+                              "props": {}
+                        }
+                  },
+                  "价格（点券）": {
+                        "bind": "coupon_price",
+                        "edit": {
+                              "type": "InputNumber",
+                              "props": {}
+                        }
+                  }
+            }
+      }
+}
