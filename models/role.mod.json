@@ -1,0 +1,35 @@
+{
+      "name": "role",
+      "table": {
+            "name": "role",
+            "comment": "角色表"
+      },
+      "columns": [
+            {
+                  "name": "id",
+                  "comment": "ID",
+                  "type": "ID"
+            },
+            {
+                  "name": "name",
+                  "comment": "角色名称",
+                  "type": "string",
+                  "length": 20
+            },
+            {
+                  "name": "type",
+                  "comment": "角色类型",
+                  "type": "string",
+                  "length": 20,
+                  "index": true,
+                  "nullable": true
+            }
+      ],
+      "relations": {},
+      "values": [],
+      "indexes": [],
+      "option": {
+            "timestamps": true,
+            "soft_deletes": false
+      }
+}

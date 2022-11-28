@@ -1,0 +1,25 @@
+{
+      "name": "Menu",
+      "nodes": [],
+      "output": [
+            {
+                  "icon": "icon-gitlab",
+                  "id": 1,
+                  "name": "英雄管理",
+                  "parent": null,
+                  "path": "/x/Table/hero",
+                  "visible_menu": 1,
+                  "children": [
+                        {
+                              "id": 2010,
+                              "blocks": 0,
+                              "icon": "",
+                              "name": "英雄列表",
+                              "parent": 1,
+                              "path": "/x/Table/hero",
+                              "visible_menu": 1
+                        }
+                  ]
+            }
+      ]
+}
