@@ -1,0 +1,34 @@
+{
+      "name": "Menu",
+      "nodes": [],
+      "output": [
+            {
+                  "icon": "icon-gitlab",
+                  "id": 1,
+                  "name": "英雄管理",
+                  "parent": null,
+                  "path": "/x/Table/hero",
+                  "visible_menu": 1,
+                  "children": [
+                        {
+                              "id": 10001,
+                              "blocks": 0,
+                              "icon": "",
+                              "name": "英雄管理",
+                              "parent": 1,
+                              "path": "/x/Table/hero",
+                              "visible_menu": 1
+                        },
+                        {
+                              "id": 10002,
+                              "blocks": 0,
+                              "icon": "",
+                              "name": "角色管理",
+                              "parent": 1,
+                              "path": "/x/Table/role",
+                              "visible_menu": 1
+                        }
+                  ]
+            }
+      ]
+}
