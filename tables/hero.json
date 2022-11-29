@@ -190,7 +190,7 @@
                         }
                   },
                   "位置": {
-                        "bind": "where.roles.in",
+                        "bind": "where.position.in",
                         "edit": {
                               "type": "Select",
                               "props": {
