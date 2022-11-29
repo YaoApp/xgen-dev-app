@@ -53,7 +53,6 @@
                         {
                               "title": "添加英雄",
                               "icon": "icon-plus",
-                              "width": 3,
                               "action": {
                                     "Common.openModal": {
                                           "width": 640,

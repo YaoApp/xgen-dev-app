@@ -3,11 +3,7 @@
       "action": {
             "bind": {
                   "model": "hero",
-                  "option": {
-                        "withs": {
-                              "role": {}
-                        }
-                  }
+                  "option": {}
             }
       },
       "layout": {
