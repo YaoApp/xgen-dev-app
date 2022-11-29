@@ -8,19 +8,16 @@
                         "id": 1,
                         "name": "英雄管理",
                         "path": "/x/Table/hero",
-                        "visible_menu": 1,
                         "children": [
                               {
                                     "id": 10001,
                                     "name": "英雄管理",
-                                    "path": "/x/Table/hero",
-                                    "visible_menu": 1
+                                    "path": "/x/Table/hero"
                               },
                               {
                                     "id": 10002,
                                     "name": "角色管理",
-                                    "path": "/x/Table/role",
-                                    "visible_menu": 1
+                                    "path": "/x/Table/role"
                               }
                         ]
                   }
@@ -29,21 +26,18 @@
                   {
                         "icon": "icon-gitlab",
                         "id": 1,
-                        "name": "角色管理",
+                        "name": "设置",
                         "path": "/x/Table/role",
-                        "visible_menu": 1,
                         "children": [
                               {
                                     "id": 10002,
                                     "name": "角色管理",
-                                    "path": "/x/Table/role",
-                                    "visible_menu": 1
+                                    "path": "/x/Table/role"
                               },
                               {
                                     "id": 10001,
                                     "name": "英雄管理",
-                                    "path": "/x/Table/hero",
-                                    "visible_menu": 1
+                                    "path": "/x/Table/hero"
                               }
                         ]
                   },
@@ -51,8 +45,7 @@
                         "icon": "",
                         "id": 999999,
                         "name": "系统设置",
-                        "path": "/setting",
-                        "visible_menu": true
+                        "path": "/setting"
                   }
             ]
       }
