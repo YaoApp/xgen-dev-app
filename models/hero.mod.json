@@ -13,7 +13,7 @@
             {
                   "name": "avatar",
                   "comment": "头像",
-                  "type": "string"
+                  "type": "json"
             },
             {
                   "name": "name",

@@ -25,7 +25,7 @@
                               "icon": "icon-trash-2",
                               "action": {
                                     "Form.delete": {
-                                          "pathname": "/x/Table/env"
+                                          "pathname": "/x/Table/hero"
                                     }
                               },
                               "style": "danger",

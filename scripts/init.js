@@ -17,7 +17,7 @@ function setData() {
 		],
 		[
 			[
-				'https://game.gtimg.cn/images/lol/act/img/champion/Annie.png',
+				['https://game.gtimg.cn/images/lol/act/img/champion/Annie.png'],
 				'黑暗之女',
 				'Annie',
 				'安妮',
@@ -31,7 +31,7 @@ function setData() {
 				2000
 			],
 			[
-				'https://game.gtimg.cn/images/lol/act/img/champion/Olaf.png',
+				['https://game.gtimg.cn/images/lol/act/img/champion/Olaf.png'],
 				'狂战士',
 				'Olaf',
 				'奥拉夫',
@@ -45,7 +45,7 @@ function setData() {
 				1500
 			],
 			[
-				'https://game.gtimg.cn/images/lol/act/img/champion/Hecarim.png',
+				['https://game.gtimg.cn/images/lol/act/img/champion/Hecarim.png'],
 				'战争之影',
 				'Hecarim',
 				'赫卡里姆',
