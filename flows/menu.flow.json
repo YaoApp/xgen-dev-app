@@ -8,41 +8,79 @@
                         "id": 1,
                         "name": "英雄管理",
                         "path": "/x/Table/hero",
+                        "badge": 6,
                         "children": [
                               {
                                     "id": 10001,
                                     "name": "英雄管理",
-                                    "path": "/x/Table/hero"
+                                    "path": "/x/Table/hero",
+                                    "badge": 16
                               },
                               {
                                     "id": 10002,
                                     "name": "角色管理",
-                                    "path": "/x/Table/role"
+                                    "path": "/x/Table/role",
+                                    "badge": 1600
                               }
                         ]
+                  },
+                  {
+                        "icon": "icon-activity",
+                        "id": 2,
+                        "name": "activity",
+                        "path": "/x/Table/hero",
+                        "badge": 12
+                  },
+                  {
+                        "icon": "icon-airplay",
+                        "id": 3,
+                        "name": "airplay",
+                        "path": "/x/Table/hero",
+                        "dot": true
+                  },
+                  {
+                        "icon": "icon-align-right",
+                        "id": 4,
+                        "name": "align-right",
+                        "path": "/x/Table/hero"
+                  },
+                  {
+                        "icon": "icon-award",
+                        "id": 5,
+                        "name": "award",
+                        "path": "/x/Table/hero"
                   }
             ],
             "setting": [
                   {
-                        "icon": "icon-gitlab",
+                        "icon": "icon-book",
                         "id": 1,
-                        "name": "设置",
+                        "name": "通讯录",
                         "path": "/x/Table/role",
+                        "badge": 100,
                         "children": [
                               {
                                     "id": 10002,
-                                    "name": "角色管理",
+                                    "name": "通讯录",
                                     "path": "/x/Table/role"
-                              },
+                              }
+                        ]
+                  },
+                  {
+                        "icon": "icon-shield",
+                        "id": 2,
+                        "name": "账号设置",
+                        "path": "/x/Table/hero",
+                        "children": [
                               {
-                                    "id": 10001,
-                                    "name": "英雄管理",
+                                    "id": 10002,
+                                    "name": "账号设置",
                                     "path": "/x/Table/hero"
                               }
                         ]
                   },
                   {
-                        "icon": "",
+                        "icon": "icon-settings",
                         "id": 999999,
                         "name": "系统设置",
                         "path": "/setting"

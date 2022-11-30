@@ -22,8 +22,7 @@
                               "style": "danger",
                               "action": {
                                     "Common.historyPush": {
-                                          "pathname": "/test",
-                                          "public": true
+                                          "pathname": "/x/Table/hero"
                                     }
                               },
                               "confirm": {
