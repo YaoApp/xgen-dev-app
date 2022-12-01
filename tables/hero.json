@@ -318,11 +318,13 @@
                                     "options": [
                                           {
                                                 "label": "上单",
-                                                "value": "上单"
+                                                "value": "上单",
+                                                "color": "red"
                                           },
                                           {
                                                 "label": "中单",
-                                                "value": "中单"
+                                                "value": "中单",
+                                                "color": "blue"
                                           },
                                           {
                                                 "label": "打野",
