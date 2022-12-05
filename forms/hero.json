@@ -21,7 +21,7 @@
                               "icon": "icon-trash-2",
                               "style": "danger",
                               "action": {
-                                    "Common.historyPush": {
+                                    "Form.delete": {
                                           "pathname": "/x/Table/hero"
                                     }
                               },

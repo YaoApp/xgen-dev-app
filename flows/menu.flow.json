@@ -30,9 +30,15 @@
                                           },
                                           {
                                                 "id": 10002,
-                                                "name": "角色管理",
-                                                "path": "/x/Table/role/1/2",
+                                                "name": "角色管理A",
+                                                "path": "/x/Table/role.a",
                                                 "badge": 1600
+                                          },
+                                          {
+                                                "id": 10003,
+                                                "name": "角色管理B",
+                                                "path": "/x/Table/role.b",
+                                                "badge": 600
                                           }
                                     ]
                               }

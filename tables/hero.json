@@ -328,15 +328,18 @@
                                           },
                                           {
                                                 "label": "打野",
-                                                "value": "打野"
+                                                "value": "打野",
+                                                "color": "orange"
                                           },
                                           {
                                                 "label": "下路",
-                                                "value": "下路"
+                                                "value": "下路",
+                                                "color": "green"
                                           },
                                           {
                                                 "label": "辅助",
-                                                "value": "辅助"
+                                                "value": "辅助",
+                                                "color": "purple"
                                           }
                                     ]
                               }
