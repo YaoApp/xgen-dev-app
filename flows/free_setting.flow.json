@@ -1,0 +1,112 @@
+{
+      "label": "配置",
+      "version": "1.0.0",
+      "description": "配置",
+      "nodes": [],
+      "output": {
+            "name": "自由页面展示",
+            "config": {
+                  "full": true
+            },
+            "free": {
+                  "columns": [
+                        {
+                              "width": 12,
+                              "rows": [
+                                    {
+                                          "name": "英雄列表"
+                                    },
+                                    {
+                                          "name": "图表展示1"
+                                    }
+                              ]
+                        },
+                        {
+                              "name": "英雄表单",
+                              "width": 12
+                        },
+                        {
+                              "name": "图表展示2",
+                              "width": 24
+                        }
+                  ]
+            },
+            "fields": {
+                  "free": {
+                        "英雄列表": {
+                              "type": "base/Table",
+                              "bind": {
+                                    "model": "hero"
+                              },
+                              "props": {}
+                        },
+                        "图表展示1": {
+                              "type": "chart/NumberChart",
+                              "bind": {
+                                    "dataSource": "/free/chart_test_1"
+                              },
+                              "props": {
+                                    "chartHeight": 272,
+                                    "prefix": "¥",
+                                    "decimals": 2,
+                                    "nameKey": "date",
+                                    "valueKey": "value"
+                              }
+                        },
+                        "图表展示2": {
+                              "type": "chart/LineBar",
+                              "bind": {
+                                    "dataSource": "/free/chart_test_2"
+                              },
+                              "props": {
+                                    "height": 240,
+                                    "nameKey": "name",
+                                    "axisLabel": {
+                                          "interval": 0,
+                                          "fontSize": 12
+                                    },
+                                    "series": [
+                                          {
+                                                "valueKey": "stay",
+                                                "type": "line",
+                                                "smooth": true,
+                                                "symbolSize": 8,
+                                                "itemStyle": {
+                                                      "borderRadius": 6
+                                                },
+                                                "splitLine": {
+                                                      "show": false
+                                                },
+                                                "axisLabel": {
+                                                      "show": false
+                                                }
+                                          },
+                                          {
+                                                "valueKey": "cost",
+                                                "type": "bar",
+                                                "itemStyle": {
+                                                      "borderRadius": 6
+                                                },
+                                                "splitLine": {
+                                                      "show": false
+                                                },
+                                                "axisLabel": {
+                                                      "show": false
+                                                }
+                                          }
+                                    ]
+                              }
+                        },
+                        "英雄表单": {
+                              "type": "base/Form",
+                              "bind": {
+                                    "model": "hero",
+                                    "id": 1,
+                                    "formType": "edit"
+                              },
+                              "props": {}
+                        }
+                  }
+            }
+      }
+}

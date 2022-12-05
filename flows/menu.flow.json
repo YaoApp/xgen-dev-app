@@ -12,8 +12,8 @@
                         "children": [
                               {
                                     "id": 10001,
-                                    "name": "英雄管理",
-                                    "path": "/x/Table/hero/1",
+                                    "name": "自由页面",
+                                    "path": "/x/Free/test",
                                     "badge": 16
                               },
                               {

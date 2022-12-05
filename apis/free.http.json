@@ -1,0 +1,19 @@
+{
+      "name": "产品",
+      "version": "1.0.0",
+      "description": "产品接口",
+      "guard": "-",
+      "group": "__yao/free/test",
+      "paths": [
+            {
+                  "path": "/setting",
+                  "method": "GET",
+                  "process": "flows.free_setting",
+                  "in": [],
+                  "out": {
+                        "status": 200,
+                        "type": "application/json"
+                  }
+            }
+      ]
+}
