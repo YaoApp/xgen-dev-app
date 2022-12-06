@@ -3,12 +3,12 @@
       "version": "1.0.0",
       "description": "产品接口",
       "guard": "-",
-      "group": "__yao/free/test",
+      "group": "__yao/dashboard/test",
       "paths": [
             {
                   "path": "/setting",
                   "method": "GET",
-                  "process": "flows.free_setting",
+                  "process": "flows.dashboard_setting",
                   "in": [],
                   "out": {
                         "status": 200,

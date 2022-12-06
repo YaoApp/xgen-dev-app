@@ -43,7 +43,7 @@
                         "图表展示1": {
                               "type": "chart/NumberChart",
                               "bind": {
-                                    "dataSource": "/free/chart_test_1"
+                                    "dataSource": "/dashboard/chart_test_1"
                               },
                               "props": {
                                     "chartHeight": 272,
@@ -56,7 +56,7 @@
                         "图表展示2": {
                               "type": "chart/LineBar",
                               "bind": {
-                                    "dataSource": "/free/chart_test_2"
+                                    "dataSource": "/dashboard/chart_test_2"
                               },
                               "props": {
                                     "height": 240,
