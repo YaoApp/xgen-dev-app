@@ -30,8 +30,8 @@
                                           },
                                           {
                                                 "id": 10002,
-                                                "name": "角色管理A",
-                                                "path": "/x/Table/role.a",
+                                                "name": "编辑英雄",
+                                                "path": "/x/Form/hero/1/edit",
                                                 "badge": 1600
                                           },
                                           {

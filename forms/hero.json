@@ -23,8 +23,7 @@
                               "action": {
                                     "Form.delete": {
                                           "pathname": "/x/Table/hero"
-                                    },
-                                    "test": 123
+                                    }
                               },
                               "confirm": {
                                     "title": "提示",
@@ -113,7 +112,14 @@
                         "bind": "name",
                         "edit": {
                               "type": "Input",
-                              "props": {}
+                              "props": {
+                                    "$onChange": {
+                                          "process": "scripts.event.OnChange",
+                                          "query": {
+                                                "extra": "custom"
+                                          }
+                                    }
+                              }
                         }
                   },
                   "别名": {
