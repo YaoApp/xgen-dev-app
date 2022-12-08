@@ -53,15 +53,19 @@
                         {
                               "title": "添加英雄",
                               "icon": "icon-plus",
-                              "action": {
-                                    "Common.openModal": {
-                                          "width": 640,
-                                          "Form": {
-                                                "type": "edit",
-                                                "model": "hero"
+                              "action": [
+                                    {
+                                          "name": "OpenModal",
+                                          "type": "Common.openModal",
+                                          "payload": {
+                                                "width": 640,
+                                                "Form": {
+                                                      "type": "edit",
+                                                      "model": "hero"
+                                                }
                                           }
                                     }
-                              }
+                              ]
                         }
                   ]
             },
@@ -117,34 +121,46 @@
                               {
                                     "title": "查看",
                                     "icon": "icon-eye",
-                                    "action": {
-                                          "Common.openModal": {
-                                                "width": 640,
-                                                "Form": {
-                                                      "type": "view",
-                                                      "model": "hero"
+                                    "action": [
+                                          {
+                                                "name": "OpenModal",
+                                                "type": "Common.openModal",
+                                                "payload": {
+                                                      "width": 640,
+                                                      "Form": {
+                                                            "type": "view",
+                                                            "model": "hero"
+                                                      }
                                                 }
                                           }
-                                    }
+                                    ]
                               },
                               {
                                     "title": "编辑",
                                     "icon": "icon-edit-2",
-                                    "action": {
-                                          "Common.openModal": {
-                                                "Form": {
-                                                      "type": "edit",
-                                                      "model": "hero"
+                                    "action": [
+                                          {
+                                                "name": "OpenModal",
+                                                "type": "Common.openModal",
+                                                "payload": {
+                                                      "Form": {
+                                                            "type": "edit",
+                                                            "model": "hero"
+                                                      }
                                                 }
                                           }
-                                    }
+                                    ]
                               },
                               {
                                     "title": "删除",
                                     "icon": "icon-trash-2",
-                                    "action": {
-                                          "Table.delete": {}
-                                    },
+                                    "action": [
+                                          {
+                                                "name": "Delete",
+                                                "type": "Table.delete",
+                                                "payload": {}
+                                          }
+                                    ],
                                     "style": "danger",
                                     "confirm": {
                                           "title": "提示",

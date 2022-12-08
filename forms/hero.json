@@ -8,30 +8,26 @@
       },
       "layout": {
             "primary": "id",
-            "operation": {
-                  "preset": {
-                        "save": {
-                              "back": true
-                        },
-                        "back": {}
-                  },
-                  "actions": [
-                        {
-                              "title": "删除",
-                              "icon": "icon-trash-2",
-                              "style": "danger",
-                              "action": {
-                                    "Form.delete": {
+            "actions": [
+                  {
+                        "title": "删除",
+                        "icon": "icon-trash-2",
+                        "style": "danger",
+                        "action": [
+                              {
+                                    "name": "Delete",
+                                    "type": "Form.delete",
+                                    "payload": {
                                           "pathname": "/x/Table/hero"
                                     }
-                              },
-                              "confirm": {
-                                    "title": "提示",
-                                    "desc": "确认删除，删除后数据无法恢复？"
                               }
+                        ],
+                        "confirm": {
+                              "title": "提示",
+                              "desc": "确认删除，删除后数据无法恢复？"
                         }
-                  ]
-            },
+                  }
+            ],
             "form": {
                   "props": {},
                   "sections": [
@@ -113,10 +109,10 @@
                         "edit": {
                               "type": "Input",
                               "props": {
-                                    "$onChange": {
+                                    "$on:change": {
                                           "process": "scripts.event.OnChange",
                                           "query": {
-                                                "extra": "custom"
+                                                "extra": "开发者定义数据"
                                           }
                                     }
                               }
