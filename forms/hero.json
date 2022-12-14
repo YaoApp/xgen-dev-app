@@ -21,11 +21,18 @@
                                           "pathname": "/x/Table/hero"
                                     }
                               }
-                        ],
-                        "confirm": {
-                              "title": "提示",
-                              "desc": "确认删除，删除后数据无法恢复？"
-                        }
+                        ]
+                  },
+                  {
+                        "title": "关闭",
+                        "divideLine": true,
+                        "action": [
+                              {
+                                    "name": "closeModal",
+                                    "type": "Common.closeModal",
+                                    "payload": {}
+                              }
+                        ]
                   }
             ],
             "form": {
@@ -33,6 +40,33 @@
                   "sections": [
                         {
                               "columns": [
+                                    {
+                                          "width": 24,
+                                          "tabs": [
+                                                {
+                                                      "title": "Base",
+                                                      "columns": [
+                                                            {
+                                                                  "name": "头像",
+                                                                  "width": 12
+                                                            },
+                                                            {
+                                                                  "name": "名称",
+                                                                  "width": 12
+                                                            }
+                                                      ]
+                                                },
+                                                {
+                                                      "title": "More",
+                                                      "columns": [
+                                                            {
+                                                                  "name": "别名",
+                                                                  "width": 12
+                                                            }
+                                                      ]
+                                                }
+                                          ]
+                                    },
                                     {
                                           "name": "头像",
                                           "width": 24
