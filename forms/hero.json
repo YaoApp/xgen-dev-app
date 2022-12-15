@@ -24,8 +24,9 @@
                         ]
                   },
                   {
-                        "title": "关闭",
+                        "title": "返回",
                         "divideLine": true,
+                        "icon": "icon-arrow-left",
                         "action": [
                               {
                                     "name": "closeModal",
