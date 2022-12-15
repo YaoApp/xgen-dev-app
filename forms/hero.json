@@ -15,11 +15,22 @@
                         "style": "danger",
                         "action": [
                               {
+                                    "name": "Confirm",
+                                    "type": "Common.confirm",
+                                    "payload": {
+                                          "title": "确认删除",
+                                          "content": "删除后不可撤销！"
+                                    }
+                              },
+                              {
                                     "name": "Delete",
                                     "type": "Form.delete",
-                                    "payload": {
-                                          "pathname": "/x/Table/hero"
-                                    }
+                                    "payload": {}
+                              },
+                              {
+                                    "name": "Back",
+                                    "type": "Common.historyBack",
+                                    "payload": {}
                               }
                         ]
                   },
