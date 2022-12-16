@@ -29,7 +29,7 @@
                               },
                               {
                                     "name": "Back",
-                                    "type": "Common.historyBack",
+                                    "type": "Common.closeModal",
                                     "payload": {}
                               }
                         ]
@@ -41,6 +41,23 @@
                         "action": [
                               {
                                     "name": "closeModal",
+                                    "type": "Common.closeModal",
+                                    "payload": {}
+                              }
+                        ]
+                  },
+                  {
+                        "title": "保存",
+                        "icon": "icon-check",
+                        "style": "primary",
+                        "action": [
+                              {
+                                    "name": "Submit",
+                                    "type": "Form.submit",
+                                    "payload": {}
+                              },
+                              {
+                                    "name": "Back",
                                     "type": "Common.closeModal",
                                     "payload": {}
                               }
