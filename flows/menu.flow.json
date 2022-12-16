@@ -23,9 +23,15 @@
                                     "badge": 1600,
                                     "children": [
                                           {
+                                                "id": 10000,
+                                                "name": "英雄管理1",
+                                                "path": "/x/Table/hero?where.name.like=黑暗之女&where.position.in=上单",
+                                                "badge": 3
+                                          },
+                                          {
                                                 "id": 10001,
-                                                "name": "英雄管理",
-                                                "path": "/x/Table/hero",
+                                                "name": "英雄管理2",
+                                                "path": "/x/Table/hero?where.title.like=狂战士&where.position.in=上单",
                                                 "badge": 16
                                           },
                                           {
