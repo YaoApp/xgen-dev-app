@@ -36,79 +36,80 @@
       "fields": {
             "dashboard": {
                   "英雄列表": {
-                        "type": "base/Table",
-                        "bind": {
-                              "model": "hero"
-                        },
-                        "props": {
-                              "_onChange": true
+                        "view": {
+                              "type": "base/Table",
+                              "props": {
+                                    "model": "hero",
+                                    "onChange": true
+                              }
                         }
                   },
                   "图表展示1": {
-                        "type": "chart/NumberChart",
-                        "bind": {
-                              "data": "chart_test_1"
-                        },
-                        "props": {
-                              "chartHeight": 272,
-                              "prefix": "¥",
-                              "decimals": 2,
-                              "nameKey": "date",
-                              "valueKey": "value"
+                        "bind": "chart_test_1",
+                        "view": {
+                              "type": "chart/NumberChart",
+                              "props": {
+                                    "chartHeight": 272,
+                                    "prefix": "¥",
+                                    "decimals": 2,
+                                    "nameKey": "date",
+                                    "valueKey": "value"
+                              }
                         }
                   },
                   "图表展示2": {
-                        "type": "chart/LineBar",
-                        "bind": {
-                              "data": "chart_test_2"
-                        },
-                        "props": {
-                              "height": 240,
-                              "nameKey": "name",
-                              "axisLabel": {
-                                    "interval": 0,
-                                    "fontSize": 12
-                              },
-                              "series": [
-                                    {
-                                          "valueKey": "stay",
-                                          "type": "line",
-                                          "smooth": true,
-                                          "symbolSize": 8,
-                                          "itemStyle": {
-                                                "borderRadius": 6
-                                          },
-                                          "splitLine": {
-                                                "show": false
-                                          },
-                                          "axisLabel": {
-                                                "show": false
-                                          }
+                        "bind": "chart_test_2",
+                        "view": {
+                              "type": "chart/LineBar",
+                              "props": {
+                                    "height": 240,
+                                    "nameKey": "name",
+                                    "axisLabel": {
+                                          "interval": 0,
+                                          "fontSize": 12
                                     },
-                                    {
-                                          "valueKey": "cost",
-                                          "type": "bar",
-                                          "itemStyle": {
-                                                "borderRadius": 6
+                                    "series": [
+                                          {
+                                                "valueKey": "stay",
+                                                "type": "line",
+                                                "smooth": true,
+                                                "symbolSize": 8,
+                                                "itemStyle": {
+                                                      "borderRadius": 6
+                                                },
+                                                "splitLine": {
+                                                      "show": false
+                                                },
+                                                "axisLabel": {
+                                                      "show": false
+                                                }
                                           },
-                                          "splitLine": {
-                                                "show": false
-                                          },
-                                          "axisLabel": {
-                                                "show": false
+                                          {
+                                                "valueKey": "cost",
+                                                "type": "bar",
+                                                "itemStyle": {
+                                                      "borderRadius": 6
+                                                },
+                                                "splitLine": {
+                                                      "show": false
+                                                },
+                                                "axisLabel": {
+                                                      "show": false
+                                                }
                                           }
-                                    }
-                              ]
+                                    ]
+                              }
                         }
                   },
                   "英雄表单": {
-                        "type": "base/Form",
-                        "bind": {
-                              "model": "hero",
-                              "id": 1,
-                              "formType": "edit"
-                        },
-                        "props": {}
+                        "view": {
+                              "type": "base/Form",
+                              "props": {
+                                    "model": "hero",
+                                    "id": 1,
+                                    "formType": "edit"
+                              }
+                        }
                   }
             }
       }

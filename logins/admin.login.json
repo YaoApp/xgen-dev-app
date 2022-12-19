@@ -15,13 +15,13 @@
             {
                   "title": "微信登录",
                   "href": "https://baidu.com",
-                  "icon": "/assets/logo_wechat.svg",
+                  "icon": "/assets/logo_wechat.png",
                   "blank": true
             },
             {
                   "title": "飞书登录",
                   "href": "https://google.com",
-                  "icon": "/assets/logo_feishu.svg",
+                  "icon": "/assets/logo_feishu.png",
                   "blank": false
             }
       ]
