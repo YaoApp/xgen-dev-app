@@ -8,7 +8,7 @@
             "config": {
                   "full": true
             },
-            "free": {
+            "dashboard": {
                   "columns": [
                         {
                               "width": 12,
