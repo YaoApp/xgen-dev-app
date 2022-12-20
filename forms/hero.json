@@ -36,12 +36,13 @@
                   },
                   {
                         "title": "返回",
-                        "divideLine": true,
                         "icon": "icon-arrow-left",
+                        "divideLine": true,
+                        "showWhenAddAndView": true,
                         "action": [
                               {
-                                    "name": "Back",
-                                    "type": "Common.historyBack",
+                                    "name": "CloseModal",
+                                    "type": "Common.closeModal",
                                     "payload": {}
                               }
                         ]
@@ -50,6 +51,7 @@
                         "title": "保存",
                         "icon": "icon-check",
                         "style": "primary",
+                        "showWhenAddAndView": true,
                         "action": [
                               {
                                     "name": "Submit",

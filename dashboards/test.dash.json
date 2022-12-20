@@ -12,23 +12,16 @@
             "dashboard": {
                   "columns": [
                         {
-                              "width": 12,
-                              "rows": [
-                                    {
-                                          "name": "英雄列表"
-                                    },
-                                    {
-                                          "name": "图表展示1"
-                                    }
-                              ]
+                              "name": "英雄列表",
+                              "width": 24
                         },
                         {
-                              "name": "英雄表单",
+                              "name": "图表展示1",
                               "width": 12
                         },
                         {
                               "name": "图表展示2",
-                              "width": 24
+                              "width": 12
                         }
                   ]
             }
@@ -40,7 +33,7 @@
                               "type": "base/Table",
                               "props": {
                                     "model": "hero",
-                                    "onChange": true
+                                    "onChangeEvent": true
                               }
                         }
                   },
@@ -49,7 +42,7 @@
                         "view": {
                               "type": "chart/NumberChart",
                               "props": {
-                                    "chartHeight": 272,
+                                    "height": 240,
                                     "prefix": "¥",
                                     "decimals": 2,
                                     "nameKey": "date",
@@ -98,16 +91,6 @@
                                                 }
                                           }
                                     ]
-                              }
-                        }
-                  },
-                  "英雄表单": {
-                        "view": {
-                              "type": "base/Form",
-                              "props": {
-                                    "model": "hero",
-                                    "id": 1,
-                                    "formType": "edit"
                               }
                         }
                   }
