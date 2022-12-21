@@ -13,6 +13,7 @@
                         "title": "删除",
                         "icon": "icon-trash-2",
                         "style": "danger",
+                        "divideLine": true,
                         "action": [
                               {
                                     "name": "Confirm",
@@ -37,7 +38,6 @@
                   {
                         "title": "返回",
                         "icon": "icon-arrow-left",
-                        "divideLine": true,
                         "showWhenAddAndView": true,
                         "action": [
                               {
