@@ -1,0 +1,20 @@
+{
+      "name": "xgen-dev-app",
+      "version": "1.0.0",
+      "description": "",
+      "keywords": [],
+      "author": "Wendao",
+      "license": "Apache-2.0",
+      "scripts": {
+            "dev": "rollup --c rollup.dev.ts --configPlugin swc3 -w",
+            "build": "rollup --c rollup.build.ts --configPlugin swc3 && tsc"
+      },
+      "devDependencies": {
+            "@rollup/plugin-node-resolve": "^15.0.1",
+            "@swc/core": "^1.3.23",
+            "rollup": "^3.7.5",
+            "rollup-plugin-delete": "^2.0.0",
+            "rollup-plugin-swc3": "^0.8.0",
+            "typescript": "^4.9.4"
+      }
+}
