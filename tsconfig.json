@@ -3,18 +3,19 @@
 		"target": "ES2022",
 		"module": "ESNext",
 		"skipLibCheck": true,
-		"lib": ["ESNEXT","DOM"],
+		"lib": ["ESNEXT", "DOM"],
 		"moduleResolution": "Node",
 		"declaration": true,
-            "emitDeclarationOnly": true,
+		"emitDeclarationOnly": true,
 		"strict": true,
 		"outDir": "public/components",
 		"suppressImplicitAnyIndexErrors": true,
 		"baseUrl": ".",
-            "esModuleInterop": true,
+		"esModuleInterop": true,
 		"paths": { "@/*": ["./components/*"] },
 		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true
+		"experimentalDecorators": true,
+		"jsx": "react-jsx"
 	},
 	"include": ["components"]
 }

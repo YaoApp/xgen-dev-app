@@ -262,7 +262,7 @@
                   "名称": {
                         "bind": "name",
                         "view": {
-                              "type": "Text",
+                              "type": "public/Test",
                               "props": {}
                         },
                         "edit": {

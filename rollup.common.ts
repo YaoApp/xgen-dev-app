@@ -5,12 +5,14 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 export const plugins = [nodeResolve()]
 
 export default defineConfig({
-	input: ['components/Test/index.ts', 'components/A/index.ts'],
+	input: ['components/Test/index.tsx', 'components/A/index.ts'],
 	output: {
 		dir: 'public/components',
 		preserveModules: true,
 		format: 'systemjs'
-      },
-      // When using tsyringe, this item needs to be set
+	},
+	external: ['react', 'react-dom', 'react/jsx-runtime'],
+
+	// When using tsyringe, this item needs to be set
 	context: 'false'
 })
