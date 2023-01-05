@@ -38,10 +38,39 @@
                   {
                         "title": "返回",
                         "icon": "icon-arrow-left",
-                        "showWhenAddAndView": true,
+                        "showWhenAdd": true,
+                        "showWhenView": true,
                         "action": [
                               {
                                     "name": "CloseModal",
+                                    "type": "Common.closeModal",
+                                    "payload": {}
+                              }
+                        ]
+                  },
+                  {
+                        "title": "审核",
+                        "icon": "icon-arrow-up",
+                        "style": "primary",
+                        "showWhenAdd": true,
+                        "action": [
+                              {
+                                    "name": "Submit",
+                                    "type": "Form.submit",
+                                    "payload": {}
+                              },
+                              {
+                                    "name": "Audit",
+                                    "type": "Service.test",
+                                    "payload": {
+                                          "method": "audit",
+                                          "args": [
+                                                "[[$Submit]]"
+                                          ]
+                                    }
+                              },
+                              {
+                                    "name": "Back",
                                     "type": "Common.closeModal",
                                     "payload": {}
                               }
