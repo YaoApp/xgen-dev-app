@@ -76,6 +76,11 @@
                   "name": "coupon_price",
                   "comment": "价格（点券）",
                   "type": "integer"
+            },
+            {
+                  "name": "desc",
+                  "comment": "详细描述",
+                  "type": "json"
             }
       ],
       "relations": {

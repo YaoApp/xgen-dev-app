@@ -147,6 +147,10 @@
                                     {
                                           "name": "价格（点券）",
                                           "width": 12
+                                    },
+                                    {
+                                          "name": "描述",
+                                          "width": 24
                                     }
                               ]
                         }
@@ -289,6 +293,16 @@
                         "edit": {
                               "type": "InputNumber",
                               "props": {}
+                        }
+                  },
+                  "描述": {
+                        "bind": "desc",
+                        "edit": {
+                              "type": "RichText",
+                              "props": {
+                                    "UploadByFileApi": "/api/UploadByFileApi",
+                                    "UploadByUrlApi": "/api/UploadByUrlApi"
+                              }
                         }
                   }
             }
