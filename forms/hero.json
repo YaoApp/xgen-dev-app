@@ -151,6 +151,10 @@
                                     {
                                           "name": "描述",
                                           "width": 24
+                                    },
+                                    {
+                                          "name": "列表",
+                                          "width": 24
                                     }
                               ]
                         }
@@ -302,6 +306,15 @@
                               "props": {
                                     "UploadByFileApi": "/api/UploadByFileApi",
                                     "UploadByUrlApi": "/api/UploadByUrlApi"
+                              }
+                        }
+                  },
+                  "列表": {
+                        "bind": "json_1",
+                        "edit": {
+                              "type": "List",
+                              "props": {
+                                    "name":"test"
                               }
                         }
                   }

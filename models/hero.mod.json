@@ -81,6 +81,11 @@
                   "name": "desc",
                   "comment": "详细描述",
                   "type": "json"
+            },
+            {
+                  "name": "json_1",
+                  "comment": "Json格式测试字段",
+                  "type": "json"
             }
       ],
       "relations": {
