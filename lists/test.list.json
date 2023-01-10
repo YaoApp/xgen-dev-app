@@ -1,9 +1,12 @@
 {
       "name": "List",
-      "action": { "bind": { "model": "role" } },
+      "action": {
+            "bind": {
+                  "model": "role"
+            }
+      },
       "layout": {
             "list": {
-                  "props": {},
                   "columns": [
                         {
                               "name": "采购单价",

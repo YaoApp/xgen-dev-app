@@ -314,7 +314,8 @@
                         "edit": {
                               "type": "List",
                               "props": {
-                                    "name":"test"
+                                    "name": "test",
+                                    "hasChildren": true
                               }
                         }
                   }
