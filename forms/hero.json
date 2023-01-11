@@ -10,6 +10,24 @@
             "primary": "id",
             "actions": [
                   {
+                        "title": "添加英雄",
+                        "icon": "icon-plus",
+                        "action": [
+                              {
+                                    "name": "OpenModal",
+                                    "type": "Common.openModal",
+                                    "payload": {
+                                          "width": "40vw",
+                                          "isRef": false,
+                                          "Form": {
+                                                "type": "edit",
+                                                "model": "hero"
+                                          }
+                                    }
+                              }
+                        ]
+                  },
+                  {
                         "title": "删除",
                         "icon": "icon-trash-2",
                         "style": "danger",

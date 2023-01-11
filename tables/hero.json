@@ -143,6 +143,7 @@
                                                 "name": "OpenModal",
                                                 "type": "Common.openModal",
                                                 "payload": {
+                                                      "width": "40vw",
                                                       "Form": {
                                                             "type": "edit",
                                                             "model": "hero"
