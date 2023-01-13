@@ -17,8 +17,8 @@
                                     "name": "OpenModal",
                                     "type": "Common.openModal",
                                     "payload": {
-                                          "width": "40vw",
-                                          "isRef": false,
+                                          "width": "30vw",
+                                          "isRef": true,
                                           "Form": {
                                                 "type": "edit",
                                                 "model": "hero"
