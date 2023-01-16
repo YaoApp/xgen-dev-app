@@ -78,7 +78,7 @@
                         ]
                   },
                   {
-                        "title": "审核",
+                        "title": "跳转",
                         "icon": "icon-arrow-up",
                         "style": "primary",
                         "showWhenAdd": true,
@@ -89,13 +89,10 @@
                                     "payload": {}
                               },
                               {
-                                    "name": "Audit",
-                                    "type": "Service.test",
+                                    "name": "HistoryPush",
+                                    "type": "Common.historyPush",
                                     "payload": {
-                                          "method": "audit",
-                                          "args": [
-                                                "[[$Submit]]"
-                                          ]
+                                          "pathname": "/x/Form/hero/[[$Submit]]/view"
                                     }
                               },
                               {
