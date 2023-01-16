@@ -10,6 +10,17 @@
             "primary": "id",
             "actions": [
                   {
+                        "title": "切换全屏",
+                        "icon": "icon-maximize-2",
+                        "action": [
+                              {
+                                    "name": "Fullscreen",
+                                    "type": "Form.fullscreen",
+                                    "payload": {}
+                              }
+                        ]
+                  },
+                  {
                         "title": "添加英雄",
                         "icon": "icon-plus",
                         "action": [
