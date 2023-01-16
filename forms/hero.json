@@ -250,6 +250,7 @@
                               "type": "Select",
                               "props": {
                                     "mode": "multiple",
+                                    "showSearch": true,
                                     "options": [
                                           {
                                                 "label": "上单",
