@@ -12,6 +12,7 @@
                   {
                         "title": "切换全屏",
                         "icon": "icon-maximize-2",
+                        "showWhenAdd": true,
                         "action": [
                               {
                                     "name": "Fullscreen",
@@ -23,6 +24,7 @@
                   {
                         "title": "添加英雄",
                         "icon": "icon-plus",
+                        "hideWhenEdit": true,
                         "action": [
                               {
                                     "name": "OpenModal",
@@ -175,11 +177,11 @@
                                           "width": 12
                                     },
                                     {
-                                          "name": "描述",
+                                          "name": "列表",
                                           "width": 24
                                     },
                                     {
-                                          "name": "列表",
+                                          "name": "描述",
                                           "width": 24
                                     }
                               ]
