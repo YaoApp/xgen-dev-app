@@ -274,8 +274,11 @@
                   "别名": {
                         "bind": "alias",
                         "view": {
-                              "type": "Text",
-                              "props": {}
+                              "type": "Tag",
+                              "props": {
+                                    "color": "#eee",
+                                    "textColor":"black"
+                              }
                         },
                         "edit": {
                               "type": "Input",
@@ -336,7 +339,8 @@
                                           {
                                                 "label": "上单",
                                                 "value": "上单",
-                                                "color": "red"
+                                                "color": "red",
+                                                "textColor":"black"
                                           },
                                           {
                                                 "label": "中单",
