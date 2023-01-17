@@ -241,6 +241,7 @@
                               "type": "Select",
                               "props": {
                                     "mode": "multiple",
+                                    "extend": true,
                                     "xProps": {
                                           "$remote": {
                                                 "process": "yao.component.SelectOptions",
