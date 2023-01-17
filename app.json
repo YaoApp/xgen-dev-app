@@ -2,13 +2,12 @@
       "xgen": "1.0",
       "name": "xgen dev app",
       "short": "devapp",
-      "description":"LOL manage system by Yao.",
+      "description": "LOL manage system by Yao.",
       "version": "0.10.2",
       "setup": "scripts.init.setData",
       "adminRoot": "admin",
       "optional": {
-            "hideNotification": true,
-            "hideSetting": false
+            "remoteCache": false
       },
       "menu": {
             "process": "flows.menu",
