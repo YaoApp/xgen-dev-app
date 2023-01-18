@@ -121,6 +121,13 @@
                               {
                                     "title": "查看",
                                     "icon": "icon-eye",
+                                    "disabled": {
+                                          "bind": "{{id}}",
+                                          "value": [
+                                                "1",
+                                                "2"
+                                          ]
+                                    },
                                     "action": [
                                           {
                                                 "name": "OpenModal",
@@ -277,7 +284,7 @@
                               "type": "Tag",
                               "props": {
                                     "color": "#eee",
-                                    "textColor":"black"
+                                    "textColor": "black"
                               }
                         },
                         "edit": {
@@ -340,7 +347,7 @@
                                                 "label": "上单",
                                                 "value": "上单",
                                                 "color": "red",
-                                                "textColor":"black"
+                                                "textColor": "black"
                                           },
                                           {
                                                 "label": "中单",
