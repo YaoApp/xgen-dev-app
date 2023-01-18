@@ -7,7 +7,7 @@
       "setup": "scripts.init.setData",
       "adminRoot": "admin",
       "optional": {
-            "remoteCache": false
+            "remoteCache": true
       },
       "menu": {
             "process": "flows.menu",

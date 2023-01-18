@@ -108,7 +108,7 @@
                         "title": "保存",
                         "icon": "icon-check",
                         "style": "primary",
-                        "showWhenAddAndView": true,
+                        "showWhenAdd": true,
                         "action": [
                               {
                                     "name": "Submit",
@@ -124,7 +124,9 @@
                   }
             ],
             "form": {
-                  "props": {},
+                  "props": {
+                        "onLoadSync": true
+                  },
                   "sections": [
                         {
                               "columns": [
