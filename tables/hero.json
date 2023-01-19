@@ -72,10 +72,14 @@
             "table": {
                   "columns": [
                         {
-                              "name": "头像"
+                              "name": "头像",
+                              "width": 100,
+                              "fixed": true
                         },
                         {
-                              "name": "名称"
+                              "name": "名称",
+                              "width": 100,
+                              "fixed": true
                         },
                         {
                               "name": "别名"
@@ -176,6 +180,11 @@
                                     }
                               }
                         ]
+                  },
+                  "props": {
+                        "scroll": {
+                              "x": 1800
+                        }
                   }
             }
       },
@@ -270,7 +279,7 @@
                   "名称": {
                         "bind": "name",
                         "view": {
-                              "type": "Color",
+                              "type": "Text",
                               "props": {}
                         },
                         "edit": {
