@@ -120,7 +120,6 @@ function OnChange(info) {
 						bind: 'position',
 						edit: {
 							props: {
-								mode: 'multiple',
 								options: [
 									{
 										label: '上单',
@@ -133,14 +132,6 @@ function OnChange(info) {
 									{
 										label: '打野',
 										value: '打野'
-									},
-									{
-										label: '下路',
-										value: '下路'
-									},
-									{
-										label: '辅助',
-										value: '辅助'
 									}
 								]
 							},
@@ -272,11 +263,11 @@ function OnChange(info) {
 								width: 12
 							},
 							{
-								name: '物理伤害',
+								name: '角色',
 								width: 12
 							},
 							{
-								name: '魔法伤害',
+								name: '位置',
 								width: 12
 							}
 						]

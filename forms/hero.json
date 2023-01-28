@@ -125,7 +125,7 @@
             ],
             "form": {
                   "props": {
-                        "onLoadSync": true
+                        "onLoadSync": false
                   },
                   "sections": [
                         {
@@ -213,14 +213,7 @@
                         "bind": "name",
                         "edit": {
                               "type": "Input",
-                              "props": {
-                                    "$on:change": {
-                                          "process": "scripts.event.OnChange",
-                                          "query": {
-                                                "extra": "开发者定义数据"
-                                          }
-                                    }
-                              }
+                              "props": {}
                         }
                   },
                   "别名": {
@@ -252,6 +245,12 @@
                                                       "label": "name",
                                                       "value": "type"
                                                 }
+                                          }
+                                    },
+                                    "$on:change": {
+                                          "process": "scripts.event.OnChange",
+                                          "query": {
+                                                "extra": "开发者定义数据"
                                           }
                                     }
                               }
