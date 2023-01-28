@@ -181,10 +181,7 @@
                               }
                         ]
                   },
-                  "props": {
-                        "customStyle": "compact",
-                        "withTotalRow": true
-                  }
+                  "props": {}
             }
       },
       "fields": {
