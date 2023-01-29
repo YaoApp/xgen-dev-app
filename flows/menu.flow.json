@@ -37,7 +37,7 @@
                                           {
                                                 "id": 10003,
                                                 "name": "角色管理B",
-                                                "path": "/x/Table/role.b",
+                                                "path": "/x/Table/role",
                                                 "badge": 600
                                           }
                                     ]

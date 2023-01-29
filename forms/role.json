@@ -1,0 +1,109 @@
+{
+      "name": "Role Form",
+      "action": {
+            "bind": {
+                  "model": "role",
+                  "option": {}
+            }
+      },
+      "layout": {
+            "primary": "id",
+            "actions": [
+                  {
+                        "title": "删除",
+                        "icon": "icon-trash-2",
+                        "style": "danger",
+                        "divideLine": true,
+                        "action": [
+                              {
+                                    "name": "Confirm",
+                                    "type": "Common.confirm",
+                                    "payload": {
+                                          "title": "确认删除",
+                                          "content": "删除后不可撤销！"
+                                    }
+                              },
+                              {
+                                    "name": "Delete",
+                                    "type": "Form.delete",
+                                    "payload": {}
+                              },
+                              {
+                                    "name": "Back",
+                                    "type": "Common.closeModal",
+                                    "payload": {}
+                              }
+                        ]
+                  },
+                  {
+                        "title": "返回",
+                        "icon": "icon-arrow-left",
+                        "showWhenAdd": true,
+                        "showWhenView": true,
+                        "action": [
+                              {
+                                    "name": "CloseModal",
+                                    "type": "Common.closeModal",
+                                    "payload": {}
+                              }
+                        ]
+                  },
+                  {
+                        "title": "保存",
+                        "icon": "icon-check",
+                        "style": "primary",
+                        "showWhenAdd": true,
+                        "action": [
+                              {
+                                    "name": "Submit",
+                                    "type": "Form.submit",
+                                    "payload": {}
+                              },
+                              {
+                                    "name": "Back",
+                                    "type": "Common.closeModal",
+                                    "payload": {}
+                              }
+                        ]
+                  }
+            ],
+            "form": {
+                  "props": {},
+                  "sections": [
+                        {
+                              "columns": [
+                                    {
+                                          "name": "角色名称",
+                                          "width": 24
+                                    },
+                                    {
+                                          "name": "角色类型",
+                                          "width": 24
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            "config": {
+                  "showAnchor": false
+            }
+      },
+      "fields": {
+            "form": {
+                  "角色名称": {
+                        "bind": "name",
+                        "edit": {
+                              "type": "Input",
+                              "props": {}
+                        }
+                  },
+                  "角色类型": {
+                        "bind": "type",
+                        "edit": {
+                              "type": "Input",
+                              "props": {}
+                        }
+                  }
+            }
+      }
+}

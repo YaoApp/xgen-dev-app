@@ -22,25 +22,6 @@
                         ]
                   },
                   {
-                        "title": "添加英雄",
-                        "icon": "icon-plus",
-                        "hideWhenEdit": true,
-                        "action": [
-                              {
-                                    "name": "OpenModal",
-                                    "type": "Common.openModal",
-                                    "payload": {
-                                          "width": "30vw",
-                                          "isRef": true,
-                                          "Form": {
-                                                "type": "edit",
-                                                "model": "hero"
-                                          }
-                                    }
-                              }
-                        ]
-                  },
-                  {
                         "title": "删除",
                         "icon": "icon-trash-2",
                         "style": "danger",
@@ -125,7 +106,40 @@
             ],
             "form": {
                   "props": {
-                        "onLoadSync": false
+                        "onLoadSync": false,
+                        "reference": {
+                              "flatContent": {
+                                    "name": "参照",
+                                    "defaultOpen": false,
+                                    "payload": {
+                                          "width": "600px",
+                                          "Form": {
+                                                "type": "view",
+                                                "model": "role"
+                                          }
+                                    }
+                              },
+                              "floatContents": [
+                                    {
+                                          "name": "参照1",
+                                          "payload": {
+                                                "Form": {
+                                                      "type": "view",
+                                                      "model": "role"
+                                                }
+                                          }
+                                    },
+                                    {
+                                          "name": "参照2",
+                                          "payload": {
+                                                "Form": {
+                                                      "type": "edit",
+                                                      "model": "role"
+                                                }
+                                          }
+                                    }
+                              ]
+                        }
                   },
                   "sections": [
                         {
