@@ -115,7 +115,8 @@
                                           "width": "600px",
                                           "Form": {
                                                 "type": "view",
-                                                "model": "role"
+                                                "model": "role",
+                                                "id": "{{id}}"
                                           }
                                     }
                               },
@@ -125,7 +126,8 @@
                                           "payload": {
                                                 "Form": {
                                                       "type": "view",
-                                                      "model": "role"
+                                                      "model": "role",
+                                                      "id": "{{id}}"
                                                 }
                                           }
                                     },
@@ -134,7 +136,8 @@
                                           "payload": {
                                                 "Form": {
                                                       "type": "edit",
-                                                      "model": "role"
+                                                      "model": "role",
+                                                      "id": "{{id}}"
                                                 }
                                           }
                                     }

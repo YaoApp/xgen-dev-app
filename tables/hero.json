@@ -181,7 +181,13 @@
                               }
                         ]
                   },
-                  "props": {}
+                  "props": {
+                        "customStyle": "compact",
+                        "withTotalRow": true,
+                        "scroll": {
+                              "x": 1500
+                        }
+                  }
             }
       },
       "fields": {
