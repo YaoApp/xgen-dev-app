@@ -72,17 +72,7 @@
             "table": {
                   "columns": [
                         {
-                              "name": "头像",
-                              "width": 100,
-                              "fixed": true
-                        },
-                        {
-                              "name": "名称",
-                              "width": 100,
-                              "fixed": true
-                        },
-                        {
-                              "name": "别名"
+                              "name": "Block"
                         },
                         {
                               "name": "昵称"
@@ -181,13 +171,7 @@
                               }
                         ]
                   },
-                  "props": {
-                        "customStyle": "compact",
-                        "withTotalRow": true,
-                        "scroll": {
-                              "x": 1500
-                        }
-                  }
+                  "props": {}
             }
       },
       "fields": {
@@ -256,53 +240,60 @@
                   }
             },
             "table": {
-                  "头像": {
+                  "Block": {
                         "bind": "avatar",
                         "view": {
-                              "type": "Image",
-                              "compute": "Download",
+                              "type": "Block",
                               "props": {
-                                    "style": {
-                                          "width": 36,
-                                          "height": 36,
-                                          "borderRadius": "50%"
+                                    "components": {
+                                          "avatar": {
+                                                "bind": "avatar",
+                                                "view": {
+                                                      "type": "Image",
+                                                      "compute": "Download",
+                                                      "props": {
+                                                            "style": {
+                                                                  "width": 36,
+                                                                  "height": 36,
+                                                                  "borderRadius": "50%"
+                                                            }
+                                                      }
+                                                },
+                                                "edit": {
+                                                      "type": "Upload",
+                                                      "compute": "Upload",
+                                                      "props": {
+                                                            "filetype": "image",
+                                                            "$api": {
+                                                                  "process": "fs.system.Upload"
+                                                            }
+                                                      }
+                                                }
+                                          },
+                                          "name": {
+                                                "bind": "name",
+                                                "view": {
+                                                      "type": "Text",
+                                                      "props": {}
+                                                },
+                                                "edit": {
+                                                      "type": "Input",
+                                                      "props": {}
+                                                }
+                                          },
+                                          "desc": {
+                                                "bind": "alias",
+                                                "view": {
+                                                      "type": "Text",
+                                                      "props": {}
+                                                },
+                                                "edit": {
+                                                      "type": "Input",
+                                                      "props": {}
+                                                }
+                                          }
                                     }
                               }
-                        },
-                        "edit": {
-                              "type": "Upload",
-                              "compute": "Upload",
-                              "props": {
-                                    "filetype": "image",
-                                    "$api": {
-                                          "process": "fs.system.Upload"
-                                    }
-                              }
-                        }
-                  },
-                  "名称": {
-                        "bind": "name",
-                        "view": {
-                              "type": "Text",
-                              "props": {}
-                        },
-                        "edit": {
-                              "type": "Input",
-                              "props": {}
-                        }
-                  },
-                  "别名": {
-                        "bind": "alias",
-                        "view": {
-                              "type": "Tag",
-                              "props": {
-                                    "color": "#eee",
-                                    "textColor": "black"
-                              }
-                        },
-                        "edit": {
-                              "type": "Input",
-                              "props": {}
                         }
                   },
                   "昵称": {
