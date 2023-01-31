@@ -72,7 +72,8 @@
             "table": {
                   "columns": [
                         {
-                              "name": "Block"
+                              "name": "Block",
+                              "width": 160
                         },
                         {
                               "name": "昵称"
