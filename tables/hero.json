@@ -58,7 +58,8 @@
                                           "name": "OpenModal",
                                           "type": "Common.openModal",
                                           "payload": {
-                                                "width": 640,
+                                                "width": 900,
+                                                "byDrawer": {},
                                                 "Form": {
                                                       "type": "edit",
                                                       "model": "hero"
@@ -74,6 +75,9 @@
                         {
                               "name": "Block",
                               "width": 160
+                        },
+                        {
+                              "name": "头像"
                         },
                         {
                               "name": "昵称"
@@ -293,6 +297,30 @@
                                                       "props": {}
                                                 }
                                           }
+                                    }
+                              }
+                        }
+                  },
+                  "头像": {
+                        "bind": "avatar",
+                        "view": {
+                              "type": "Image",
+                              "compute": "Download",
+                              "props": {
+                                    "style": {
+                                          "width": 36,
+                                          "height": 36,
+                                          "borderRadius": "50%"
+                                    }
+                              }
+                        },
+                        "edit": {
+                              "type": "Upload",
+                              "compute": "Upload",
+                              "props": {
+                                    "filetype": "image",
+                                    "$api": {
+                                          "process": "fs.system.Upload"
                                     }
                               }
                         }
