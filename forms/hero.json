@@ -350,10 +350,10 @@
                   "描述": {
                         "bind": "desc",
                         "edit": {
-                              "type": "RichText",
+                              "type": "CodeEditor",
                               "props": {
-                                    "UploadByFileApi": "/api/UploadByFileApi",
-                                    "UploadByUrlApi": "/api/UploadByUrlApi"
+                                    "language": "javascript",
+                                    "height": 200
                               }
                         }
                   },
