@@ -142,10 +142,12 @@
                                           }
                                     }
                               ]
-                        }
+                        },
+                        "showSectionDivideLine": true
                   },
                   "sections": [
                         {
+                              "title": "Section 1",
                               "columns": [
                                     {
                                           "name": "头像",
@@ -201,6 +203,19 @@
                                     },
                                     {
                                           "name": "描述",
+                                          "width": 24
+                                    }
+                              ]
+                        },
+                        {
+                              "title": "Section 2",
+                              "columns": [
+                                    {
+                                          "name": "名称",
+                                          "width": 24
+                                    },
+                                    {
+                                          "name": "别名",
                                           "width": 24
                                     }
                               ]
