@@ -1,5 +1,5 @@
 function OnChange(info) {
-	let data = { attack: 10 } // 更新消费金额数据, 消费金额
+	let data = { name: '123', attack: 10 } // 更新消费金额数据, 消费金额
 	let setting = Process('yao.form.Setting', 'hero') // 根据新数值生成配置信息
 
 	setting['name'] = 'Test'

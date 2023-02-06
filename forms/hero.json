@@ -365,11 +365,8 @@
                   "描述": {
                         "bind": "desc",
                         "edit": {
-                              "type": "CodeEditor",
-                              "props": {
-                                    "language": "javascript",
-                                    "height": 200
-                              }
+                              "type": "RichText",
+                              "props": {}
                         }
                   },
                   "列表": {
