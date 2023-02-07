@@ -372,11 +372,8 @@
                   "列表": {
                         "bind": "json_1",
                         "edit": {
-                              "type": "List",
-                              "props": {
-                                    "name": "test",
-                                    "hasChildren": true
-                              }
+                              "type": "Gantt",
+                              "props": {}
                         }
                   }
             }
