@@ -329,7 +329,9 @@
                         "bind": "title",
                         "view": {
                               "type": "Text",
-                              "props": {}
+                              "props": {
+                                    "color": "red"
+                              }
                         },
                         "edit": {
                               "type": "Input",
