@@ -16,6 +16,10 @@
                               "width": 24
                         },
                         {
+                              "name": "角色列表",
+                              "width": 24
+                        },
+                        {
                               "name": "图表展示1",
                               "width": 12
                         },
@@ -33,7 +37,16 @@
                               "type": "base/Table",
                               "props": {
                                     "model": "hero",
-                                    "onChangeEvent": true
+                                    "onChangeEvent": false
+                              }
+                        }
+                  },
+                  "角色列表": {
+                        "view": {
+                              "type": "base/Table",
+                              "props": {
+                                    "model": "role",
+                                    "onChangeEvent": false
                               }
                         }
                   },
