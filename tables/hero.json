@@ -191,7 +191,7 @@
                   "昵称": {
                         "bind": "where.title.like",
                         "edit": {
-                              "type": "public/Test",
+                              "type": "Input",
                               "props": {}
                         }
                   },
