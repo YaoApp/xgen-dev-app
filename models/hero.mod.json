@@ -86,6 +86,11 @@
                   "name": "json_1",
                   "comment": "Json格式测试字段",
                   "type": "json"
+            },
+            {
+                  "name": "json_2",
+                  "comment": "Json格式测试字段",
+                  "type": "json"
             }
       ],
       "relations": {
