@@ -9,7 +9,6 @@
 		"emitDeclarationOnly": true,
 		"strict": true,
 		"outDir": "public/components",
-		"suppressImplicitAnyIndexErrors": true,
 		"baseUrl": ".",
 		"esModuleInterop": true,
 		"paths": { "@/*": ["./components/*"] },
