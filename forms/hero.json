@@ -222,7 +222,7 @@
                   "审批流": {
                         "bind": "json_2",
                         "edit": {
-                              "type": "public/ApprovalFlowEditor",
+                              "type": "__Test__",
                               "props": {}
                         }
                   },
