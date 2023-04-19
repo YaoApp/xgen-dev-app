@@ -7,3 +7,5 @@ db
 
 node_modules
 public/components/*
+
+.env

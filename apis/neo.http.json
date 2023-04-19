@@ -6,14 +6,17 @@
       "paths": [
             {
                   "path": "/chat",
-                  "method": "POST",
+                  "method": "GET",
                   "process": "scripts.neo.chat",
                   "in": [
-                        ":payload"
+                        "$query.content",
+                        "$query.context",
+                        "$query.token"
                   ],
                   "out": {
                         "status": 200,
-                        "type": "application/json"
+                        "type": "application/json",
+                        "stream": true
                   }
             }
       ]

@@ -7,7 +7,10 @@
       "setup": "scripts.init.setData",
       "adminRoot": "admin",
       "optional": {
-            "remoteCache": true
+            "remoteCache": true,
+            "neo": {
+                  "api": "/neo/chat"
+            }
       },
       "menu": {
             "process": "flows.menu",

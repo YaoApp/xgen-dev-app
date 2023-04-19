@@ -1,0 +1,18 @@
+{
+      "name": "select Test",
+      "version": "1.0.0",
+      "guard": "-",
+      "group": "select",
+      "paths": [
+            {
+                  "path": "/options",
+                  "method": "GET",
+                  "process": "scripts.select.options",
+                  "in": [],
+                  "out": {
+                        "status": 200,
+                        "type": "application/json"
+                  }
+            }
+      ]
+}

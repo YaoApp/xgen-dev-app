@@ -223,7 +223,9 @@
                         "bind": "json_2",
                         "edit": {
                               "type": "__Test__",
-                              "props": {}
+                              "props": {
+                                    "usersApi": "/api/select/options"
+                              }
                         }
                   },
                   "头像": {
