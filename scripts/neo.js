@@ -16,6 +16,11 @@ function chat(content, context, token) {
 			ssEvent('message', {
 				actions: [
 					{
+						name: 'SearchTable',
+						type: 'Table.search',
+						payload: {}
+					},
+					{
 						name: 'HistoryPush',
 						type: 'Common.historyPush',
 						payload: {
