@@ -14,7 +14,15 @@ function chat(content, context, token) {
 
 		if (data.indexOf('[DONE]') !== -1) {
 			ssEvent('message', {
-				actions: [],
+				actions: [
+					{
+						name: 'HistoryPush',
+						type: 'Common.historyPush',
+						payload: {
+							pathname: '/x/Form/hero/1/edit'
+						}
+					}
+				],
 				confirm: true,
 				done: true
 			})
@@ -27,8 +35,7 @@ function chat(content, context, token) {
 			const text = formated_data.choices[0].delta.content
 
 			ssEvent('message', {
-				text,
-				done: false
+				text
 			})
 		}
 
