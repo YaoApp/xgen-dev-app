@@ -2,7 +2,7 @@
       "name": "Neo Test",
       "version": "1.0.0",
       "guard": "-",
-      "group": "neo",
+      "group": "__yao/neo",
       "paths": [
             {
                   "path": "/chat",
