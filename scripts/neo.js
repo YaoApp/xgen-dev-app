@@ -29,12 +29,7 @@ function chat(content, context, token) {
 					}
 				],
 				confirm: true,
-                        done: true,
-                        command: {
-					id: 'table.data',
-					name: 'Generate test data for the table',
-					request: '89c151e1-02bd-467d-8186-540f6cb36e36'
-				},
+                        done: true
 			})
 
 			return 0
