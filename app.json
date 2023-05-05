@@ -9,7 +9,7 @@
       "optional": {
             "remoteCache": true,
             "neo": {
-                  "api": "/neo/chat"
+                  "api": "http://localhost:5099/api/__yao/neo"
             }
       },
       "menu": {
