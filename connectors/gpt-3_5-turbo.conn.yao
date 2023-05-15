@@ -5,6 +5,6 @@
 	"type": "openai",
 	"options": {
 		"model": "gpt-3.5-turbo",
-		"key": "$ENV.OPENAI_TEST_KEY"
+		"key": "$ENV.OPENAI_KEY"
 	}
 }
