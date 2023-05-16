@@ -9,3 +9,4 @@ node_modules
 public/components/*
 
 .env
+public/iframe

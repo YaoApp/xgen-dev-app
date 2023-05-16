@@ -1,0 +1,29 @@
+{
+  "xgen": "1.0",
+  "name": "xgen dev app",
+  "short": "devapp",
+  "description": "LOL manage system by Yao.",
+  "version": "0.10.2",
+  "setup": "scripts.init.setData",
+  "adminRoot": "admin",
+  "optional": {
+    "remoteCache": true,
+    /**
+     * Admin:
+     * - PATH:        {"api":"/neo"}
+     * - URL:         {"api":"http://localhost:5099/api/__yao/neo"}
+     *
+     * Studio:
+     * - Studio PATH: {"api":"/neo", "studio":true }
+     * - Studio URL:  {"api":"http://localhost:5077/neo", "studio":true }
+     */
+    "neo": {
+      "api": "http://localhost:5077/neo",
+      "studio": true
+    }
+  },
+  "menu": {
+    "process": "flows.menu",
+    "args": []
+  }
+}
