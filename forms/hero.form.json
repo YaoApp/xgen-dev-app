@@ -222,9 +222,9 @@
                   "审批流": {
                         "bind": "json_2",
                         "edit": {
-                              "type": "public/ApprovalFlowEditor",
+                              "type": "__Test__",
                               "props": {
-                                    "usersApi": "/api/select/options"
+                                    "formsApi": "/api/select/options"
                               }
                         }
                   },
