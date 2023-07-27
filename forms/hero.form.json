@@ -150,10 +150,6 @@
                               "title": "Section 1",
                               "columns": [
                                     {
-                                          "name": "审批流",
-                                          "width": 24
-                                    },
-                                    {
                                           "name": "头像",
                                           "width": 24
                                     },

@@ -51,6 +51,19 @@
                   ],
                   "actions": [
                         {
+                              "title": "导出",
+                              "action": [
+                                    {
+                                          "name": "historyPush",
+                                          "type": "Common.historyPush",
+                                          "payload": {
+                                                "pathname": "http://baidu.com",
+                                                "withFilterQuery": true
+                                          }
+                                    }
+                              ]
+                        },
+                        {
                               "title": "添加英雄",
                               "icon": "icon-plus",
                               "action": [
@@ -328,14 +341,10 @@
                   "昵称": {
                         "bind": "title",
                         "view": {
-                              "type": "Text",
+                              "type": "A",
                               "props": {
-                                    "color": "red"
+                                    "href": "http://localhost:8000/yao/x/Form/hero/1/edit"
                               }
-                        },
-                        "edit": {
-                              "type": "Input",
-                              "props": {}
                         }
                   },
                   "角色": {
