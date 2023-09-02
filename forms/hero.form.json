@@ -154,6 +154,10 @@
                                           "width": 24
                                     },
                                     {
+                                          "name": "审批流1",
+                                          "width": 24
+                                    },
+                                    {
                                           "name": "头像",
                                           "width": 24
                                     },
@@ -224,7 +228,24 @@
                         "edit": {
                               "type": "__Test__",
                               "props": {
-                                    "formsApi": "/api/select/options"
+                                    "usersApi": "/api/select/options",
+                                    "launcher": {
+                                          "title": "Faqiren",
+                                          "icon": "icon-activity"
+                                    },
+                                    "handler": {
+                                          "title": "Shenpiren",
+                                          "icon": "icon-airplay"
+                                    }
+                              }
+                        }
+                  },
+                  "审批流1": {
+                        "bind": "json_1",
+                        "edit": {
+                              "type": "__Test__",
+                              "props": {
+                                    "usersApi": "/api/select/options"
                               }
                         }
                   },
@@ -366,13 +387,6 @@
                         "bind": "desc",
                         "edit": {
                               "type": "RichText",
-                              "props": {}
-                        }
-                  },
-                  "列表": {
-                        "bind": "json_1",
-                        "edit": {
-                              "type": "Gantt",
                               "props": {}
                         }
                   }
