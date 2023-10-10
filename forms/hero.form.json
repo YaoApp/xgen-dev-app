@@ -245,7 +245,7 @@
                         "edit": {
                               "type": "__Test__",
                               "props": {
-                                    "usersApi": "/api/select/options"
+                                    "formsApi": "/api/select/options"
                               }
                         }
                   },
