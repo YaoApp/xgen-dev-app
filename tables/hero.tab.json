@@ -72,7 +72,6 @@
                                           "type": "Common.openModal",
                                           "payload": {
                                                 "width": 900,
-                                                "byDrawer": {},
                                                 "Form": {
                                                       "type": "edit",
                                                       "model": "hero"
@@ -159,14 +158,10 @@
                                     "icon": "icon-edit-2",
                                     "action": [
                                           {
-                                                "name": "OpenModal",
-                                                "type": "Common.openModal",
+                                                "name": "HistoryPush",
+                                                "type": "Common.historyPush",
                                                 "payload": {
-                                                      "width": "50vw",
-                                                      "Form": {
-                                                            "type": "edit",
-                                                            "model": "hero"
-                                                      }
+                                                      "pathname": "/x/Form/hero/{{id}}/edit"
                                                 }
                                           }
                                     ]

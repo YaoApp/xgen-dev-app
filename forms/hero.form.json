@@ -4,7 +4,8 @@
             "bind": {
                   "model": "hero",
                   "option": {}
-            }
+            },
+            "after:find": "scripts.hero.AfterFind"
       },
       "layout": {
             "primary": "id",
@@ -149,10 +150,6 @@
                         {
                               "title": "Section 1",
                               "columns": [
-                                    {
-                                          "name": "审批流",
-                                          "width": 24
-                                    },
                                     {
                                           "name": "审批流1",
                                           "width": 24
