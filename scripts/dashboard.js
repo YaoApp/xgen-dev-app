@@ -1,5 +1,6 @@
 function dataSource() {
 	return {
+		chart_test_0: 0,
 		chart_test_1: [
 			{
 				value: 40300,
