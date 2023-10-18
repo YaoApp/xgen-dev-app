@@ -216,7 +216,8 @@
             },
             "config": {
                   "showAnchor": false,
-                  "test": true
+                  "viewTitle": "查看英雄",
+                  "editTitle": "编辑英雄"
             }
       },
       "fields": {
