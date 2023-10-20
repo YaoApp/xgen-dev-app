@@ -10,6 +10,8 @@ conversation:
 command:
   parser: gpt-3_5-turbo
 
+prepare: "scripts.neo.Prepare"
+write: "scripts.neo.Write"
 prompts:
   - role: system
     content: |
@@ -17,7 +19,7 @@ prompts:
       - Your are a AI assistant of YAO
 
 option:
-  temperature: 1.2
+  temperature: 0.8
 
 allows:
   - "http://127.0.0.1:8000"

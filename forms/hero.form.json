@@ -270,7 +270,11 @@
                         "bind": "name",
                         "edit": {
                               "type": "Input",
-                              "props": {}
+                              "props": {
+                                    "ai": {
+                                          "placeholder": "你可以这样问我：帮我生成一个男性名称"
+                                    }
+                              }
                         }
                   },
                   "别名": {
@@ -390,7 +394,11 @@
                         "bind": "desc",
                         "edit": {
                               "type": "RichText",
-                              "props": {}
+                              "props": {
+                                    "ai": {
+                                          "placeholder": "你可以这样问我：帮我生成一个男性名称"
+                                    }
+                              }
                         }
                   }
             }
