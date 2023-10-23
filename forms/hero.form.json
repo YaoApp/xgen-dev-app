@@ -5,7 +5,7 @@
                   "model": "hero",
                   "option": {}
             },
-            "after:find": "scripts.hero.AfterFind"
+            "before:save": "scripts.hero.beforeSave"
       },
       "layout": {
             "primary": "id",
@@ -95,11 +95,6 @@
                               {
                                     "name": "Submit",
                                     "type": "Form.submit",
-                                    "payload": {}
-                              },
-                              {
-                                    "name": "Back",
-                                    "type": "Common.closeModal",
                                     "payload": {}
                               }
                         ]
