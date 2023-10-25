@@ -21,7 +21,6 @@
 		 * - Studio URL:  {"api":"http://localhost:5077/neo", "studio":true }
 		 */
 		"neo": {
-                  "name":"TestNeoName",
 			"api": "http://localhost:5077/neo",
 			"studio": true
 		}
