@@ -1,0 +1,12 @@
+{
+  "name": "::User Login",
+  "action": {
+    "process": "scripts.user.Login",
+    "args": [":payload"]
+  },
+  "layout": {
+    "entry": "/x/Table/hero",
+    "captcha": "yao.utils.Captcha",
+    "site": "https://yaoapps.com"
+  }
+}

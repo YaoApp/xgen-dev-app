@@ -6,7 +6,6 @@ db
 # custom components
 
 node_modules
-public/components/*
 
 .env
 public/iframe
