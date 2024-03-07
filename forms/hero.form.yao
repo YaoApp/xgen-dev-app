@@ -95,7 +95,6 @@
         {
           "title": "Section 1",
           "columns": [
-            { "name": "审批流1", "width": 24 },
             { "name": "头像", "width": 24 },
             { "name": "名称", "width": 12 },
             { "name": "别名", "width": 12 },
@@ -109,7 +108,9 @@
             { "name": "价格（金币）", "width": 12 },
             { "name": "价格（点券）", "width": 12 },
             { "name": "列表", "width": 24 },
-            { "name": "描述", "width": 24 }
+            { "name": "WangEditor", "width": 24 },
+            { "name": "RichText", "width": 24 },
+            { "name": "审批流1", "width": 24 }
           ]
         }
       ]
@@ -230,7 +231,16 @@
         "bind": "coupon_price",
         "edit": { "type": "InputNumber", "props": {} }
       },
-      "描述": {
+      "WangEditor": {
+        "bind": "html",
+        "edit": {
+          "type": "WangEditor",
+          "props": {
+            "ai": { "placeholder": "你可以这样问我：帮我生成一个男性名称" }
+          }
+        }
+      },
+      "RichText": {
         "bind": "desc",
         "edit": {
           "type": "RichText",
