@@ -1,126 +1,81 @@
 {
-      "name": "Menu",
-      "nodes": [],
-      "output": {
-            "items": [
-                  {
-                        "icon": "icon-gitlab",
-                        "id": 1,
-                        "name": "英雄管理",
-                        "path": "/x/Table/hero",
-                        "badge": 6,
-                        "children": [
-                              {
-                                    "id": 10001,
-                                    "name": "自由页面",
-                                    "path": "/x/Dashboard/test",
-                                    "badge": 16
-                              },
-                              {
-                                    "id": 10002,
-                                    "name": "角色管理",
-                                    "path": "/x/Table/role/1",
-                                    "badge": 1600,
-                                    "children": [
-                                          {
-                                                "id": 10000,
-                                                "name": "英雄管理1",
-                                                "path": "/x/Table/hero",
-                                                "badge": 3
-                                          },
-                                          {
-                                                "id": 10002,
-                                                "name": "编辑英雄",
-                                                "path": "/x/Form/hero/1/edit",
-                                                "badge": 1600
-                                          },
-                                          {
-                                                "id": 10003,
-                                                "name": "角色管理B",
-                                                "path": "/x/Table/role",
-                                                "badge": 600
-                                          }
-                                    ]
-                              }
-                        ]
-                  },
-                  {
-                        "icon": "icon-activity",
-                        "id": 2,
-                        "name": "activity",
-                        "path": "/x/Table/activity",
-                        "badge": 12,
-                        "children": [
-                              {
-                                    "id": 10001,
-                                    "name": "activity_1",
-                                    "path": "/x/Table/activity/1",
-                                    "badge": 16,
-                                    "children": [
-                                          {
-                                                "id": 10001,
-                                                "name": "activity",
-                                                "path": "/x/Table/activity",
-                                                "badge": 16
-                                          }
-                                    ]
-                              }
-                        ]
-                  },
-                  {
-                        "icon": "icon-airplay",
-                        "id": 3,
-                        "name": "airplay",
-                        "path": "/x/Form/hero/0/edit",
-                        "dot": true
-                  },
-                  {
-                        "icon": "icon-align-right",
-                        "id": 4,
-                        "name": "align-right",
-                        "path": "/x/Table/align-right"
-                  },
-                  {
-                        "icon": "icon-award",
-                        "id": 5,
-                        "name": "award",
-                        "path": "/x/Table/award"
-                  }
-            ],
-            "setting": [
-                  {
-                        "icon": "icon-book",
-                        "id": 1,
-                        "name": "通讯录",
-                        "path": "/x/Table/book",
-                        "badge": 100,
-                        "children": [
-                              {
-                                    "id": 10002,
-                                    "name": "通讯录",
-                                    "path": "/x/Table/book"
-                              }
-                        ]
-                  },
-                  {
-                        "icon": "icon-shield",
-                        "id": 2,
-                        "name": "账号设置",
-                        "path": "/x/Table/shield",
-                        "children": [
-                              {
-                                    "id": 10002,
-                                    "name": "账号设置",
-                                    "path": "/x/Table/shield"
-                              }
-                        ]
-                  },
-                  {
-                        "icon": "icon-settings",
-                        "id": 999999,
-                        "name": "系统设置",
-                        "path": "/setting"
-                  }
+  "name": "Menu",
+  "nodes": [],
+  "output": {
+    "items": [
+      {
+        "icon": "icon-gitlab",
+        "name": "英雄管理",
+        "path": "/x/Table/hero",
+        "badge": 6,
+        "children": [
+          { "name": "自由页面", "path": "/x/Dashboard/test", "badge": 16 },
+          {
+            "name": "角色管理",
+            "path": "/x/Table/role/1",
+            "badge": 1600,
+            "children": [
+              { "name": "英雄管理1", "path": "/x/Table/hero", "badge": 3 },
+              {
+                "name": "编辑英雄",
+                "path": "/x/Form/hero/1/edit",
+                "badge": 1600
+              },
+              { "name": "角色管理B", "path": "/x/Table/role", "badge": 600 }
             ]
+          }
+        ]
+      },
+      {
+        "icon": "icon-activity",
+
+        "name": "activity",
+        "path": "/x/Table/activity",
+        "badge": 12,
+        "children": [
+          {
+            "name": "activity_1",
+            "path": "/x/Table/activity/1",
+            "badge": 16,
+            "children": [
+              { "name": "activity", "path": "/x/Table/activity", "badge": 16 }
+            ]
+          }
+        ]
+      },
+      {
+        "icon": "icon-airplay",
+        "name": "airplay",
+        "path": "/x/Form/hero/0/edit",
+        "dot": true
+      },
+      {
+        "icon": "icon-align-right",
+        "name": "align-right",
+        "path": "/x/Table/align-right"
+      },
+      {
+        "icon": "icon-award",
+        "name": "award",
+        "path": "/x/Table/award"
       }
+    ],
+    "setting": [
+      {
+        "icon": "icon-book",
+        "name": "通讯录",
+        "path": "/x/Table/book",
+        "badge": 100,
+        "children": [{ "name": "通讯录", "path": "/x/Table/book" }]
+      },
+      {
+        "icon": "icon-shield",
+
+        "name": "账号设置",
+        "path": "/x/Table/shield",
+        "children": [{ "name": "账号设置", "path": "/x/Table/shield" }]
+      },
+      { "icon": "icon-settings", "name": "系统设置", "path": "/setting" }
+    ]
+  }
 }
