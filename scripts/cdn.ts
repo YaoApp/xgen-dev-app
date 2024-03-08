@@ -1,3 +1,9 @@
+// Yao Runtime dependency
+// This is a fake implementation of Process and not loaded in the runtime
+// Just for the purpose of type checking
+// import this type from @yaoapp/types after v0.10.4 is released
+import { FS } from "./__types/yao";
+
 /**
  * Custom Upload component
  * @param file
@@ -11,19 +17,4 @@ function Upload(file) {
   const data = fs.ReadFileBase64(tmpfile);
   fs.WriteFileBase64(path, data);
   return path;
-}
-
-// Yao Runtime dependency
-// This is a fake implementation of Process and not loaded in the runtime
-// Just for the purpose of type checking
-// import this type from @yaoapp/types after v0.10.4 is released
-class FS {
-  constructor(name: string) {}
-  ReadFileBase64(...args): string {
-    return "";
-  }
-  WriteFileBase64(...args) {}
-  ExtName(path: string): string {
-    return "";
-  }
 }
