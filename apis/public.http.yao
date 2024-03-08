@@ -1,0 +1,14 @@
+{
+  "name": "select Test",
+  "version": "1.0.0",
+  "guard": "-",
+  "paths": [
+    {
+      "path": "/images/*path",
+      "method": "GET",
+      "process": "flows.public.images",
+      "in": ["$param.path"],
+      "out": { "Content-Type": "{{ type }}", "body": "{{ content }}" }
+    }
+  ]
+}

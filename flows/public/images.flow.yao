@@ -1,0 +1,16 @@
+{
+  "label": "public images",
+  "version": "1.0.0",
+  "description": "Public images",
+  "nodes": [
+    {
+      "name": "data",
+      "process": "fs.system.Download",
+      "args": ["{{$in.0}}", false]
+    }
+  ],
+  "output": {
+    "content": "{{$res.data.content}}",
+    "type": "{{$res.data.type}}"
+  }
+}

@@ -108,7 +108,7 @@
             { "name": "价格（金币）", "width": 12 },
             { "name": "价格（点券）", "width": 12 },
             { "name": "列表", "width": 24 },
-            { "name": "WangEditor", "width": 24 },
+            { "name": "WangEditor (v0.10.4)", "width": 24 },
             { "name": "RichText", "width": 24 },
             { "name": "审批流1", "width": 24 }
           ]
@@ -231,12 +231,19 @@
         "bind": "coupon_price",
         "edit": { "type": "InputNumber", "props": {} }
       },
-      "WangEditor": {
+      "WangEditor (v0.10.4)": {
         "bind": "html",
         "edit": {
           "type": "WangEditor",
           "props": {
-            "ai": { "placeholder": "你可以这样问我：帮我生成一个男性名称" }
+            "ai": { "placeholder": "你可以这样问我：帮我生成一个男性名称" },
+            "imageUrl": "/api/public/images[[ $path ]]",
+            "$imageUpload": { "process": "fs.system.Upload" },
+            "videoUrl": "http://localhost:5099/api/public/images[[ $path ]]",
+            "$videoUpload": { "process": "scripts.cdn.Upload" },
+            "autoFocus": true,
+            "disabled": false,
+            "minHeight": 300
           }
         }
       },
