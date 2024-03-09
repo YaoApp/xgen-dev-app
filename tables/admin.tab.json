@@ -1,0 +1,6 @@
+{
+  "name": "admin",
+  "action": {
+    "bind": { "model": "admin.user", "option": {} }
+  }
+}

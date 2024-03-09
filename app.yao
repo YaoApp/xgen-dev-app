@@ -21,7 +21,7 @@
      *
      * hide: hide the menu and sub-menu
      */
-    "menu": { "layout": "1-column", "hide": false },
+    // "menu": { "layout": "1-column", "hide": false },
 
     /**
      * Admin:

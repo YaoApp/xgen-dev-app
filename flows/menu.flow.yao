@@ -1,3 +1,6 @@
+// icons
+// * feather icon https://feathericons.com/ icon-* eg: icon-activity
+// * material design icon https://fonts.google.com/icons  *-outline *-filled eg: person_pin_circle-outline settings-filled
 {
   "name": "Menu",
   "nodes": [],
@@ -64,16 +67,27 @@
       {
         "icon": "icon-book",
         "name": "通讯录",
-        "path": "/x/Table/book",
+        "path": "/x/Table/admin",
         "badge": 100,
-        "children": [{ "name": "通讯录", "path": "/x/Table/book" }]
+        "children": [{ "name": "通讯录", "path": "/x/Table/admin" }]
       },
       {
         "icon": "icon-shield",
 
         "name": "账号设置",
-        "path": "/x/Table/shield",
-        "children": [{ "name": "账号设置", "path": "/x/Table/shield" }]
+        "path": "/x/Table/admin",
+        "children": [
+          {
+            "icon": "person_pin_circle-outline",
+            "name": "账号设置",
+            "path": "/x/Table/admin"
+          },
+          {
+            "icon": "settings-filled",
+            "name": "系统配置",
+            "path": "/setting"
+          }
+        ]
       },
       { "icon": "icon-settings", "name": "系统设置", "path": "/setting" }
     ]
