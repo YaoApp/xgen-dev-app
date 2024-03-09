@@ -1,0 +1,55 @@
+{
+  "name": "Iframe 嵌入表单",
+  "action": {
+    "bind": {},
+    "find": { "process": "scripts.frame.Data" }
+  },
+  "layout": {
+    "primary": "id",
+    "config": {
+      "viewTitle": "Iframe 嵌入表单",
+      "editTitle": "Iframe 嵌入表单",
+      "hideBreadcrumb": true
+    },
+    "actions": [
+      {
+        "title": "在窗口打开",
+        "icon": "icon-external-link",
+        "showWhenAdd": true,
+        "showWhenView": true,
+        "style": "default",
+        "action": [
+          {
+            "name": "Link",
+            "type": "Common.historyPush",
+            "payload": {
+              "pathname": "http://localhost:5099/iframes/{{ file }}?foo=bar&hello=world"
+            }
+          }
+        ]
+      },
+      {
+        "title": "返回",
+        "divideLine": false,
+        "icon": "icon-arrow-left",
+        "showWhenAdd": true,
+        "showWhenView": true,
+        "action": [
+          { "name": "closeModal", "type": "Common.closeModal", "payload": {} }
+        ]
+      }
+    ],
+    "form": {
+      "frame": {
+        "url": "/iframes/{{ file }}",
+        "params": {
+          "token": "{{ __token }}",
+          "foo": "bar",
+          "hello": "{{ hello }}"
+        },
+        "height": "80vh",
+        "width": "95%"
+      }
+    }
+  }
+}

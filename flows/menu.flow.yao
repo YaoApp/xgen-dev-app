@@ -33,15 +33,19 @@
         "icon": "icon-activity",
 
         "name": "activity",
-        "path": "/x/Table/activity",
+        "path": "/x/Form/activity/name/view",
         "badge": 12,
         "children": [
           {
             "name": "activity_1",
-            "path": "/x/Table/activity/1",
+            "path": "/x/Form/activity",
             "badge": 16,
             "children": [
-              { "name": "activity", "path": "/x/Table/activity", "badge": 16 }
+              {
+                "name": "activity",
+                "path": "/x/Form/activity/name/view",
+                "badge": 16
+              }
             ]
           }
         ]
@@ -55,7 +59,7 @@
       {
         "icon": "icon-align-right",
         "name": "align-right",
-        "path": "/x/Table/align-right"
+        "path": "/iframe?src=/iframes/index.html?foo=bar&hello=world"
       },
       {
         "icon": "icon-award",
