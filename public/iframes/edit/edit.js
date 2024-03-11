@@ -1,15 +1,8 @@
 /**
- * API: Call from the parent window
+ * When the component value changes
+ * Should Send the change message to the xgen
+ * @param {*} target
  */
-
-function onXgenInit(bind, value) {
-  console.log("Component init", bind, value);
-}
-
-function onXgenChange(bind, value) {
-  console.log("Xgen value changed", bind, value);
-}
-
 function onComponentChange(target) {
   const value = target.value;
   const bind = target.dataset.bind;
@@ -42,6 +35,8 @@ function onComponentChange(target) {
 
 /**
  * Get the initial data from the query string
+ * When the value changes xgen will reload the iframe
+ * This function will be called multiple times
  * @returns
  */
 function initData() {
@@ -89,7 +84,10 @@ function initData() {
   };
 }
 
-// Document ready pure JS
+// 1. Listen the document ready event
+// 2. Parse the query string get the initial data
+// 3. Set the initial value
+// 4. Set the change event listener
 document.addEventListener("DOMContentLoaded", function () {
   const component = document.getElementById("component");
   component.classList.remove("hidden"); //   Remove the hidden class pure JS
@@ -109,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
   label.innerHTML = `${init.label} namespace: ${init.namespace} bind: ${init.bind} foo: ${init.foo} name: ${init.name} type: ${init.type}`;
 
   // Set view mode
+  // Can set the view mode differently based on the type
   if (init.type == "view") {
     component.classList.add("view-mode");
     // Send the resize message to the xgen
