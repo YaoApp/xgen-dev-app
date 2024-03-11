@@ -99,6 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
     onComponentChange(e.target);
   });
 
+  // Get the initial data from the query string
+  // Set the initial value
   const init = initData();
   input.value = init.value;
   if (init.disabled === "true") {
@@ -122,8 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  // Send the initial value to xgen
-  // parent.postMessage({ value: input.value, height:height }, "*");
+  // Could send the resize message to the xgen when the component is ready
   const height = component.offsetHeight;
   console.log(`Component ready height: ${height}px value: ${input.value}`);
 });
