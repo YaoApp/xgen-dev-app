@@ -3,7 +3,7 @@
   "name": "xgen dev app",
   "short": "devapp",
   "description": "LOL manage system by Yao.",
-  "version": "0.10.2",
+  "version": "0.10.4",
   "setup": "scripts.init.setData",
   "adminRoot": "admin",
   "token": {
@@ -21,7 +21,7 @@
      *
      * hide: hide the menu and sub-menu
      */
-    // "menu": { "layout": "1-column", "hide": false },
+    "menu": { "layout": "1-column", "hide": false },
 
     /**
      * Admin:
