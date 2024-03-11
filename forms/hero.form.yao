@@ -108,6 +108,7 @@
             { "name": "价格（金币）", "width": 12 },
             { "name": "价格（点券）", "width": 12 },
             { "name": "列表", "width": 24 },
+            { "name": "Frame Compoment (v0.10.4)", "width": 24 },
             { "name": "WangEditor (v0.10.4)", "width": 24 },
             { "name": "RichText", "width": 24 },
             { "name": "审批流1", "width": 24 }
@@ -123,6 +124,19 @@
   },
   "fields": {
     "form": {
+      "Frame Compoment (v0.10.4)": {
+        "bind": "frame_component",
+        "edit": {
+          "type": "Frame",
+          "props": {
+            "ai": { "placeholder": "你可以这样问我：帮我生成一个文字" },
+            "url": "/iframes/edit/edit.html",
+            "height": "200px",
+            "params": { "foo": "bar", "name": "{{ name }}" }
+          }
+        }
+      },
+
       "审批流": {
         "bind": "json_2",
         "edit": {

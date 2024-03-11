@@ -6,6 +6,7 @@
   "nodes": [],
   "output": {
     "items": [
+      { "name": "工作台", "path": "/x/Dashboard/index", "icon": "icon-layout" },
       {
         "icon": "icon-gitlab",
         "name": "英雄管理",

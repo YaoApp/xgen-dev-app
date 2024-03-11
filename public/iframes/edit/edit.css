@@ -1,0 +1,123 @@
+:root {
+  --r: 51;
+  --g: 113;
+  --b: 252;
+  --h: 221;
+  --s: 97.1%;
+  --l: 59.4%;
+  --color_main: #3371fc;
+  --color_text: #111;
+  --color_text_grey: #999;
+  --color_text_contrast: black;
+  --color_title: #363636;
+  --color_title_grey: #a9abac;
+  --color_warning: #faad14;
+  --color_success: #00c853;
+  --color_danger: #e62965;
+  --color_placeholder: #727272;
+  --color_page_title: #363636;
+  --color_bg: #f0f0f0;
+  --color_bg_nav: #f9f9f9;
+  --color_bg_menu: #ffffff;
+  --color_border: #e6e6e6;
+  --color_border_light: rgba(0, 0, 0, 0.06);
+  --color_border_soft: rgba(0, 0, 0, 0.03);
+  --shadow: 0 0 30px rgba(0, 0, 0, 0.081);
+  --radius: 6px;
+  --fontsize: 14px;
+  --base_height: 38px;
+  --max_width: 1200px;
+  --setting_width: 720px;
+}
+
+[data-theme="dark"] {
+  --r: 69;
+  --g: 128;
+  --b: 255;
+  --h: 221;
+  --s: 100%;
+  --l: 63.5%;
+  --color_main: #4580ff;
+  --color_text: #a2a5b9;
+  --color_text_grey: #aaa;
+  --color_text_contrast: white;
+  --color_title: #aaaab3;
+  --color_placeholder: #727272;
+  --color_page_title: #999;
+  --color_bg: #3b3b41;
+  --color_bg_nav: #232326;
+  --color_bg_menu: #2f2f34;
+  --color_border: #404046;
+  --color_border_light: rgba(255, 255, 255, 0.06);
+  --color_border_soft: rgba(255, 255, 255, 0.03);
+  --shadow: 0 0 30px rgba(255, 255, 255, 0.06);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: var(--fontsize);
+  line-height: 1.5;
+  color: var(--color_text);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: var(--radius);
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#component {
+  border-radius: var(--radius);
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color_success);
+  border: 2px solid var(--color_border_soft);
+  border-radius: var(--radius);
+  padding: 12px 12px;
+  width: calc(100% - 28px);
+  height: 100%;
+}
+
+.view-mode input {
+  background-color: var(--color_bg_nav);
+  color: var(--color_success);
+  border: 2px solid var(--color_bg_nav);
+  border-radius: var(--radius);
+  padding: 12px 12px;
+  font-weight: 600;
+  width: calc(100% - 28px);
+  height: 100%;
+  cursor: pointer;
+  height: 230px;
+  text-align: center;
+}
+
+.view-mode label {
+  display: none;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color_success);
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* input focus */
+input:focus {
+  outline: none;
+  border: 2px solid var(--color_success);
+}
+
+.hidden {
+  display: none;
+}

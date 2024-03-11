@@ -29,6 +29,11 @@
       "length": 80,
       "index": true
     },
+    {
+      "name": "frame_component",
+      "comment": "Frame Component Input",
+      "type": "string"
+    },
     { "name": "roles", "comment": "角色", "type": "json" },
     { "name": "position", "comment": "位置", "type": "json" },
     { "name": "attack", "comment": "物理伤害", "type": "integer" },

@@ -2,7 +2,7 @@
   "name": "::Admin Login",
   "action": { "process": "yao.login.Admin", "args": [":payload"] },
   "layout": {
-    "entry": "/x/Table/hero",
+    "entry": "/x/Dashboard/index",
     "captcha": "yao.utils.Captcha",
     "site": "https://yaoapps.com"
   },
