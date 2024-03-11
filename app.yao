@@ -20,8 +20,9 @@
      * 	  2-columns: menu and sub-menu in two column
      *
      * hide: hide the menu and sub-menu
+     * showName: show the name of the menu
      */
-    "menu": { "layout": "1-column", "hide": false },
+    "menu": { "layout": "2-columns", "showName": true },
 
     /**
      * Admin:
