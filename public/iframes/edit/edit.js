@@ -51,6 +51,8 @@ function initData() {
   const tokenValue = urlParams.get("__token");
   const typeValue = urlParams.get("__type");
   const disabledValue = urlParams.get("__disabled");
+  const themeValue = urlParams.get("__theme");
+  const localeValue = urlParams.get("__locale");
 
   label.innerHTML = `${labelValue} namespace: ${namespaceValue} bind: ${bindValue}`;
   const initValue = urlParams.get("__value");
@@ -70,6 +72,10 @@ function initData() {
   console.log(`Init value: ${initValue}`);
   console.log(`Foo: ${foo}`);
   console.log(`Name: ${name}`);
+  console.log(`Type: ${typeValue}`);
+  console.log(`Disabled: ${disabledValue}`);
+  console.log(`Theme: ${themeValue}`);
+  console.log(`Locale: ${localeValue}`);
 
   return {
     label: labelValue,
@@ -81,6 +87,8 @@ function initData() {
     name: name,
     type: typeValue,
     disabled: disabledValue,
+    theme: themeValue,
+    locale: localeValue,
   };
 }
 
@@ -102,11 +110,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // Get the initial data from the query string
   // Set the initial value
   const init = initData();
+
+  // Set the theme
+  document.body.dataset.theme = init.theme;
+
+  // Set the initial value
   input.value = init.value;
+
+  // Set the initial disabled state
   if (init.disabled === "true") {
     input.disabled = true;
   }
-  label.innerHTML = `${init.label} namespace: ${init.namespace} bind: ${init.bind} foo: ${init.foo} name: ${init.name} type: ${init.type}`;
+
+  // Set the initial label
+  label.innerHTML = `
+    <div>${init.label} namespace: ${init.namespace} bind: ${init.bind} foo: ${init.foo} name: ${init.name}</div> 
+    <div> type: ${init.type} theme: ${init.theme} locale: ${init.locale} </div>
+  `;
 
   // Set view mode
   // Can set the view mode differently based on the type
