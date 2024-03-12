@@ -95,7 +95,6 @@
         {
           "title": "Section 1",
           "columns": [
-            { "name": "头像", "width": 24 },
             { "name": "名称", "width": 12 },
             { "name": "别名", "width": 12 },
             { "name": "昵称", "width": 12 },
@@ -106,12 +105,33 @@
             { "name": "魔法伤害", "width": 12 },
             { "name": "操作难度", "width": 12 },
             { "name": "价格（金币）", "width": 12 },
-            { "name": "价格（点券）", "width": 12 },
+            { "name": "价格（点券）", "width": 12 }
+          ]
+        },
+        {
+          "title": "Section 2",
+          "columns": [
             { "name": "列表", "width": 24 },
-            { "name": "Frame Compoment (v0.10.4)", "width": 24 },
-            { "name": "WangEditor (v0.10.4)", "width": 24 },
+            { "name": "头像", "width": 24 },
             { "name": "RichText", "width": 24 },
             { "name": "审批流1", "width": 24 }
+          ]
+        },
+        {
+          "title": "Yao v0.10.4",
+          "columns": [
+            {
+              "tabs": [
+                {
+                  "title": "Frame Compoment",
+                  "columns": [{ "name": "Frame Compoment", "width": 24 }]
+                },
+                {
+                  "title": "WangEditor",
+                  "columns": [{ "name": "WangEditor", "width": 24 }]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -124,7 +144,7 @@
   },
   "fields": {
     "form": {
-      "Frame Compoment (v0.10.4)": {
+      "Frame Compoment": {
         "bind": "frame_component",
         "edit": {
           "type": "Frame",
@@ -181,6 +201,13 @@
             "ai": { "placeholder": "你可以这样问我：帮我生成一个男性名称" },
             "itemProps": { "rules": [{ "required": true }] }
           }
+        }
+      },
+      "列表": {
+        "bind": "json_3",
+        "edit": {
+          "type": "List", // @ /lists/test.list.yao
+          "props": { "name": "test", "showLabel": false, "language": "zh_cn" }
         }
       },
       "别名": { "bind": "alias", "edit": { "type": "Input", "props": {} } },
@@ -245,7 +272,7 @@
         "bind": "coupon_price",
         "edit": { "type": "InputNumber", "props": {} }
       },
-      "WangEditor (v0.10.4)": {
+      "WangEditor": {
         "bind": "html",
         "edit": {
           "type": "WangEditor",

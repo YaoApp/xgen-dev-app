@@ -1,0 +1,127 @@
+{
+  "name": "hero",
+  "table": {
+    "name": "hero",
+    "comment": "英雄表"
+  },
+  "columns": [
+    { "name": "id", "comment": "ID", "type": "ID", "label": "ID" },
+    { "name": "avatar", "comment": "头像", "type": "json", "label": "头像" },
+    {
+      "name": "name",
+      "comment": "名称",
+      "type": "string",
+      "length": 80,
+      "index": true,
+      "nullable": true,
+      "label": "名称"
+    },
+    {
+      "name": "alias",
+      "comment": "别名",
+      "type": "string",
+      "length": 80,
+      "index": true,
+      "label": "别名"
+    },
+    {
+      "name": "title",
+      "label": "昵称",
+      "comment": "昵称",
+      "type": "string",
+      "length": 80,
+      "index": true
+    },
+    {
+      "name": "frame_component",
+      "label": "Frame Compoment",
+      "comment": "Frame Component Input",
+      "type": "string"
+    },
+    { "name": "roles", "label": "角色", "comment": "角色", "type": "json" },
+    { "name": "position", "label": "位置", "comment": "位置", "type": "json" },
+    {
+      "name": "attack",
+      "label": "物理伤害",
+      "comment": "物理伤害",
+      "type": "integer"
+    },
+    {
+      "name": "defense",
+      "label": "防御能力",
+      "comment": "防御能力",
+      "type": "integer"
+    },
+    {
+      "name": "magic",
+      "label": "魔法伤害",
+      "comment": "魔法伤害",
+      "type": "integer"
+    },
+    {
+      "name": "difficulty",
+      "label": "操作难度",
+      "comment": "操作难度",
+      "type": "integer"
+    },
+    {
+      "name": "gold_price",
+      "label": "价格（金币）",
+      "comment": "价格（金币）",
+      "type": "integer"
+    },
+    {
+      "name": "coupon_price",
+      "label": "价格（点券）",
+      "comment": "价格（点券）",
+      "type": "integer"
+    },
+    {
+      "name": "desc",
+      "label": "详细描述",
+      "comment": "详细描述",
+      "type": "json"
+    },
+    {
+      "name": "html",
+      "label": "详细描述 HTML",
+      "comment": "详细描述 HTML",
+      "type": "text"
+    },
+    {
+      "name": "json_1",
+      "label": "Json格式测试字段1",
+      "comment": "Json格式测试字段1",
+      "type": "json"
+    },
+    {
+      "name": "json_2",
+      "label": "Json格式测试字段2",
+      "comment": "Json格式测试字段2",
+      "type": "json"
+    },
+    {
+      "name": "json_3",
+      "label": "Json格式测试字段3",
+      "comment": "Json格式测试字段3",
+      "type": "json"
+    }
+  ],
+  "relations": {
+    "role": {
+      "type": "hasMany",
+      "model": "role",
+      "key": "type",
+      "foreign": "roles",
+      "query": {
+        "select": ["id", "name", "type"]
+      }
+    }
+  },
+  "values": [],
+  "indexes": [],
+  "option": {
+    "timestamps": true,
+    "soft_deletes": false
+  }
+}
