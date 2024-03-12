@@ -1,0 +1,14 @@
+{
+  "name": "Auth Test",
+  "version": "1.0.0",
+  "guard": "-",
+  "paths": [
+    {
+      "path": "/auto-login",
+      "method": "POST",
+      "process": "scripts.auth.AutoLogin",
+      "in": [":payload"],
+      "out": { "status": 200, "type": "application/json" }
+    }
+  ]
+}

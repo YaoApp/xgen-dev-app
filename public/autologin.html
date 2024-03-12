@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using yao app engine" />
+    <link rel="stylesheet" href="/assets/app.css" />
+    <title>Dashboard Auto Login Demo | Yao App Demo</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <h1 class="title">Dashboard Auto Login Demo</h1>
+      <p class="content">
+        <button type="button" name="auto-login">Auto Login Success</button>
+        <button
+          type="button"
+          name="auto-login"
+          data-fake="invalid"
+          class="ml-1"
+        >
+          Auto Login Fail
+        </button>
+      </p>
+      <div id="output" class="container"></div>
+    </div>
+
+    <!-- Import the yao pure javascript library -->
+    <script src="/assets/yao.js"></script>
+
+    <script type="text/javascript">
+      /**
+       * Add event listener to the buttons
+       */
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementsByName("auto-login").forEach(function (element) {
+          element.addEventListener("click", login);
+        });
+      });
+
+      /**
+       * Get the login token from the server
+       * API Path:        /api/auth/auto-login
+       *
+       * API DSL File:         /apis/auth.http.yao
+       * Backend Script Process File:  /scripts/auth.ts
+       * XGEN Redirect URL:      /admin/login/custom
+       */
+      function login(event) {
+        const fake = event.target.dataset.fake || "";
+        const payload = { fake };
+        const output = document.getElementById("output");
+
+        // const redirectURL = "/admin/auth";
+        const redirectURL = "http://localhost:8000/yao/auth"; // For xgen local development
+
+        const yao = new Yao();
+        yao
+          .Post("/auth/auto-login", payload)
+          .then((response) => {
+            output.innerHTML = JSON.stringify(response, null, 2);
+            if (response.code && response.message) {
+              throw new Error(response.message);
+            }
+
+            const url = `${redirectURL}?data=${response.base64}`;
+            output.innerHTML = `Redirecting to ${redirectURL}?data=&lt;response.base64&gt; ... <br/> <br/> ${output.innerHTML}`;
+
+            // Set timeout is not necessary, just for demo purpose
+            // You can remove it and use window.location, window.open or any other method to redirect
+            setTimeout(() => (window.location.href = url), 2000);
+          })
+          .catch((error) => {
+            // Error handling
+            console.error("login error", error);
+          });
+      }
+    </script>
+  </body>
+</html>
