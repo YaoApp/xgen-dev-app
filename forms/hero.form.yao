@@ -123,8 +123,8 @@
             {
               "tabs": [
                 {
-                  "title": "Frame Compoment",
-                  "columns": [{ "name": "Frame Compoment", "width": 24 }]
+                  "title": "Frame Component",
+                  "columns": [{ "name": "Frame Component", "width": 24 }]
                 },
                 {
                   "title": "WangEditor",
@@ -144,7 +144,7 @@
   },
   "fields": {
     "form": {
-      "Frame Compoment": {
+      "Frame Component": {
         "bind": "frame_component",
         "edit": {
           "type": "Frame",
