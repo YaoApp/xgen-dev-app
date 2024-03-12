@@ -6,7 +6,9 @@
     "dashboard": {
       "columns": [
         { "name": "数字", "width": 24 },
-        { "name": "Frame Compoment", "width": 24 },
+        { "name": "View Text", "width": 12 },
+        { "name": "View Link", "width": 12 },
+        { "name": "View Frame", "width": 24 },
         { "name": "图表展示1", "width": 12 },
         { "name": "图表展示2", "width": 12 },
         { "name": "英雄列表", "width": 24 }
@@ -17,29 +19,41 @@
     "dashboard": {
       "数字": {
         "bind": "chart_test_0",
+        "view": { "type": "chart/Number", "props": {} }
+      },
+
+      "View Text": {
+        "bind": "file",
+        "view": { "type": "view/Text", "props": {} }
+      },
+
+      "View Link": {
+        "bind": "file",
         "view": {
-          "type": "chart/Number",
-          "props": {}
+          "type": "view/A",
+          "props": { "href": "/iframes/{{ file }}", "target": "_blank" }
         }
       },
 
-      "Frame Compoment": {
-        "bind": "chart_test_0",
+      "View Frame": {
+        "bind": "file",
         "view": {
-          "type": "chart/Number",
-          "props": { "height": 100 }
+          "type": "view/Frame",
+          "props": {
+            "url": "/iframes/edit/edit.html", // @ /public/iframes/edit
+            "height": "258px",
+            "params": { "foo": "bar", "file": "{{ file }}" }
+          }
         }
       },
 
       "英雄列表": {
         "view": {
           "type": "base/Table",
-          "props": {
-            "model": "hero",
-            "onChangeEvent": false
-          }
+          "props": { "model": "hero", "onChangeEvent": false }
         }
       },
+
       "图表展示1": {
         "bind": "chart_test_1",
         "view": {
