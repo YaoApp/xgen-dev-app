@@ -80,7 +80,7 @@ input {
   font-size: 16px;
   font-weight: 500;
   color: var(--color_success);
-  background-color: var(--color_bg_menu);
+  background-color: var(--color_bg_nav);
   border: 2px solid var(--color_border_soft);
   border-radius: var(--radius);
   padding: 12px 12px;
