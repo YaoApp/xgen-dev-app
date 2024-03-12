@@ -28,9 +28,6 @@ function onComponentChange(target) {
     },
     "*"
   );
-
-  // Send the value to the xgen
-  // parent.postMessage({ value: value }, "*");
 }
 
 /**
