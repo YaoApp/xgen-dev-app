@@ -130,7 +130,7 @@
           "type": "Frame",
           "props": {
             "ai": { "placeholder": "你可以这样问我：帮我生成一个文字" },
-            "url": "/iframes/edit/edit.html",
+            "url": "/iframes/edit/edit.html", // @ /public/iframes/edit
             "height": "200px",
             "params": { "foo": "bar", "name": "{{ name }}" }
           }
