@@ -1,5 +1,7 @@
 # Usage
 
+[中文](README.zh-CN.md) | [العربية](README.ar-AE.md)
+
 This example demonstrates how to use Yao to implement basic functionalities for managing backend or internal business systems, focusing primarily on the usage of XGEN components.
 
 It is recommended to run this example with Yao version 0.10.4. TypeScript is recommended as the scripting language.
