@@ -51,7 +51,7 @@ yao version --all
 Git clone 本示例代码到本地，然后执行以下命令：
 
 ```bash
-git clone git@github.com:YaoApp/xgen-dev-app.git /data/app
+git clone https://github.com/YaoApp/xgen-dev-app.git /data/app
 cd /data/app
 yao start
 ```
