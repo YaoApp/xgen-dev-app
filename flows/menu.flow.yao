@@ -1,5 +1,6 @@
 // icons
 // * feather icon https://feathericons.com/ icon-* eg: icon-activity
+// * material symbols outlined  https://fonts.google.com/icons?icon.set=Material+Symbols  material-*  eg: material-favorite
 // * material design icon https://fonts.google.com/icons  *-outline *-filled eg: person_pin_circle-outline settings-filled
 {
   "name": "Menu",
@@ -13,27 +14,43 @@
         "path": "/x/Table/hero",
         "badge": 6,
         "children": [
-          { "name": "自由页面", "path": "/x/Dashboard/test", "badge": 16 },
+          {
+            "name": "自由页面",
+            "icon": "material-dashboard",
+            "path": "/x/Dashboard/test",
+            "badge": 16
+          },
           {
             "name": "角色管理",
+            "icon": "material-group",
             "path": "/x/Table/role/1",
             "badge": 1600,
             "children": [
-              { "name": "英雄管理1", "path": "/x/Table/hero", "badge": 3 },
+              {
+                "name": "英雄管理",
+                "icon": "material-domino_mask",
+                "path": "/x/Table/hero",
+                "badge": 3
+              },
               {
                 "name": "编辑英雄",
+                "icon": "material-edit_square",
                 "path": "/x/Form/hero/1/edit",
                 "badge": 1600
               },
-              { "name": "角色管理B", "path": "/x/Table/role", "badge": 600 }
+              {
+                "name": "角色管理",
+                "icon": "material-checklist",
+                "path": "/x/Table/role",
+                "badge": 600
+              }
             ]
           }
         ]
       },
       {
-        "icon": "icon-activity",
-
         "name": "activity",
+        "icon": "icon-activity",
         "path": "/x/Form/activity/name/view",
         "badge": 12,
         "children": [
@@ -52,8 +69,8 @@
         ]
       },
       {
-        "icon": "icon-airplay",
-        "name": "airplay",
+        "icon": "material-airplay",
+        "name": "Airplay",
         "path": "/x/Form/hero/0/edit",
         "dot": true
       },
