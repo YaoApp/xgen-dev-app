@@ -1,7 +1,8 @@
 // icons
 // * feather icon https://feathericons.com/ icon-* eg: icon-activity
-// * material symbols outlined  https://fonts.google.com/icons?icon.set=Material+Symbols  material-*  eg: material-favorite
-// * material design icon https://fonts.google.com/icons  *-outline *-filled eg: person_pin_circle-outline settings-filled
+// * material symbols https://fonts.google.com/icons?icon.set=Material+Symbols  material-*  eg: material-favorite
+// * material icons https://fonts.google.com/icons?icon.set=Material+Icons   *-outline *-filled eg: person_pin_circle-outline settings-filled
+//
 {
   "name": "Menu",
   "nodes": [],
