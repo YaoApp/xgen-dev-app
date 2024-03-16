@@ -17,13 +17,13 @@
         "children": [
           {
             "name": "自由页面",
-            "icon": "material-dashboard",
+            "icon": { "name": "material-dashboard", "size": 16 },
             "path": "/x/Dashboard/test",
             "badge": 16
           },
           {
             "name": "角色管理",
-            "icon": "material-group",
+            "icon": { "name": "material-group", "size": 16 },
             "path": "/x/Table/role/1",
             "badge": 1600,
             "children": [
@@ -70,14 +70,14 @@
         ]
       },
       {
-        "icon": "material-airplay",
         "name": "Airplay",
+        "icon": { "name": "material-airplay", "size": 21 },
         "path": "/x/Form/hero/0/edit",
         "dot": true
       },
       {
-        "icon": "icon-align-right",
         "name": "align-right",
+        "icon": "material-align_justify_space_around",
         "path": "/iframe?src=/iframes/index.html?foo=bar&hello=world"
       },
       {

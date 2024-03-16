@@ -143,6 +143,6 @@ type MenuItem = {
   name: string;
   path: string;
   badge?: number;
-  icon?: string;
+  icon?: string | { name: string; size: number };
   children?: Array<MenuItem>;
 };
