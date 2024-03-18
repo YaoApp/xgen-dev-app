@@ -11,7 +11,7 @@
   },
   "menu": { "process": "flows.menu", "args": [] },
   "optional": {
-    "remoteCache": true,
+    "remoteCache": false,
 
     /**
      * This is a new feature of the yao v0.10.4

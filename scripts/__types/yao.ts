@@ -17,3 +17,7 @@ export class FS {
     return "";
   }
 }
+
+export const time = {
+  Sleep(ms: number) {},
+};

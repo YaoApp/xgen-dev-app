@@ -129,6 +129,13 @@
                 {
                   "title": "WangEditor",
                   "columns": [{ "name": "WangEditor", "width": 24 }]
+                },
+                {
+                  "title": "AutoComplete",
+                  "columns": [
+                    { "name": "AutoComplete", "width": 24 },
+                    { "name": "AutoComplete Remote", "width": 24 }
+                  ]
                 }
               ]
             }
@@ -271,6 +278,34 @@
       "价格（点券）": {
         "bind": "coupon_price",
         "edit": { "type": "InputNumber", "props": {} }
+      },
+
+      "AutoComplete": {
+        "bind": "identity",
+        "edit": {
+          "type": "AutoComplete",
+          "props": {
+            "options": [
+              { "label": "机甲师", "value": "机甲师" },
+              { "label": "飞行员", "value": "飞行员" },
+              { "label": "轻骑兵", "value": "轻骑兵" }
+            ]
+          }
+        }
+      },
+      "AutoComplete Remote": {
+        "bind": "identity",
+        "edit": {
+          "type": "AutoComplete",
+          "props": {
+            "xProps": {
+              "$remote": {
+                "process": "scripts.hero.AutoCompleteOptions",
+                "query": { "roles": "{{roles}}" }
+              }
+            }
+          }
+        }
       },
       "WangEditor": {
         "bind": "html",
