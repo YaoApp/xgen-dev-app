@@ -113,6 +113,12 @@
       "label": "Json格式测试字段3",
       "comment": "Json格式测试字段3",
       "type": "json"
+    },
+    {
+      "name": "form_dsl",
+      "label": "Form Builder",
+      "comment": "Form Builder",
+      "type": "json"
     }
   ],
   "relations": {

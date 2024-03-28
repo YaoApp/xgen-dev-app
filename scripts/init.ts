@@ -1,6 +1,6 @@
 import { Process } from "./__types/yao";
 
-// yao run scripts.init.setData
+// yao migrate --reset && yao run scripts.init.setData
 function setData() {
   Process(
     "models.hero.Insert",

@@ -93,6 +93,34 @@
       },
       "sections": [
         {
+          "title": "Yao v0.10.4",
+          "columns": [
+            {
+              "tabs": [
+                {
+                  "title": "Form Builder",
+                  "columns": [{ "name": "Form Builder", "width": 24 }]
+                },
+                {
+                  "title": "Frame Component",
+                  "columns": [{ "name": "Frame Component", "width": 24 }]
+                },
+                {
+                  "title": "WangEditor",
+                  "columns": [{ "name": "WangEditor", "width": 24 }]
+                },
+                {
+                  "title": "AutoComplete",
+                  "columns": [
+                    { "name": "AutoComplete", "width": 24 },
+                    { "name": "AutoComplete Remote", "width": 24 }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "title": "Section 1",
           "columns": [
             { "name": "名称", "width": 12 },
@@ -115,30 +143,6 @@
             { "name": "头像", "width": 24 },
             { "name": "RichText", "width": 24 },
             { "name": "审批流1", "width": 24 }
-          ]
-        },
-        {
-          "title": "Yao v0.10.4",
-          "columns": [
-            {
-              "tabs": [
-                {
-                  "title": "Frame Component",
-                  "columns": [{ "name": "Frame Component", "width": 24 }]
-                },
-                {
-                  "title": "WangEditor",
-                  "columns": [{ "name": "WangEditor", "width": 24 }]
-                },
-                {
-                  "title": "AutoComplete",
-                  "columns": [
-                    { "name": "AutoComplete", "width": 24 },
-                    { "name": "AutoComplete Remote", "width": 24 }
-                  ]
-                }
-              ]
-            }
           ]
         }
       ]
@@ -278,6 +282,16 @@
       "价格（点券）": {
         "bind": "coupon_price",
         "edit": { "type": "InputNumber", "props": {} }
+      },
+
+      "Form Builder": {
+        "bind": "form_dsl",
+        "edit": {
+          "type": "FormBuilder",
+          "props": {
+            "ai": { "placeholder": "帮我制作一个表单..." }
+          }
+        }
       },
 
       "AutoComplete": {
