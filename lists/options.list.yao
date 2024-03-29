@@ -1,0 +1,24 @@
+{
+  "name": "下拉选项",
+  "action": { "bind": { "model": "role" } },
+  "layout": {
+    "list": {
+      "columns": [
+        { "name": "显示名称", "width": 12 },
+        { "name": "数值", "width": 12 }
+      ]
+    }
+  },
+  "fields": {
+    "list": {
+      "显示名称": {
+        "bind": "label",
+        "edit": { "type": "Input", "props": {} }
+      },
+      "数值": {
+        "bind": "value",
+        "edit": { "type": "Input", "props": {} }
+      }
+    }
+  }
+}

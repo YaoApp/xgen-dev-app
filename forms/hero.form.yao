@@ -289,7 +289,17 @@
         "edit": {
           "type": "FormBuilder",
           "props": {
-            "ai": { "placeholder": "帮我制作一个表单..." }
+            "ai": { "placeholder": "帮我制作一个表单..." },
+
+            "$presets": {
+              "process": "scripts.hero.FormBuilderPresets",
+              "query": { "id": "{{ id }}" }
+            },
+
+            "$setting": {
+              "process": "scripts.hero.FormBuilderSetting",
+              "query": { "id": "{{ id }}" }
+            }
           }
         }
       },
