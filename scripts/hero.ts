@@ -23,10 +23,10 @@ function AutoCompleteOptions(query) {
 function FormBuilderSetting(query: Record<string, any>) {
   return {
     defaultValue: [
-      { type: "Input", width: 12, props: { label: "手机号", name: "mobile" } },
+      { type: "Input", width: 6, props: { label: "手机号", name: "mobile" } },
       {
         type: "Select",
-        width: 12,
+        width: 6,
         props: {
           label: "类目",
           name: "category",
