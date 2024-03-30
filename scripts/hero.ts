@@ -146,7 +146,7 @@ function FormBuilderSetting(query: Record<string, any>) {
             placeholder: "显示时间",
             options: [
               { label: "显示", value: 1 },
-              { label: "隐藏", value: 1 },
+              { label: "隐藏", value: 0 },
             ],
           },
         },
@@ -154,17 +154,44 @@ function FormBuilderSetting(query: Record<string, any>) {
 
       必填项: {
         bind: "required",
-        edit: { type: "Switch", props: { placeholder: "必填项" } },
+        edit: {
+          type: "RadioGroup",
+          props: {
+            placeholder: "必填项",
+            options: [
+              { label: "是", value: 1 },
+              { label: "否", value: 0 },
+            ],
+          },
+        },
       },
 
       数值唯一: {
         bind: "unique",
-        edit: { type: "Switch", props: { placeholder: "数值唯一" } },
+        edit: {
+          type: "RadioGroup",
+          props: {
+            placeholder: "数值唯一",
+            options: [
+              { label: "是", value: 1 },
+              { label: "否", value: 0 },
+            ],
+          },
+        },
       },
 
       可检索: {
         bind: "index",
-        edit: { type: "Switch", props: { placeholder: "可检索" } },
+        edit: {
+          type: "RadioGroup",
+          props: {
+            placeholder: "可检索",
+            options: [
+              { label: "是", value: 1 },
+              { label: "否", value: 0 },
+            ],
+          },
+        },
       },
 
       占位符: {
