@@ -1,7 +1,7 @@
 import { time } from "./__types/yao";
 
 function beforeSave(payload) {
-  time.Sleep(1000 * 10);
+  time.Sleep(1000 * 2);
   return payload;
 }
 
