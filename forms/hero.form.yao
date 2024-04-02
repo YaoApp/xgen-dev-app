@@ -290,12 +290,15 @@
           "type": "FormBuilder",
           "props": {
             "ai": { "placeholder": "帮我制作一个表单..." },
+            "height": 500, // min-height should be more than 300, default is 300
 
+            // presets interface
             "$presets": {
               "process": "scripts.hero.FormBuilderPresets",
               "query": { "id": "{{ id }}" }
             },
 
+            // setting interface
             "$setting": {
               "process": "scripts.hero.FormBuilderSetting",
               "query": { "id": "{{ id }}" }

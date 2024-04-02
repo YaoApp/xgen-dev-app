@@ -22,6 +22,8 @@ function AutoCompleteOptions(query) {
 
 function FormBuilderSetting(query: Record<string, any>) {
   return {
+    title: "宠物管理表单",
+
     defaultValue: [
       { type: "Input", width: 6, props: { label: "手机号", name: "mobile" } },
       {
@@ -240,14 +242,16 @@ function FormBuilderSetting(query: Record<string, any>) {
 }
 
 function FormBuilderPresets(query: Record<string, any>) {
-  return [
+  const data = [
     {
       type: "Input",
+      icon: "material-format_align_left",
       width: 12,
-      props: { name: "mobile", label: "手机号必填", requered: 1 },
+      props: { name: "mobile", label: "手机号必填", required: 1 },
     },
     {
       type: "Select",
+      icon: "material-view_list",
       width: 12,
       props: {
         label: "行业分类",
@@ -259,4 +263,11 @@ function FormBuilderPresets(query: Record<string, any>) {
       },
     },
   ];
+
+  if (query.keywords) {
+    // filter
+    return data.filter((item) => item.props.label.includes(query.keywords));
+  }
+
+  return data;
 }
