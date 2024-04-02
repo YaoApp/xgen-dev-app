@@ -1,6 +1,6 @@
 {
   "name": "下拉选项",
-  "action": { "bind": { "model": "role" } },
+  "action": {},
   "layout": {
     "list": {
       "columns": [
