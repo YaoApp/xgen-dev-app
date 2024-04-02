@@ -44,7 +44,12 @@ function FormBuilderSetting(query: Record<string, any>) {
         name: "Input",
         icon: "material-format_align_left",
         props: [
-          { columns: [{ name: "名称", width: 12 }] },
+          {
+            columns: [
+              { name: "名称", width: 12 },
+              { name: "可用范围", width: 12 },
+            ],
+          },
           {
             columns: [
               { name: "字段名称", width: 12 },
@@ -70,6 +75,7 @@ function FormBuilderSetting(query: Record<string, any>) {
             columns: [
               { name: "名称", width: 12 },
               { name: "选项", width: 12 },
+              { name: "可用范围", width: 12 },
             ],
           },
           {
@@ -98,6 +104,7 @@ function FormBuilderSetting(query: Record<string, any>) {
               { name: "名称", width: 12 },
               { name: "日期格式", width: 12 },
               { name: "显示时间", width: 12 },
+              { name: "可用范围", width: 12 },
             ],
           },
           {
@@ -144,6 +151,7 @@ function FormBuilderSetting(query: Record<string, any>) {
           type: "RadioGroup",
           props: {
             placeholder: "显示时间",
+            defaultValue: 1,
             options: [
               { label: "显示", value: 1 },
               { label: "隐藏", value: 0 },
@@ -206,9 +214,21 @@ function FormBuilderSetting(query: Record<string, any>) {
           props: {
             placeholder: "数值校验",
             options: [
-              { label: "邮箱", value: "mobile" },
-              { label: "手机号", value: "email" },
+              { label: "邮箱", value: "email" },
+              { label: "手机号", value: "mobile" },
             ],
+          },
+        },
+      },
+
+      可用范围: {
+        bind: "scope",
+        edit: {
+          type: "Select",
+          props: {
+            mode: "multiple",
+            placeholder: "可用范围",
+            xProps: { remote: { api: "/api/select/options", query: {} } },
           },
         },
       },

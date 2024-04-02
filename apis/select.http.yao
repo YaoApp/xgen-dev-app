@@ -2,7 +2,6 @@
   "name": "select Test",
   "version": "1.0.0",
   "guard": "-",
-  "group": "select",
   "paths": [
     {
       "path": "/options",
