@@ -151,7 +151,7 @@ function FormBuilderSetting(query: Record<string, any>) {
           type: "RadioGroup",
           props: {
             placeholder: "显示时间",
-            defaultValue: 1,
+            defaultValue: 0,
             options: [
               { label: "显示", value: 1 },
               { label: "隐藏", value: 0 },
@@ -166,6 +166,7 @@ function FormBuilderSetting(query: Record<string, any>) {
           type: "RadioGroup",
           props: {
             placeholder: "必填项",
+            defaultValue: 0,
             options: [
               { label: "是", value: 1 },
               { label: "否", value: 0 },
@@ -180,6 +181,7 @@ function FormBuilderSetting(query: Record<string, any>) {
           type: "RadioGroup",
           props: {
             placeholder: "数值唯一",
+            defaultValue: 0,
             options: [
               { label: "是", value: 1 },
               { label: "否", value: 0 },
@@ -194,6 +196,7 @@ function FormBuilderSetting(query: Record<string, any>) {
           type: "RadioGroup",
           props: {
             placeholder: "可检索",
+            defaultValue: 0,
             options: [
               { label: "是", value: 1 },
               { label: "否", value: 0 },
