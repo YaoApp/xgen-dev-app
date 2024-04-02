@@ -13,11 +13,11 @@
     "list": {
       "显示名称": {
         "bind": "label",
-        "edit": { "type": "Input", "props": {} }
+        "edit": { "type": "Input", "props": { "placeholder": "显示名称" } }
       },
       "数值": {
         "bind": "value",
-        "edit": { "type": "Input", "props": {} }
+        "edit": { "type": "Input", "props": { "placeholder": "数值" } }
       }
     }
   }
