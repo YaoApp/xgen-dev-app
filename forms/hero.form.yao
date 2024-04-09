@@ -113,7 +113,14 @@
                   "title": "AutoComplete",
                   "columns": [
                     { "name": "AutoComplete", "width": 24 },
-                    { "name": "AutoComplete Remote", "width": 24 }
+                    { "name": "AutoComplete Remote", "width": 24 },
+                    { "name": "AutoComplete Option with Icon", "width": 24 }
+                  ]
+                },
+                {
+                  "title": "Select Upgraded",
+                  "columns": [
+                    { "name": "Select Option with Icon", "width": 24 }
                   ]
                 }
               ]
@@ -282,6 +289,58 @@
       "价格（点券）": {
         "bind": "coupon_price",
         "edit": { "type": "InputNumber", "props": {} }
+      },
+
+      "Select Option with Icon": {
+        "bind": "identity",
+        "edit": {
+          "type": "Select",
+          "props": {
+            "options": [
+              {
+                "icon": "material-favorite",
+                "label": "机甲师",
+                "value": "机甲师"
+              },
+              {
+                "icon": "material-app_registration",
+                "label": "飞行员",
+                "value": "飞行员"
+              },
+              {
+                "icon": { "name": "icon-star", "size": 15 },
+                "label": "轻骑兵",
+                "value": "轻骑兵"
+              }
+            ]
+          }
+        }
+      },
+
+      "AutoComplete Option with Icon": {
+        "bind": "identity",
+        "edit": {
+          "type": "AutoComplete",
+          "props": {
+            "options": [
+              {
+                "icon": "material-favorite",
+                "label": "机甲师",
+                "value": "机甲师"
+              },
+              {
+                "icon": "material-app_registration",
+                "label": "飞行员",
+                "value": "飞行员"
+              },
+              {
+                "icon": { "name": "icon-star", "size": 15 },
+                "label": "轻骑兵",
+                "value": "轻骑兵"
+              }
+            ]
+          }
+        }
       },
 
       "Form Builder": {

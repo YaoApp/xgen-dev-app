@@ -29,14 +29,14 @@ https://github.com/YaoApp/yao/actions/workflows/build-macos.yml
 X86_64 架构的 Docker 镜像：
 
 ```bash
-docker run -d --name yao -v <project root>:/data/app -p 5099:5099 -p 5077:5077 yaoapp/0.10.4-unstable-amd64-dev
+docker run -d --name yao -v <project root>:/data/app -p 5099:5099 -p 5077:5077 yaoapp/yao:0.10.4-unstable-amd64-dev
 docker exec -it yao /bin/bash
 ```
 
 Arm64 架构的 Docker 镜像：
 
 ```bash
-docker run -d --name yao -v <project root>:/data/app -p 5099:5099 -p 5077:5077 yaoapp/0.10.4-unstable-arm64-dev
+docker run -d --name yao -v <project root>:/data/app -p 5099:5099 -p 5077:5077 yaoapp/yao:0.10.4-unstable-arm64-dev
 ```
 
 在容器内执行以下命令：

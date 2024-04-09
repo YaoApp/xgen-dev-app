@@ -22,6 +22,7 @@
       "type": "string",
       "length": 80,
       "index": true,
+      "nullable": true,
       "label": "别名"
     },
     {
@@ -29,6 +30,7 @@
       "name": "identity",
       "comment": "身份",
       "type": "string",
+      "nullable": true,
       "length": 100,
       "index": true
     },
@@ -37,6 +39,7 @@
       "label": "昵称",
       "comment": "昵称",
       "type": "string",
+      "nullable": true,
       "length": 80,
       "index": true
     },
@@ -44,80 +47,105 @@
       "name": "frame_component",
       "label": "Frame Compoment",
       "comment": "Frame Component Input",
+      "nullable": true,
       "type": "string"
     },
-    { "name": "roles", "label": "角色", "comment": "角色", "type": "json" },
-    { "name": "position", "label": "位置", "comment": "位置", "type": "json" },
+    {
+      "name": "roles",
+      "label": "角色",
+      "comment": "角色",
+      "nullable": true,
+      "type": "json"
+    },
+    {
+      "name": "position",
+      "label": "位置",
+      "comment": "位置",
+      "nullable": true,
+      "type": "json"
+    },
     {
       "name": "attack",
       "label": "物理伤害",
       "comment": "物理伤害",
+      "nullable": true,
       "type": "integer"
     },
     {
       "name": "defense",
       "label": "防御能力",
       "comment": "防御能力",
+      "nullable": true,
       "type": "integer"
     },
     {
       "name": "magic",
       "label": "魔法伤害",
       "comment": "魔法伤害",
+      "nullable": true,
       "type": "integer"
     },
     {
       "name": "difficulty",
       "label": "操作难度",
       "comment": "操作难度",
+      "nullable": true,
       "type": "integer"
     },
     {
       "name": "gold_price",
       "label": "价格（金币）",
       "comment": "价格（金币）",
+      "nullable": true,
       "type": "integer"
     },
     {
       "name": "coupon_price",
       "label": "价格（点券）",
       "comment": "价格（点券）",
+      "nullable": true,
       "type": "integer"
     },
     {
       "name": "desc",
       "label": "详细描述",
       "comment": "详细描述",
+      "nullable": true,
       "type": "json"
     },
     {
       "name": "html",
       "label": "详细描述 HTML",
       "comment": "详细描述 HTML",
+      "nullable": true,
       "type": "text"
     },
     {
       "name": "json_1",
       "label": "Json格式测试字段1",
       "comment": "Json格式测试字段1",
+      "nullable": true,
       "type": "json"
     },
     {
       "name": "json_2",
       "label": "Json格式测试字段2",
       "comment": "Json格式测试字段2",
+      "nullable": true,
       "type": "json"
     },
     {
       "name": "json_3",
       "label": "Json格式测试字段3",
       "comment": "Json格式测试字段3",
+      "nullable": true,
       "type": "json"
     },
     {
       "name": "form_dsl",
       "label": "Form Builder",
       "comment": "Form Builder",
+      "nullable": true,
       "type": "json"
     }
   ],

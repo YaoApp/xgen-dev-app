@@ -31,14 +31,14 @@ On the above page, select the latest build, download and unzip it, then choose t
 For X86_64 architecture Docker image:
 
 ```bash
-docker run -d --name yao -v <project root>:/data/app -p 5099:5099 -p 5077:5077 yaoapp/0.10.4-unstable-amd64-dev
+docker run -d --name yao -v <project root>:/data/app -p 5099:5099 -p 5077:5077 yaoapp/yao:0.10.4-unstable-amd64-dev
 docker exec -it yao /bin/bash
 ```
 
 For Arm64 architecture Docker image:
 
 ```bash
-docker run -d --name yao -v <project root>:/data/app -p 5099:5099 -p 5077:5077 yaoapp/0.10.4-unstable-arm64-dev
+docker run -d --name yao -v <project root>:/data/app -p 5099:5099 -p 5077:5077 yaoapp/yao:0.10.4-unstable-arm64-dev
 ```
 
 Run the following commands inside the container:

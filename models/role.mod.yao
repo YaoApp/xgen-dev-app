@@ -8,6 +8,7 @@
       "label": "角色名称",
       "comment": "角色名称",
       "type": "string",
+      "nullable": true,
       "length": 20
     },
     {
