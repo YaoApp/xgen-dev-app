@@ -94,23 +94,29 @@
       "sections": [
         {
           "title": "Yao v0.10.4",
+          "icon": { "name": "icon-layers", "size": 16 },
+          "weight": "medium",
           "columns": [
             {
               "tabs": [
                 {
                   "title": "Form Builder",
+                  "icon": "icon-layers",
                   "columns": [{ "name": "Form Builder", "width": 24 }]
                 },
                 {
                   "title": "Frame Component",
+                  "icon": "icon-layers",
                   "columns": [{ "name": "Frame Component", "width": 24 }]
                 },
                 {
                   "title": "WangEditor",
+                  "icon": "icon-layers",
                   "columns": [{ "name": "WangEditor", "width": 24 }]
                 },
                 {
                   "title": "AutoComplete",
+                  "icon": "icon-layers",
                   "columns": [
                     { "name": "AutoComplete", "width": 24 },
                     { "name": "AutoComplete Remote", "width": 24 },
@@ -119,6 +125,9 @@
                 },
                 {
                   "title": "Select Upgraded",
+                  "icon": { "name": "icon-layers", "size": 14 },
+                  "weight": "medium",
+                  "color": "danger",
                   "columns": [
                     { "name": "Select Option with Icon", "width": 24 }
                   ]
