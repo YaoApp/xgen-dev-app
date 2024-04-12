@@ -100,6 +100,46 @@
             {
               "tabs": [
                 {
+                  "title": "Flow Builder",
+                  "icon": "icon-layers",
+                  "columns": [
+                    { "name": "Flow Builder", "width": 24 },
+                    { "name": "Flow Builder Multiple", "width": 24 }
+                  ]
+                },
+                {
+                  "title": "Text",
+                  "icon": "icon-layers",
+                  "columns": [
+                    { "name": "文本", "width": 24 },
+                    { "name": "文本2", "width": 24 },
+                    { "name": "名称", "width": 12 }
+                  ]
+                },
+                {
+                  "title": "Divider",
+                  "icon": "icon-layers",
+                  "columns": [
+                    { "name": "昵称", "width": 6 },
+                    { "name": "分割线", "width": 24 },
+                    { "name": "昵称", "width": 6 },
+                    { "name": "分割线2", "width": 24 },
+                    { "name": "昵称", "width": 6 },
+                    { "name": "分割线3", "width": 24 },
+                    { "name": "昵称", "width": 6 },
+                    { "name": "分割线4", "width": 24 }
+                  ]
+                },
+                {
+                  "title": "Placement",
+                  "icon": "icon-layers",
+                  "columns": [
+                    { "name": "昵称", "width": 6 },
+                    { "name": "占位", "width": 6 },
+                    { "name": "名称", "width": 12 }
+                  ]
+                },
+                {
                   "title": "Form Builder",
                   "icon": "icon-layers",
                   "columns": [{ "name": "Form Builder", "width": 24 }]
@@ -220,6 +260,7 @@
           }
         }
       },
+
       "名称": {
         "bind": "name",
         "edit": {
@@ -369,6 +410,100 @@
             // setting interface
             "$setting": {
               "process": "scripts.hero.FormBuilderSetting",
+              "query": { "id": "{{ id }}" }
+            }
+          }
+        }
+      },
+
+      "分割线": {
+        "edit": { "type": "Divider", "props": {} }
+      },
+
+      "分割线2": {
+        "edit": {
+          "type": "Divider",
+          "props": { "size": 2, "color": "primary" }
+        }
+      },
+
+      "分割线3": {
+        "edit": {
+          "type": "Divider",
+          "props": { "title": "分割线标题", "color": "danger", "size": 2 }
+        }
+      },
+
+      "分割线4": {
+        "edit": {
+          "type": "Divider",
+          "props": { "title": "分割线标题", "desc": "带标题和描述的分割线" }
+        }
+      },
+
+      "占位": {
+        "edit": { "type": "Placement" }
+      },
+
+      "文本": {
+        "edit": {
+          "type": "Text",
+          "props": {
+            "color": "primary",
+            "weight": "medium",
+            "text": "自定义文本"
+          }
+        }
+      },
+
+      "文本2": {
+        "edit": {
+          "type": "Text",
+          "props": { "color": "#8a2be2", "text": "自定义文本", "height": 64 }
+        }
+      },
+
+      "Flow Builder": {
+        "bind": "flow_dsl",
+        "edit": {
+          "type": "FlowBuilder",
+          "props": {
+            "ai": { "placeholder": "帮我制作一个 XXX 功能..." },
+            "height": 500, // min-height should be more than 300, default is 300
+
+            // presets interface
+            "$presets": {
+              "process": "scripts.hero.FlowBuilderPresets",
+              "query": { "id": "{{ id }}" }
+            },
+
+            // setting interface
+            "$setting": {
+              "process": "scripts.hero.FlowBuilderSetting",
+              "query": { "id": "{{ id }}" }
+            }
+          }
+        }
+      },
+
+      "Flow Builder Multiple": {
+        "bind": "flow_multiple_dsl",
+        "edit": {
+          "type": "FlowBuilder",
+          "props": {
+            "ai": { "placeholder": "帮我制作一个 XXX 功能..." },
+            "mode": "multiple",
+            "height": 500, // min-height should be more than 300, default is 300
+
+            // presets interface
+            "$presets": {
+              "process": "scripts.hero.FlowBuilderPresets",
+              "query": { "id": "{{ id }}" }
+            },
+
+            // setting interface
+            "$setting": {
+              "process": "scripts.hero.FlowBuilderSetting",
               "query": { "id": "{{ id }}" }
             }
           }

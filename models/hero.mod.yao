@@ -147,6 +147,20 @@
       "comment": "Form Builder",
       "nullable": true,
       "type": "json"
+    },
+    {
+      "name": "flow_dsl",
+      "label": "Flow Builder",
+      "comment": "Flow Builder",
+      "nullable": true,
+      "type": "json"
+    },
+    {
+      "name": "flow_multiple_dsl",
+      "label": "Flow Builder",
+      "comment": "Flow Builder",
+      "nullable": true,
+      "type": "json"
     }
   ],
   "relations": {

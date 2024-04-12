@@ -1,0 +1,453 @@
+{
+  "name": "Hero List",
+  "action": {
+    "bind": {
+      "model": "hero",
+      "option": {}
+    },
+    "search": {},
+    "find": {},
+    "get": {},
+    "save": {},
+    "delete": {}
+  },
+  "layout": {
+    "primary": "id",
+    "header": {
+      "preset": {
+        "batch": {
+          "columns": [
+            {
+              "name": "价格（金币）",
+              "width": 12
+            },
+            {
+              "name": "价格（点券）",
+              "width": 12
+            }
+          ],
+          "deletable": true
+        }
+      }
+    },
+    "filter": {
+      "columns": [
+        {
+          "name": "名称",
+          "width": 4
+        },
+        {
+          "name": "昵称",
+          "width": 4
+        },
+        {
+          "name": "角色",
+          "width": 4
+        },
+        {
+          "name": "位置",
+          "width": 4
+        }
+      ],
+      "actions": [
+        {
+          "title": "导出",
+          "action": [
+            {
+              "name": "historyPush",
+              "type": "Common.historyPush",
+              "payload": {
+                "pathname": "http://baidu.com",
+                "withFilterQuery": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "添加英雄",
+          "icon": "icon-plus",
+          "action": [
+            {
+              "name": "OpenModal",
+              "type": "Common.openModal",
+              "payload": {
+                "width": 900,
+                "Form": {
+                  "type": "edit",
+                  "model": "hero"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "table": {
+      "columns": [
+        { "name": "Block", "width": 160 },
+        { "name": "头像" },
+        { "name": "昵称" },
+        { "name": "角色" },
+        { "name": "位置" },
+        { "name": "角色（数值）", "width": 200 },
+        { "name": "物理伤害", "width": 60 },
+        { "name": "防御能力", "width": 60 },
+        { "name": "魔法伤害", "width": 60 },
+        { "name": "操作难度", "width": 60 },
+        { "name": "价格（金币）", "width": 80 },
+        { "name": "价格（点券）", "width": 80 }
+      ],
+      "operation": {
+        "fold": false,
+        "width": 60,
+        "actions": [
+          {
+            "title": "查看",
+            "icon": "icon-eye",
+            "disabled": {
+              "bind": "{{id}}",
+              "value": ["1", "2"]
+            },
+            "action": [
+              {
+                "name": "OpenModal",
+                "type": "Common.openModal",
+                "payload": {
+                  "width": 640,
+                  "Form": {
+                    "type": "view",
+                    "model": "hero"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "title": "编辑",
+            "icon": "icon-edit-2",
+            "action": [
+              {
+                "name": "HistoryPush",
+                "type": "Common.historyPush",
+                "payload": {
+                  "pathname": "/x/Form/hero/{{id}}/edit"
+                }
+              }
+            ]
+          },
+          {
+            "title": "删除",
+            "icon": "icon-trash-2",
+            "action": [
+              {
+                "name": "Delete",
+                "type": "Table.delete",
+                "payload": {}
+              }
+            ],
+            "style": "danger",
+            "confirm": {
+              "title": "提示",
+              "desc": "确认删除，删除后数据无法恢复？"
+            }
+          }
+        ]
+      },
+      "props": {}
+    }
+  },
+  "fields": {
+    "filter": {
+      "名称": {
+        "bind": "where.name.like",
+        "edit": {
+          "type": "Input",
+          "props": {}
+        }
+      },
+      "昵称": {
+        "bind": "where.title.like",
+        "edit": {
+          "type": "Input",
+          "props": {}
+        }
+      },
+      "角色": {
+        "bind": "where.roles.in",
+        "edit": {
+          "type": "Select",
+          "props": {
+            "xProps": {
+              "$remote": {
+                "process": "yao.component.SelectOptions",
+                "query": {
+                  "model": "role",
+                  "label": "name",
+                  "value": "type"
+                }
+              }
+            }
+          }
+        }
+      },
+      "位置": {
+        "bind": "where.position.in",
+        "edit": {
+          "type": "Select",
+          "props": {
+            "options": [
+              { "label": "上单", "value": "上单" },
+              { "label": "中单", "value": "中单" },
+              { "label": "打野", "value": "打野" },
+              { "label": "下路", "value": "下路" },
+              { "label": "辅助", "value": "辅助" }
+            ]
+          }
+        }
+      }
+    },
+    "table": {
+      "Block": {
+        "bind": "avatar",
+        "view": {
+          "type": "Block",
+          "props": {
+            "components": {
+              "avatar": {
+                "bind": "avatar",
+                "view": {
+                  "type": "Image",
+                  "compute": "Download",
+                  "props": {
+                    "style": {
+                      "width": 36,
+                      "height": 36,
+                      "borderRadius": "50%"
+                    }
+                  }
+                },
+                "edit": {
+                  "type": "Upload",
+                  "compute": "Upload",
+                  "props": {
+                    "filetype": "image",
+                    "$api": {
+                      "process": "fs.system.Upload"
+                    }
+                  }
+                }
+              },
+              "name": {
+                "bind": "name",
+                "view": {
+                  "type": "Text",
+                  "props": {}
+                },
+                "edit": {
+                  "type": "Input",
+                  "props": {}
+                }
+              },
+              "desc": {
+                "bind": "alias",
+                "view": {
+                  "type": "Text",
+                  "props": {}
+                },
+                "edit": {
+                  "type": "Input",
+                  "props": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "头像": {
+        "bind": "avatar",
+        "view": {
+          "type": "Image",
+          "compute": "Download",
+          "props": {
+            "style": {
+              "width": 36,
+              "height": 36,
+              "borderRadius": "50%"
+            }
+          }
+        },
+        "edit": {
+          "type": "Upload",
+          "compute": "Upload",
+          "props": {
+            "filetype": "image",
+            "$api": {
+              "process": "fs.system.Upload"
+            }
+          }
+        }
+      },
+      "昵称": {
+        "bind": "title",
+        "view": {
+          "type": "A",
+          "props": {
+            "href": "http://localhost:8000/yao/x/Form/hero/1/edit"
+          }
+        }
+      },
+      "角色（数值）": {
+        "bind": "roles",
+        "view": { "type": "Tag", "props": {} }
+      },
+      "角色": {
+        "bind": "roles",
+        "view": {
+          "type": "Tag",
+          "props": {
+            "xProps": {
+              "$remote": {
+                "process": "yao.component.SelectOptions",
+                "query": {
+                  "model": "role",
+                  "label": "name",
+                  "value": "type"
+                }
+              }
+            }
+          }
+        },
+        "edit": {
+          "type": "Select",
+          "props": {
+            "mode": "multiple",
+            "xProps": {
+              "$remote": {
+                "process": "yao.component.SelectOptions",
+                "query": {
+                  "model": "role",
+                  "label": "name",
+                  "value": "type"
+                }
+              }
+            }
+          }
+        }
+      },
+      "位置": {
+        "bind": "position",
+        "view": {
+          "type": "Tag",
+          "props": {
+            "options": [
+              { "label": "上单", "value": "上单", "color": "danger" },
+              { "label": "中单", "value": "中单", "color": "primary" },
+              { "label": "打野", "value": "打野", "color": "warning" },
+              { "label": "下路", "value": "下路", "color": "success" },
+              {
+                "label": "辅助",
+                "value": "辅助",
+                "color": "#8a2be2",
+                "textColor": "#ffffff"
+              }
+            ]
+          }
+        },
+        "edit": {
+          "type": "Select",
+          "props": {
+            "mode": "multiple",
+            "options": [
+              {
+                "label": "上单",
+                "value": "上单"
+              },
+              {
+                "label": "中单",
+                "value": "中单"
+              },
+              {
+                "label": "打野",
+                "value": "打野"
+              },
+              {
+                "label": "下路",
+                "value": "下路"
+              },
+              {
+                "label": "辅助",
+                "value": "辅助"
+              }
+            ]
+          }
+        }
+      },
+      "物理伤害": {
+        "bind": "attack",
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "type": "InputNumber",
+          "props": {}
+        }
+      },
+      "防御能力": {
+        "bind": "defense",
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "type": "InputNumber",
+          "props": {}
+        }
+      },
+      "魔法伤害": {
+        "bind": "magic",
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "type": "InputNumber",
+          "props": {}
+        }
+      },
+      "操作难度": {
+        "bind": "difficulty",
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "type": "InputNumber",
+          "props": {}
+        }
+      },
+      "价格（金币）": {
+        "bind": "gold_price",
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "type": "InputNumber",
+          "props": {}
+        }
+      },
+      "价格（点券）": {
+        "bind": "coupon_price",
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "type": "InputNumber",
+          "props": {}
+        }
+      }
+    }
+  }
+}
