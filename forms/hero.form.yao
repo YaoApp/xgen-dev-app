@@ -108,6 +108,11 @@
                   ]
                 },
                 {
+                  "title": "Form Builder",
+                  "icon": "icon-layers",
+                  "columns": [{ "name": "Form Builder", "width": 24 }]
+                },
+                {
                   "title": "Text",
                   "icon": "icon-layers",
                   "columns": [
@@ -138,11 +143,6 @@
                     { "name": "占位", "width": 6 },
                     { "name": "名称", "width": 12 }
                   ]
-                },
-                {
-                  "title": "Form Builder",
-                  "icon": "icon-layers",
-                  "columns": [{ "name": "Form Builder", "width": 24 }]
                 },
                 {
                   "title": "Frame Component",
