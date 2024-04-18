@@ -6,6 +6,8 @@ This example demonstrates how to use Yao to implement basic functionalities for 
 
 It is recommended to run this example with Yao version 0.10.4. TypeScript is recommended as the scripting language.
 
+[Online Demo](https://xgen-dev.iqka.com/)
+
 ## Yao v0.10.4 Installation & Download
 
 ### Method 1: Download Artifacts

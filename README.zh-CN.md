@@ -4,6 +4,8 @@
 
 推荐使用 Yao 0.10.4 版运行本示例。 推荐使用 TypeScript 作为脚本开发语言。
 
+[在线演示](https://xgen-dev.iqka.com/)
+
 ## Yao v0.10.4 安装下载
 
 ### 方式 1：下载制品

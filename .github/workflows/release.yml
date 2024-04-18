@@ -5,6 +5,10 @@ on:
     inputs:
       tags:
         description: "Version tags"
+
+  schedule:
+    - cron: "0 */4 * * *" # Runs every 4 hours
+
   push:
     branches: [main]
 
