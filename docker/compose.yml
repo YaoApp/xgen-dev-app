@@ -1,0 +1,71 @@
+services:
+  reverse-proxy:
+    # The official v2 Traefik docker image
+    image: traefik:v2.10
+    restart: unless-stopped
+    # Enables the web UI and tells Traefik to listen to docker
+    command:
+      - --api
+      - --api.insecure=true
+      - --providers.docker
+      - --providers.file.directory=/dynamic
+      - --providers.file.watch=true
+      - --entrypoints.web.address=:80
+      - --entrypoints.web.http.redirections.entryPoint.to=websecure
+      - --entrypoints.web.http.redirections.entryPoint.scheme=https
+      - --entrypoints.web.http.redirections.entrypoint.permanent=true
+      - --entrypoints.websecure.http.tls=true
+      - --entrypoints.websecure.address=:443
+      - --providers.docker.exposedByDefault=false # require containers to define `traefik.enable=true` to be exposed
+      - --entrypoints.websecure.http.tls.certresolver=letsencryptresolver
+      - --providers.docker.exposedByDefault=false # require containers to define `traefik.enable=true` to be exposed
+      - --certificatesresolvers.letsencryptresolver.acme.email=your@email.com
+      - --certificatesresolvers.letsencryptresolver.acme.storage=/acme.json
+      - --certificatesresolvers.letsencryptresolver.acme.tlschallenge=true
+
+    ports:
+      # The HTTP port
+      - "80:80"
+      # The HTPPS port
+      - "443:443"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/certs:/certs
+      - /data/traefik/dynamic:/dynamic
+
+    labels:
+      - traefik.enable=true
+
+      # "admin" middleware definition
+      # to be used by services that do not have their own security
+      - traefik.http.middlewares.admin.basicauth.users=xgendemo:$2y$$05$$URlNm8ClMpJB4yhfSkDc0uaiXtXGzW7WXZChe/2YNXa92MW2weGbO
+
+      # expose the traefik dashboard
+      - traefik.http.routers.traefik.entrypoints=websecure
+      - traefik.http.routers.traefik.rule=Host(`traefik.your.domain`)
+      - traefik.http.routers.traefik.service=api@internal
+      - traefik.http.routers.traefik.tls.certresolver=letsencryptresolver
+
+  whoami:
+    # A container that exposes an API to show its IP address
+    image: traefik/whoami
+    restart: unless-stopped
+    labels:
+      - "traefik.http.routers.whoami.rule=Host(`whoami.your.domain`)"
+      - "traefik.enable=true"
+
+  mysql:
+    image: yaoapp/mysql:8.0-amd64
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+
+  tika:
+    image: yaoapp/tika:2.8.0.0-full
+    restart: unless-stopped
+    ports:
+      - 9998:9998
