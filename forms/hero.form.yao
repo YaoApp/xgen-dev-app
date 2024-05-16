@@ -471,15 +471,42 @@
             "ai": { "placeholder": "帮我制作一个 XXX 功能..." },
             "height": 500, // min-height should be more than 300, default is 300
 
+            // The flow builder component is built on top of react-flow, a library for building node-based applications.
+            // It will display the attribution by default at the right bottom corner. You can remove it by setting `removeAttribution` to `true`.
+            // If you’re considering removing the attribution, you should be aware of the license agreement, follow the next link to learn more.
+            // https://reactflow.dev/learn/troubleshooting/remove-attribution
+            "removeAttribution": false,
+
+            // execute interface
+            // The execute API is to execute the flow data. It will be called when the user clicks the run button or your custom calls the execute method.
+            "$execute": {
+              "process": "scripts.flow.Execute",
+              "query": { "id": "{{ id }}" }
+            },
+
+            // parser interface
+            // The parser API is to parse the flow data and tips the variables based on the context data.
+            "$parser": {
+              "process": "scripts.flow.Parser",
+              "query": { "id": "{{ id }}" }
+            },
+
+            // validate interface
+            // The node validate API is to validate the flow data before saving it.
+            "$validate": {
+              "process": "scripts.flow.Validate",
+              "query": { "id": "{{ id }}" }
+            },
+
             // presets interface
             "$presets": {
-              "process": "scripts.hero.FlowBuilderPresets",
+              "process": "scripts.flow.BuilderPresets",
               "query": { "id": "{{ id }}" }
             },
 
             // setting interface
             "$setting": {
-              "process": "scripts.hero.FlowBuilderSetting",
+              "process": "scripts.flow.BuilderSetting",
               "query": { "id": "{{ id }}" }
             }
           }
@@ -492,18 +519,42 @@
           "type": "FlowBuilder",
           "props": {
             "ai": { "placeholder": "帮我制作一个 XXX 功能..." },
-            "mode": "multiple",
+
             "height": 500, // min-height should be more than 300, default is 300
+
+            // if the multiple is set to true, the user can create multiple flows in the same canvas. the default value is false.
+            "multiple": true,
+
+            // execute interface
+            // The execute API is to execute the flow data. It will be called when the user clicks the run button or your custom calls the execute method.
+            "$execute": {
+              "process": "scripts.flow.Execute",
+              "query": { "id": "{{ id }}" }
+            },
+
+            // parser interface
+            // The parser API is to parse the flow data and tips the variables based on the context data.
+            "$parser": {
+              "process": "scripts.flow.Parser",
+              "query": { "id": "{{ id }}" }
+            },
+
+            // validate interface
+            // The node validate API is to validate the flow data before saving it.
+            "$validate": {
+              "process": "scripts.flow.Validate",
+              "query": { "id": "{{ id }}" }
+            },
 
             // presets interface
             "$presets": {
-              "process": "scripts.hero.FlowBuilderPresets",
+              "process": "scripts.flow.BuilderPresets",
               "query": { "id": "{{ id }}" }
             },
 
             // setting interface
             "$setting": {
-              "process": "scripts.hero.FlowBuilderSetting",
+              "process": "scripts.flow.BuilderSetting",
               "query": { "id": "{{ id }}" }
             }
           }

@@ -1,0 +1,24 @@
+{
+  "name": "参数表",
+  "action": {},
+  "layout": {
+    "list": {
+      "columns": [
+        { "name": "名称", "width": 12 },
+        { "name": "数值", "width": 12 }
+      ]
+    }
+  },
+  "fields": {
+    "list": {
+      "名称": {
+        "bind": "label",
+        "edit": { "type": "Input", "props": { "placeholder": "名称" } }
+      },
+      "数值": {
+        "bind": "value",
+        "edit": { "type": "Input", "props": { "placeholder": "数值" } }
+      }
+    }
+  }
+}
