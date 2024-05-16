@@ -21,14 +21,97 @@ function BuilderSetting() {
   return {
     // Array of FlowValue or single FlowValue to be displayed in the builder, when the builder is initialized and the value is empty, it will display an empty canvas.
     // It it not required to set a default value, but you can set it to an empty array or object.
-    defaultValue: [], // or {}
+    defaultValue: [
+      {
+        label: "AI 制作海报",
+        name: "AI-Poster",
+        icon: "material-brush",
+        description: "根据输入的文本生成海报",
+        mock: [
+          {
+            prompt: `
+            白灵淼:
+            大傩世界侧李火旺的妻子，性格外柔内刚，曾经和李火旺一起是清风观中的“药引”。
+            因为李火旺“火烧白家人”事件而和李火旺产生隔阂。曾经因煞气入体而导致性格大变（后被驱散），
+            后成为白莲教圣女（无生老母的心蟠）并在法教战役中获得成长并立下战功，
+            在对抗福生天司命的战役中主动带头重新感染煞气，最终与无生老母融合。
+            `,
+          },
+        ],
+        nodes: [
+          {
+            id: "1",
+            name: "keywords",
+            position: { x: 0, y: 0 },
+            type: "AI-Data",
+            description: "根据输入的文本提取海报关键词",
+            showTargetHandle: false,
+            props: {
+              prompt: `
+               - 根据我给你的说明，结合表单数据，提取一组 **Stable Diffusion** 关键词并将关键词翻译成英文
+               - 主要用途为海报制作，关键词用于生成海报，请添加对应的关键词
+               - 使用 JSON 格式返回，例如：{"keywords": ["关键词1", "关键词2", ...]}
+               - 只回复我 **JSON 格式**的数据，不要回答其他内容，不然我会认为你的回答是错误的。
+               - 如果你无法提取关键词，请回复 {"code": 400, "message": "无法提取关键词" }
+               ----------------
+                我的说明如下: 
+                {{ $in.prompt }}
+              `,
+              validation: "json",
+              retry: 3,
+            },
+          },
+        ],
+      },
+      {
+        label: "AI 制作人物卡片",
+        name: "AI-Poster",
+        icon: "material-badge",
+        description: "根据输入的文本生成海报",
+        mock: [
+          {
+            prompt: `
+            白灵淼:
+            大傩世界侧李火旺的妻子，性格外柔内刚，曾经和李火旺一起是清风观中的“药引”。
+            因为李火旺“火烧白家人”事件而和李火旺产生隔阂。曾经因煞气入体而导致性格大变（后被驱散），
+            后成为白莲教圣女（无生老母的心蟠）并在法教战役中获得成长并立下战功，
+            在对抗福生天司命的战役中主动带头重新感染煞气，最终与无生老母融合。
+            `,
+          },
+        ],
+        nodes: [
+          {
+            id: "1",
+            name: "keywords",
+            position: { x: 0, y: 0 },
+            type: "AI-Data",
+            description: "根据输入的文本提取人物卡片关键词",
+            showTargetHandle: false,
+            props: {
+              prompt: `
+               - 根据我给你的说明，结合表单数据，提取一组 **Stable Diffusion** 关键词并将关键词翻译成英文
+               - 主要用途为人物卡片制作，关键词用于生成卡片，请添加对应的关键词
+               - 使用 JSON 格式返回，例如：{"keywords": ["关键词1", "关键词2", ...]}
+               - 只回复我 **JSON 格式**的数据，不要回答其他内容，不然我会认为你的回答是错误的。
+               - 如果你无法提取关键词，请回复 {"code": 400, "message": "无法提取关键词" }
+               ----------------
+                我的说明如下: 
+                {{ $in.prompt }}
+              `,
+              validation: "json",
+              retry: 3,
+            },
+          },
+        ],
+      },
+    ], // or {}
 
     // The list of available flow types that the user can add to the canvas.
     types: [
       {
         label: "AI 数据处理",
         name: "AI-Data",
-        icon: "material-psychology",
+        icon: "material-cognition",
         color: "#7e22ce",
         background: "primary",
         props: [
@@ -45,7 +128,7 @@ function BuilderSetting() {
       {
         label: "AI 图片生成",
         name: "AI-Image",
-        icon: "material-psychology",
+        icon: "material-palette",
         color: "#7e22ce",
         background: "primary",
         props: [
@@ -82,7 +165,7 @@ function BuilderSetting() {
       },
       {
         label: "发送 HTTP 请求",
-        name: "RedirectTo",
+        name: "SendHttpRequest",
         icon: "material-http",
         color: "#16a34a",
         background: "primary",
@@ -104,7 +187,7 @@ function BuilderSetting() {
       },
       {
         label: "发送短信给",
-        name: "RedirectTo",
+        name: "SendSmsTo",
         icon: "material-sms",
         color: "primary",
         background: "primary",
@@ -120,7 +203,7 @@ function BuilderSetting() {
       },
       {
         label: "发送邮件给",
-        name: "RedirectTo",
+        name: "SendEmailTo",
         icon: "material-mail",
         color: "primary",
         background: "primary",
