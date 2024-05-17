@@ -168,7 +168,7 @@ function BuilderSetting() {
         name: "SendHttpRequest",
         icon: "material-http",
         color: "#16a34a",
-        background: "primary",
+        background: "success",
         props: [
           { columns: [{ name: "功能简介", width: 12 }] },
           {
@@ -189,8 +189,8 @@ function BuilderSetting() {
         label: "发送短信给",
         name: "SendSmsTo",
         icon: "material-sms",
-        color: "primary",
-        background: "primary",
+        color: "warning",
+        background: "warning",
         props: [
           { columns: [{ name: "功能简介", width: 12 }] },
           {
@@ -205,8 +205,8 @@ function BuilderSetting() {
         label: "发送邮件给",
         name: "SendEmailTo",
         icon: "material-mail",
-        color: "primary",
-        background: "primary",
+        color: "warning",
+        background: "warning",
         props: [
           { columns: [{ name: "功能简介", width: 12 }] },
           {
