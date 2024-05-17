@@ -233,7 +233,13 @@ function BuilderSetting() {
     fields: {
       功能简介: {
         bind: "description",
-        edit: { type: "TextArea", props: { placeholder: "功能简介" } },
+        edit: {
+          type: "TextArea",
+          props: {
+            placeholder: "功能简介",
+            autoSize: { minRows: 3, maxRows: 6 },
+          },
+        },
       },
 
       内容: {
@@ -245,7 +251,11 @@ function BuilderSetting() {
         bind: "prompt",
         edit: {
           type: "CodeEditor",
-          props: { placeholder: "请输入 AI 提示词", language: "yaml" },
+          props: {
+            placeholder: "请输入 AI 提示词",
+            language: "yaml",
+            hideLineNumbers: true,
+          },
         },
       },
 
@@ -352,7 +362,7 @@ function BuilderSetting() {
         bind: "script",
         edit: {
           type: "CodeEditor",
-          props: { placeholder: "编写脚本", language: "typescirpt" },
+          props: { placeholder: "编写脚本", language: "javascript" },
         },
       },
     },
