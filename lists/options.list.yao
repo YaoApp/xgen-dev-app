@@ -6,7 +6,8 @@
       "columns": [
         { "name": "显示名称", "width": 12 },
         { "name": "数值", "width": 12 }
-      ]
+      ],
+      "props": { "placeholder": "添加选项" }
     }
   },
   "fields": {

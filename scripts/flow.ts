@@ -30,8 +30,8 @@ function BuilderSetting(): Setting {
           description: "根据输入的文本生成海报",
         },
 
-        mock: [
-          {
+        execute: {
+          input: {
             prompt: `白灵淼:
 大傩世界侧李火旺的妻子，性格外柔内刚，曾经和李火旺一起是清风观中的“药引”。
 因为李火旺“火烧白家人”事件而和李火旺产生隔阂。曾经因煞气入体而导致性格大变（后被驱散），
@@ -39,7 +39,7 @@ function BuilderSetting(): Setting {
 在对抗福生天司命的战役中主动带头重新感染煞气，最终与无生老母融合。
 `,
           },
-        ],
+        },
 
         nodes: [
           {
@@ -72,8 +72,9 @@ function BuilderSetting(): Setting {
           icon: "material-badge",
           description: "根据输入的文本生成海报",
         },
-        mock: [
-          {
+
+        execute: {
+          input: {
             prompt: `
 白灵淼:
 大傩世界侧李火旺的妻子，性格外柔内刚，曾经和李火旺一起是清风观中的“药引”。
@@ -82,7 +83,8 @@ function BuilderSetting(): Setting {
 在对抗福生天司命的战役中主动带头重新感染煞气，最终与无生老母融合。
 `,
           },
-        ],
+        },
+
         nodes: [
           {
             id: "1",
@@ -234,6 +236,8 @@ function BuilderSetting(): Setting {
       },
     ],
 
+    // The Flow Builder setting panel, it is used to define the layout of the setting panel.
+    // You can add your custom setting panel for the flow builder.
     flow: [
       {
         columns: [
@@ -250,6 +254,14 @@ function BuilderSetting(): Setting {
       },
     ],
 
+    // The Execute setting panel, it is used to define the layout of the setting panel.
+    // You can add your custom setting panel for the execute panel.
+    execute: [
+      { columns: [{ name: "输入数据", width: 12 }] },
+      { columns: [{ name: "请求参数", width: 12 }] },
+    ],
+
+    // The components definition, it is used to define the properties of the components.
     fields: {
       显示名称: {
         bind: "label",
@@ -334,6 +346,19 @@ function BuilderSetting(): Setting {
       内容: {
         bind: "content",
         edit: { type: "TextArea", props: { placeholder: "内容" } },
+      },
+
+      输入数据: {
+        bind: "input",
+        edit: {
+          type: "CodeEditor",
+          props: {
+            placeholder: "输入数据",
+            language: "yaml",
+            height: 160,
+            hideLineNumbers: true,
+          },
+        },
       },
 
       提示词: {
@@ -460,6 +485,7 @@ function BuilderSetting(): Setting {
 
 type Setting = {
   flow?: Section[];
+  execute?: Section[];
   types?: Type[];
   fields?: Record<string, Component>;
   defaultValue?: FlowValue | FlowValue[];
@@ -509,10 +535,16 @@ type FlowValue = {
     icon?: IconT; // the icon of the flow
     [key: string]: any; // the other properties of the flow
   };
-  mock?: any[]; // the latest mock data of the flow
-  data?: Data[] | Data;
+
+  execute?: {
+    input?: any;
+    query?: Record<string, any>;
+    [key: string]: any;
+  };
+
   nodes?: FlowNode[];
   edges?: FlowEdge[];
+  data?: Data[] | Data; // the parsed data, it will be used to execute the flow or display the flow data
 };
 
 type Data = {
