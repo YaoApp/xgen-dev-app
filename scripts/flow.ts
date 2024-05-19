@@ -17,16 +17,19 @@ function Validate() {}
  * The flow builder setting.
  * @returns
  */
-function BuilderSetting() {
+function BuilderSetting(): Setting {
   return {
     // Array of FlowValue or single FlowValue to be displayed in the builder, when the builder is initialized and the value is empty, it will display an empty canvas.
     // It it not required to set a default value, but you can set it to an empty array or object.
     defaultValue: [
       {
-        label: "AI 制作海报",
-        name: "AI-Poster",
-        icon: "material-brush",
-        description: "根据输入的文本生成海报",
+        flow: {
+          label: "AI 制作海报",
+          name: "AI-Poster",
+          icon: "material-brush",
+          description: "根据输入的文本生成海报",
+        },
+
         mock: [
           {
             prompt: `白灵淼:
@@ -37,15 +40,16 @@ function BuilderSetting() {
 `,
           },
         ],
+
         nodes: [
           {
             id: "1",
-            name: "keywords",
-            position: { x: 0, y: 0 },
             type: "AI-Data",
-            description: "根据输入的文本提取海报关键词",
+            position: { x: 0, y: 0 },
             showTargetHandle: false,
             props: {
+              name: "keywords",
+              description: "根据输入的文本提取海报关键词",
               prompt: `- 根据我给你的说明，结合表单数据，提取一组 **Stable Diffusion** 关键词并将关键词翻译成英文
 - 主要用途为海报制作，关键词用于生成海报，请添加对应的关键词
 - 使用 JSON 格式返回，例如：{"keywords": ["关键词1", "关键词2", ...]}
@@ -62,10 +66,12 @@ function BuilderSetting() {
         ],
       },
       {
-        label: "AI 制作人物卡片",
-        name: "AI-Poster",
-        icon: "material-badge",
-        description: "根据输入的文本生成海报",
+        flow: {
+          label: "AI 制作人物卡片",
+          name: "AI-Poster",
+          icon: "material-badge",
+          description: "根据输入的文本生成海报",
+        },
         mock: [
           {
             prompt: `
@@ -80,12 +86,12 @@ function BuilderSetting() {
         nodes: [
           {
             id: "1",
-            name: "keywords",
             position: { x: 0, y: 0 },
             type: "AI-Data",
-            description: "根据输入的文本提取人物卡片关键词",
             showTargetHandle: false,
             props: {
+              name: "keywords",
+              description: "根据输入的文本提取人物卡片关键词",
               prompt: `
 - 根据我给你的说明，结合表单数据，提取一组 **Stable Diffusion** 关键词并将关键词翻译成英文
 - 主要用途为人物卡片制作，关键词用于生成卡片，请添加对应的关键词
@@ -228,7 +234,92 @@ function BuilderSetting() {
       },
     ],
 
+    flow: [
+      {
+        columns: [
+          { name: "显示名称", width: 12 },
+          { name: "显示图标", width: 12 },
+        ],
+      },
+      {
+        columns: [
+          { name: "名称", width: 12 },
+          { name: "鉴权方式", width: 12 },
+          { name: "可见范围", width: 12 },
+        ],
+      },
+    ],
+
     fields: {
+      显示名称: {
+        bind: "label",
+        edit: { type: "Input", props: { placeholder: "显示名称" } },
+      },
+
+      显示图标: {
+        bind: "icon",
+        edit: {
+          type: "AutoComplete",
+          props: {
+            placeholder: "选择或输入图标",
+            options: [
+              {
+                label: "material-save",
+                value: "material-save",
+                icon: "material-save",
+              },
+              {
+                label: "material-send",
+                value: "material-send",
+                icon: "material-send",
+              },
+              {
+                label: "material-task_alt",
+                value: "material-task_alt",
+                icon: "material-task_alt",
+              },
+            ],
+          },
+        },
+      },
+
+      名称: {
+        bind: "name",
+        edit: { type: "Input", props: { placeholder: "名称" } },
+      },
+
+      鉴权方式: {
+        bind: "guard",
+        edit: {
+          type: "AutoComplete",
+          props: {
+            placeholder: "选择或输入鉴权方式",
+            options: [
+              { label: "bearer-jwt", value: "bearer-jwt" },
+              { label: "cookie-jwt", value: "cookie-jwt" },
+              { label: "query-jwt", value: "query-jwt" },
+            ],
+          },
+        },
+      },
+
+      可见范围: {
+        bind: "scope",
+        edit: {
+          type: "Select",
+          props: {
+            placeholder: "指定可见范围",
+            mode: "multiple",
+            options: [
+              { label: "创建", value: "create" },
+              { label: "编辑", value: "edit" },
+              { label: "查看", value: "view" },
+              { label: "删除", value: "delete" },
+            ],
+          },
+        },
+      },
+
       功能简介: {
         bind: "description",
         edit: {
@@ -367,15 +458,42 @@ function BuilderSetting() {
   };
 }
 
+type Setting = {
+  flow?: Section[];
+  types?: Type[];
+  fields?: Record<string, Component>;
+  defaultValue?: FlowValue | FlowValue[];
+};
+
+type Type = {
+  name: string;
+  label?: string;
+  icon?: IconT;
+  color?: string;
+  background?: string;
+  props?: Section[];
+};
+
+type Section = { title?: string; columns: Column[] };
+type Column = { name: string; width?: number };
+type Component = {
+  bind: string;
+  edit: { type: string; props: Record<string, any> };
+};
+
 type FlowNode = {
   id: string;
-  position: { x: number; y: number };
   type: string;
-  description: string;
-  props: {};
-  output?: any;
+  position: { x: number; y: number };
   showTargetHandle?: boolean;
   showSourceHandle?: boolean;
+  props: {
+    name?: string;
+    label?: string;
+    description?: string;
+    output?: string;
+    [key: string]: any;
+  };
 };
 
 type FlowEdge = {
@@ -385,9 +503,12 @@ type FlowEdge = {
 };
 
 type FlowValue = {
-  name?: string; // the name of the flow
-  label?: string; // the label of the flow
-  icon?: string | { name: string; size: number }; // the icon of the flow
+  flow?: {
+    name?: string; // the name of the flow
+    label?: string; // the label of the flow
+    icon?: IconT; // the icon of the flow
+    [key: string]: any; // the other properties of the flow
+  };
   mock?: any[]; // the latest mock data of the flow
   data?: Data[] | Data;
   nodes?: FlowNode[];
@@ -397,3 +518,11 @@ type FlowValue = {
 type Data = {
   [key: string]: any;
 };
+
+type IconT =
+  | string
+  | {
+      name: string;
+      size?: number;
+      color?: string;
+    };
