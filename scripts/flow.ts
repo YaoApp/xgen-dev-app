@@ -47,6 +47,7 @@ function BuilderSetting(): Setting {
             type: "AI-Data",
             position: { x: 0, y: 0 },
             showTargetHandle: false,
+            deletable: false,
             props: {
               name: "keywords",
               description: "根据输入的文本提取海报关键词",
@@ -513,6 +514,7 @@ type FlowNode = {
   position: { x: number; y: number };
   showTargetHandle?: boolean;
   showSourceHandle?: boolean;
+  deletable?: boolean;
   props: {
     name?: string;
     label?: string;
