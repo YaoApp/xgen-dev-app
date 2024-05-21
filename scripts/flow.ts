@@ -27,6 +27,7 @@ function BuilderSetting(): Setting {
           label: "AI 制作海报",
           name: "AI-Poster",
           icon: "material-brush",
+          deletable: false,
           description: "根据输入的文本生成海报",
         },
 
