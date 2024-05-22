@@ -394,6 +394,7 @@
       },
 
       "Form Builder": {
+        "hideLabel": true,
         "bind": "form_dsl",
         "edit": {
           "type": "FormBuilder",
@@ -591,6 +592,7 @@
       "WangEditor": {
         "bind": "html",
         "edit": {
+          "hideLabel": true,
           "type": "WangEditor",
           "props": {
             "ai": { "placeholder": "你可以这样问我：帮我生成一个男性名称" },

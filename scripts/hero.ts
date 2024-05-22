@@ -24,21 +24,23 @@ function FormBuilderSetting(query: Record<string, any>) {
   return {
     title: "宠物管理表单",
 
-    defaultValue: [
-      { type: "Input", width: 6, props: { label: "手机号", name: "mobile" } },
-      {
-        type: "Select",
-        width: 6,
-        props: {
-          label: "类目",
-          name: "category",
-          options: [
-            { label: "类目一", value: "c1" },
-            { label: "类目二", value: "c2" },
-          ],
+    defaultValue: {
+      columns: [
+        { type: "Input", width: 6, props: { label: "手机号", name: "mobile" } },
+        {
+          type: "Select",
+          width: 6,
+          props: {
+            label: "类目",
+            name: "category",
+            options: [
+              { label: "类目一", value: "c1" },
+              { label: "类目二", value: "c2" },
+            ],
+          },
         },
-      },
-    ],
+      ],
+    },
 
     types: [
       {
