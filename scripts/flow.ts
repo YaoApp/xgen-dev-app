@@ -1,7 +1,20 @@
+import { Exception } from "./__types/yao";
 /**
  * The execute API is to execute the flow data. It will be called when the user clicks the run button or your custom calls the execute method.
  */
-function Execute(input: any) {}
+function Execute(payload: { flow: FlowValue; params: Record<string, any> }) {
+  const { execute } = payload.flow;
+  if (execute?.example === 1) {
+    return { code: 200, message: "所有节点执行成功", data: { foo: "bar" } };
+  }
+
+  const errors: Record<string, string> = {};
+  payload.flow.nodes?.forEach((node) => {
+    errors[node.id] = `节点运行错误信息 ${node.id}`;
+  });
+
+  return { code: 400, message: "部分节点执行失败", errors };
+}
 
 /**
  * The parser API is to parse the flow data and tips the variables based on the context data.
@@ -260,7 +273,12 @@ function BuilderSetting(): Setting {
     // You can add your custom setting panel for the execute panel.
     execute: [
       { columns: [{ name: "输入数据", width: 12 }] },
-      { columns: [{ name: "请求参数", width: 12 }] },
+      {
+        columns: [
+          { name: "请求参数", width: 12 },
+          { name: "运行演示", width: 12 },
+        ],
+      },
     ],
 
     // The Edge setting panel, it is used to define the layout of the edge panel.
@@ -510,6 +528,20 @@ function BuilderSetting(): Setting {
             options: [
               { label: "是", value: 1 },
               { label: "否", value: 0 },
+            ],
+          },
+        },
+      },
+
+      运行演示: {
+        bind: "example",
+        edit: {
+          type: "RadioGroup",
+          props: {
+            defaultValue: 0,
+            options: [
+              { label: "成功效果", value: 1 },
+              { label: "失败效果", value: 0 },
             ],
           },
         },

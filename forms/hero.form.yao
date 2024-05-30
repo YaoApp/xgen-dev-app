@@ -485,20 +485,6 @@
               "query": { "id": "{{ id }}" }
             },
 
-            // parser interface
-            // The parser API is to parse the flow data and tips the variables based on the context data.
-            "$parser": {
-              "process": "scripts.flow.Parser",
-              "query": { "id": "{{ id }}" }
-            },
-
-            // validate interface
-            // The node validate API is to validate the flow data before saving it.
-            "$validate": {
-              "process": "scripts.flow.Validate",
-              "query": { "id": "{{ id }}" }
-            },
-
             // presets interface
             "$presets": {
               "process": "scripts.flow.BuilderPresets",
@@ -530,20 +516,6 @@
             // The execute API is to execute the flow data. It will be called when the user clicks the run button or your custom calls the execute method.
             "$execute": {
               "process": "scripts.flow.Execute",
-              "query": { "id": "{{ id }}" }
-            },
-
-            // parser interface
-            // The parser API is to parse the flow data and tips the variables based on the context data.
-            "$parser": {
-              "process": "scripts.flow.Parser",
-              "query": { "id": "{{ id }}" }
-            },
-
-            // validate interface
-            // The node validate API is to validate the flow data before saving it.
-            "$validate": {
-              "process": "scripts.flow.Validate",
               "query": { "id": "{{ id }}" }
             },
 
