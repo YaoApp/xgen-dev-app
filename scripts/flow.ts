@@ -256,11 +256,25 @@ function BuilderSetting(): Setting {
       },
     ],
 
-    // The Execute setting panel, it is used to define the layout of the setting panel.
+    // The Execute setting panel, it is used to define the layout of the execute panel.
     // You can add your custom setting panel for the execute panel.
     execute: [
       { columns: [{ name: "输入数据", width: 12 }] },
       { columns: [{ name: "请求参数", width: 12 }] },
+    ],
+
+    // The Edge setting panel, it is used to define the layout of the edge panel.
+    // You can add your custom setting panel for the edge panel.
+    edge: [
+      {
+        columns: [{ name: "注释", width: 12 }],
+      },
+      {
+        columns: [
+          { name: "并发执行", width: 12 },
+          { name: "执行条件", width: 12 },
+        ],
+      },
     ],
 
     // The components definition, it is used to define the properties of the components.
@@ -481,6 +495,37 @@ function BuilderSetting(): Setting {
           props: { placeholder: "编写脚本", language: "javascript" },
         },
       },
+
+      注释: {
+        bind: "label",
+        edit: { type: "Input", props: { placeholder: "注释" } },
+      },
+
+      并发执行: {
+        bind: "concurrent",
+        edit: {
+          type: "RadioGroup",
+          props: {
+            defaultValue: 0,
+            options: [
+              { label: "是", value: 1 },
+              { label: "否", value: 0 },
+            ],
+          },
+        },
+      },
+
+      执行条件: {
+        bind: "condition",
+        edit: {
+          type: "CodeEditor",
+          props: {
+            placeholder: "条件设定",
+            language: "json",
+            hideLineNumbers: true,
+          },
+        },
+      },
     },
   };
 }
@@ -488,6 +533,7 @@ function BuilderSetting(): Setting {
 type Setting = {
   flow?: Section[];
   execute?: Section[];
+  edge?: Section[];
   types?: Type[];
   fields?: Record<string, Component>;
   defaultValue?: FlowValue | FlowValue[];
