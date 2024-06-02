@@ -1,4 +1,4 @@
-import { Exception } from "./__types/yao";
+import { Exception, time } from "./__types/yao";
 /**
  * The execute API is to execute the flow data. It will be called when the user clicks the run button or your custom calls the execute method.
  */
@@ -10,21 +10,149 @@ function Execute(payload: { flow: FlowValue; params: Record<string, any> }) {
 
   const errors: Record<string, string> = {};
   payload.flow.nodes?.forEach((node) => {
-    errors[node.id] = `节点运行错误信息 ${node.id}`;
+    if (node.id) errors[node.id] = `节点运行错误信息 ${node.id}`;
   });
 
   return { code: 400, message: "部分节点执行失败", errors };
 }
 
 /**
- * The parser API is to parse the flow data and tips the variables based on the context data.
+ * The preset API is to get the preset data. It will be called when the user clicks the insert button.
+ * if the query has `withCategories` set to true, it will return the categories and presets.
+ *
+ * @param query
+ * @returns
  */
-function Parser() {}
+function BuilderPresets(query: PresetsQuery): PresetsResult {
+  time.Sleep(200); // Simulate the network delay
+  const { keywords, category, withCategories, __namespace, __bind } = query;
+  const categories: Category[] = [
+    { value: 0, label: "全部" },
+    { value: 1, label: "内容生成" },
+    { value: 2, label: "图片制作" },
+  ];
 
-/**
- * The node validate API is to validate the flow data before saving it.
- */
-function Validate() {}
+  const presets: PresetItem[] = [
+    {
+      name: "英文关键词提取",
+      description: "提取关键词，并翻译成英文",
+      icon: "material-translate",
+      width: 6,
+      category: 1,
+      nodes: [
+        {
+          type: "AI-Data",
+          position: { x: 0, y: 0 },
+          props: {
+            name: "keywords",
+            description: "提取关键词",
+            prompt: `- 根据我给你的说明，结合表单数据，提取一组关键词并将关键词。 {{ $in.prompt }}`,
+            retry: 3,
+          },
+        },
+        {
+          type: "AI-Data",
+          position: { x: 300, y: 0 },
+          props: {
+            name: "translate",
+            description: "将关键词翻译成英文",
+            prompt: `- 帮我翻译成英文。{{ $in }}`,
+            retry: 3,
+          },
+        },
+      ],
+      edges: [{ source: "keywords", target: "translate" }],
+    },
+    {
+      name: "小红书文案",
+      description: "提取小红书文案，并提交审核",
+      image: "/assets/flow_icon.svg",
+      width: 6,
+      category: 1,
+      nodes: [
+        {
+          type: "AI-Data",
+          position: { x: 0, y: 0 },
+          props: {
+            name: "generate",
+            description: "编写文章",
+            prompt: `- 根据当前的表单数据，编写一篇小红书文案。{{ $in }}`,
+            retry: 3,
+          },
+        },
+        {
+          type: "SaveDataTo",
+          position: { x: 300, y: 0 },
+          props: {
+            name: "save",
+            description: "保存文章, 提交审核",
+            model: "article",
+            data: { content: "{{ $out.write }}", status: "review" },
+          },
+        },
+      ],
+      edges: [
+        {
+          source: "generate",
+          target: "save",
+          data: {
+            label: "大于 50 字",
+            condition: [{ validate: "length", gt: 50 }],
+          },
+        },
+      ],
+    },
+    {
+      name: "AI 制作海报",
+      description: "根据输入的文本生成海报",
+      cover: "/assets/flow_cover.jpg",
+      width: 12,
+      category: 2,
+      nodes: [
+        {
+          type: "AI-Image",
+          position: { x: 0, y: 0 },
+          props: {
+            name: "generate",
+            description: "生成海报",
+            prompt: `根据我给你的说明，结合表单数据，生成一张海报。{{ $in }}`,
+            retry: 3,
+          },
+        },
+      ],
+    },
+  ];
+
+  const searchPresets = presets.filter((preset) => {
+    if (keywords && category) {
+      return (
+        preset.category === category &&
+        (preset.name.includes(keywords) ||
+          preset.description.includes(keywords))
+      );
+    }
+
+    if (keywords) {
+      return (
+        preset.name.includes(keywords) || preset.description.includes(keywords)
+      );
+    }
+
+    if (category) {
+      return preset.category === category;
+    }
+
+    return true;
+  });
+
+  // return the categories and presets when withCategories is true
+  if (withCategories) {
+    return { categories: categories, presets: searchPresets };
+  }
+
+  // Return the presets only
+  return searchPresets;
+}
 
 /**
  * The flow builder setting.
@@ -571,6 +699,37 @@ type Setting = {
   defaultValue?: FlowValue | FlowValue[];
 };
 
+type PresetItem = {
+  name: string;
+  icon?: IconT;
+  image?: string;
+  cover?: string;
+  description: string;
+  category?: string | number;
+  width?: 2 | 4 | 6 | 8 | 12;
+  nodes: FlowNode[];
+  edges?: FlowEdge[];
+};
+
+type Category = {
+  value?: string | number;
+  label: string;
+};
+
+type PresetsResult =
+  | PresetItem[]
+  | { categories: Category[]; presets: PresetItem[] };
+
+type PresetsQuery = {
+  keywords?: string;
+  category?: string | number;
+  withCategories?: boolean;
+  __namespace?: string;
+  __bind?: string;
+  params?: Record<string, any>;
+  [key: string]: any;
+};
+
 type Type = {
   name: string;
   label?: string;
@@ -588,7 +747,7 @@ type Component = {
 };
 
 type FlowNode = {
-  id: string;
+  id?: string;
   type: string;
   position: { x: number; y: number };
   showTargetHandle?: boolean;
@@ -606,7 +765,7 @@ type FlowNode = {
 type FlowEdge = {
   source: string;
   target: string;
-  condition?: string;
+  data?: Record<string, any>;
 };
 
 type FlowValue = {
