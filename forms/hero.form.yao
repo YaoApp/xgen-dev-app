@@ -404,13 +404,13 @@
 
             // presets interface
             "$presets": {
-              "process": "scripts.hero.FormBuilderPresets",
+              "process": "scripts.form.BuilderPresets",
               "query": { "id": "{{ id }}" }
             },
 
             // setting interface
             "$setting": {
-              "process": "scripts.hero.FormBuilderSetting",
+              "process": "scripts.form.BuilderSetting",
               "query": { "id": "{{ id }}" }
             }
           }
