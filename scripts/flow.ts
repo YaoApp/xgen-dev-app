@@ -39,68 +39,72 @@ function BuilderPresets(query: PresetsQuery): PresetsResult {
       icon: "material-translate",
       width: 6,
       category: 1,
-      nodes: [
-        {
-          type: "AI-Data",
-          position: { x: 0, y: 0 },
-          props: {
-            name: "keywords",
-            description: "提取关键词",
-            prompt: `- 根据我给你的说明，结合表单数据，提取一组关键词并将关键词。 {{ $in.prompt }}`,
-            retry: 3,
+      payload: {
+        nodes: [
+          {
+            type: "AI-Data",
+            position: { x: 0, y: 0 },
+            props: {
+              name: "keywords",
+              description: "提取关键词",
+              prompt: `- 根据我给你的说明，结合表单数据，提取一组关键词并将关键词。 {{ $in.prompt }}`,
+              retry: 3,
+            },
           },
-        },
-        {
-          type: "AI-Data",
-          position: { x: 300, y: 0 },
-          props: {
-            name: "translate",
-            description: "将关键词翻译成英文",
-            prompt: `- 帮我翻译成英文。{{ $in }}`,
-            retry: 3,
+          {
+            type: "AI-Data",
+            position: { x: 300, y: 0 },
+            props: {
+              name: "translate",
+              description: "将关键词翻译成英文",
+              prompt: `- 帮我翻译成英文。{{ $in }}`,
+              retry: 3,
+            },
           },
-        },
-      ],
-      edges: [{ source: "keywords", target: "translate" }],
+        ],
+        edges: [{ source: "keywords", target: "translate" }],
+      },
     },
     {
       name: "小红书文案",
       description: "提取小红书文案，并提交审核",
-      image: "/assets/flow_icon.svg",
+      image: "/assets/icon.svg",
       width: 6,
       category: 1,
-      nodes: [
-        {
-          type: "AI-Data",
-          position: { x: 0, y: 0 },
-          props: {
-            name: "generate",
-            description: "编写文章",
-            prompt: `- 根据当前的表单数据，编写一篇小红书文案。{{ $in }}`,
-            retry: 3,
+      payload: {
+        nodes: [
+          {
+            type: "AI-Data",
+            position: { x: 0, y: 0 },
+            props: {
+              name: "generate",
+              description: "编写文章",
+              prompt: `- 根据当前的表单数据，编写一篇小红书文案。{{ $in }}`,
+              retry: 3,
+            },
           },
-        },
-        {
-          type: "SaveDataTo",
-          position: { x: 300, y: 0 },
-          props: {
-            name: "save",
-            description: "保存文章, 提交审核",
-            model: "article",
-            data: { content: "{{ $out.write }}", status: "review" },
+          {
+            type: "SaveDataTo",
+            position: { x: 300, y: 0 },
+            props: {
+              name: "save",
+              description: "保存文章, 提交审核",
+              model: "article",
+              data: { content: "{{ $out.write }}", status: "review" },
+            },
           },
-        },
-      ],
-      edges: [
-        {
-          source: "generate",
-          target: "save",
-          data: {
-            label: "大于 50 字",
-            condition: [{ validate: "length", gt: 50 }],
+        ],
+        edges: [
+          {
+            source: "generate",
+            target: "save",
+            data: {
+              label: "大于 50 字",
+              condition: [{ validate: "length", gt: 50 }],
+            },
           },
-        },
-      ],
+        ],
+      },
     },
     {
       name: "AI 制作海报",
@@ -108,18 +112,20 @@ function BuilderPresets(query: PresetsQuery): PresetsResult {
       cover: "/assets/flow_cover.jpg",
       width: 12,
       category: 2,
-      nodes: [
-        {
-          type: "AI-Image",
-          position: { x: 0, y: 0 },
-          props: {
-            name: "generate",
-            description: "生成海报",
-            prompt: `根据我给你的说明，结合表单数据，生成一张海报。{{ $in }}`,
-            retry: 3,
+      payload: {
+        nodes: [
+          {
+            type: "AI-Image",
+            position: { x: 0, y: 0 },
+            props: {
+              name: "generate",
+              description: "生成海报",
+              prompt: `根据我给你的说明，结合表单数据，生成一张海报。{{ $in }}`,
+              retry: 3,
+            },
           },
-        },
-      ],
+        ],
+      },
     },
   ];
 
@@ -707,8 +713,10 @@ type PresetItem = {
   description: string;
   category?: string | number;
   width?: 2 | 4 | 6 | 8 | 12;
-  nodes: FlowNode[];
-  edges?: FlowEdge[];
+  payload: {
+    nodes: FlowNode[];
+    edges?: FlowEdge[];
+  };
 };
 
 type Category = {

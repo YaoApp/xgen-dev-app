@@ -1,3 +1,5 @@
+import { time } from "./__types/yao";
+
 /**
  * Form Builder
  * @param query
@@ -310,35 +312,130 @@ function BuilderSetting(query: Record<string, any>): Setting {
   };
 }
 
-function BuilderPresets(query: Record<string, any>) {
-  const data = [
+/**
+ * The preset API is to get the preset data. It will be called when the user clicks the insert button.
+ * if the query has `withCategories` set to true, it will return the categories and presets.
+ *
+ * @param query
+ * @returns
+ */
+function BuilderPresets(query: PresetsQuery): PresetsResult {
+  time.Sleep(200); // Simulate the network delay
+  const { keywords, category, withCategories, __namespace, __bind } = query;
+  const categories: Category[] = [
+    { value: 0, label: "全部" },
+    { value: 1, label: "常用" },
+    { value: 2, label: "专业" },
+  ];
+
+  const presets: PresetItem[] = [
     {
-      type: "Input",
-      icon: "material-format_align_left",
-      width: 12,
-      props: { name: "mobile", label: "手机号必填", required: 1 },
+      name: "会员注册",
+      description: "会员注册表单",
+      icon: "material-person_add",
+      width: 6,
+      category: 1,
+      payload: {
+        columns: [
+          {
+            type: "Input",
+            width: 6,
+            props: { label: "手机号", name: "mobile" },
+          },
+          { type: "Input", width: 6, props: { label: "邮箱", name: "email" } },
+          {
+            type: "Select",
+            width: 6,
+            props: {
+              label: "性别",
+              name: "gender",
+              options: [
+                { label: "男", value: 1 },
+                { label: "女", value: 0 },
+              ],
+            },
+          },
+        ],
+      },
     },
     {
-      type: "Select",
-      icon: "material-view_list",
+      name: "会员登录",
+      description: "会员登录表单",
+      image: "/assets/icon.svg",
+      width: 6,
+      category: 1,
+      payload: {
+        columns: [
+          {
+            type: "Input",
+            width: 6,
+            props: { label: "手机号", name: "mobile" },
+          },
+          {
+            type: "Input",
+            width: 6,
+            props: { label: "密码", name: "password" },
+          },
+        ],
+      },
+    },
+    {
+      name: "学术论文提交",
+      description: "学术论文提交表单",
+      cover: "/assets/form_cover.jpg",
       width: 12,
-      props: {
-        label: "行业分类",
-        name: "category",
-        options: [
-          { label: "IT、互联网", value: "it" },
-          { label: "汽车", value: "auto" },
+      category: 2,
+      payload: {
+        columns: [
+          {
+            type: "Input",
+            width: 12,
+            props: { label: "论文标题", name: "title" },
+          },
+          {
+            type: "Input",
+            width: 12,
+            props: { label: "作者", name: "author" },
+          },
+          {
+            type: "Datetime",
+            width: 12,
+            props: { label: "提交时间", name: "submit_at" },
+          },
         ],
       },
     },
   ];
 
-  if (query.keywords) {
-    // filter
-    return data.filter((item) => item.props.label.includes(query.keywords));
+  const searchPresets = presets.filter((preset) => {
+    if (keywords && category) {
+      return (
+        preset.category === category &&
+        (preset.name.includes(keywords) ||
+          preset.description.includes(keywords))
+      );
+    }
+
+    if (keywords) {
+      return (
+        preset.name.includes(keywords) || preset.description.includes(keywords)
+      );
+    }
+
+    if (category) {
+      return preset.category === category;
+    }
+
+    return true;
+  });
+
+  // return the categories and presets when withCategories is true
+  if (withCategories) {
+    return { categories: categories, presets: searchPresets };
   }
 
-  return data;
+  // Return the presets only
+  return searchPresets;
 }
 
 type Setting = {
@@ -386,3 +483,33 @@ type IconT =
       size?: number;
       color?: string;
     };
+
+type PresetItem = {
+  name: string;
+  icon?: IconT;
+  image?: string;
+  cover?: string;
+  description: string;
+  category?: string | number;
+  width?: 2 | 4 | 6 | 8 | 12;
+  payload: { columns: Field[] };
+};
+
+type Category = {
+  value?: string | number;
+  label: string;
+};
+
+type PresetsResult =
+  | PresetItem[]
+  | { categories: Category[]; presets: PresetItem[] };
+
+type PresetsQuery = {
+  keywords?: string;
+  category?: string | number;
+  withCategories?: boolean;
+  __namespace?: string;
+  __bind?: string;
+  params?: Record<string, any>;
+  [key: string]: any;
+};
