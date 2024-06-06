@@ -80,6 +80,8 @@ jobs:
           username: root
           key: ${{ secrets.SSH_KEY }}
           script: |
+            export http_proxy="http://127.0.0.1:9981"
+            export https_proxy="http://127.0.0.1:9981"
             /data/docker/bin/deploy.sh yaoapp xgen-dev ${{ env.VERSION }}-amd64-dev
             docker exec xgen-dev sh -c 'yao migrate --reset --force'
             docker exec xgen-dev sh -c 'yao run scripts.init.setData'
