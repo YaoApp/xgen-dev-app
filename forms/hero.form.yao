@@ -171,6 +171,42 @@
                   "columns": [
                     { "name": "Select Option with Icon", "width": 24 }
                   ]
+                },
+                {
+                  "title": "Upload Upgraded",
+                  "icon": { "name": "icon-upload", "size": 14 },
+                  "weight": "medium",
+                  "color": "danger",
+                  "columns": [
+                    { "name": "Upload Image", "width": 24 },
+                    { "name": "Upload Audio", "width": 24 },
+                    { "name": "Upload Video", "width": 24 },
+                    { "name": "Upload File", "width": 24 },
+                    { "name": "Divider", "width": 24 },
+                    { "name": "Upload Image Multiple", "width": 24 },
+                    { "name": "Upload Audio Multiple", "width": 24 },
+                    { "name": "Upload Video Multiple", "width": 24 },
+                    { "name": "Upload File Multiple", "width": 24 },
+                    { "name": "Divider", "width": 24 },
+                    { "name": "Upload imageSize", "width": 24 },
+                    { "name": "Upload imageSize Multiple", "width": 24 },
+                    { "name": "Upload imageSize Ratio", "width": 24 },
+                    { "name": "Upload videoSize", "width": 24 },
+                    { "name": "Upload videoSize Ratio", "width": 24 },
+                    { "name": "Divider", "width": 24 },
+                    { "name": "Upload height", "width": 24 },
+                    { "name": "Upload rows", "width": 24 },
+                    { "name": "Divider", "width": 24 },
+                    { "name": "Upload placeholder", "width": 24 },
+                    { "name": "Upload placeholderIcon", "width": 24 },
+                    { "name": "Divider", "width": 24 },
+                    { "name": "Upload previewURL", "width": 24 },
+                    { "name": "Upload previewURL Multiple", "width": 24 },
+                    { "name": "Divider", "width": 24 },
+                    { "name": "Upload chunckSize", "width": 24 },
+                    { "name": "Upload chunckSize Multiple", "width": 24 },
+                    { "name": "Upload chunckSize API", "width": 24 }
+                  ]
                 }
               ]
             }
@@ -417,9 +453,9 @@
         }
       },
 
-      "分割线": {
-        "edit": { "type": "Divider", "props": {} }
-      },
+      "Divider": { "edit": { "type": "Divider", "props": { "size": 2 } } },
+
+      "分割线": { "edit": { "type": "Divider", "props": {} } },
 
       "分割线2": {
         "edit": {
@@ -584,6 +620,310 @@
           "type": "RichText",
           "props": {
             "ai": { "placeholder": "你可以这样问我：帮我生成一个男性名称" }
+          }
+        }
+      },
+
+      "Upload Image": {
+        "bind": "upload_image",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M"
+          }
+        }
+      },
+
+      "Upload Audio": {
+        "bind": "upload_audio",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "audio",
+            "accept": ".mp3,.wav,.ogg",
+            "maxSize": "5M"
+          }
+        }
+      },
+
+      "Upload Video": {
+        "bind": "upload_video",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "5M"
+          }
+        }
+      },
+
+      "Upload File": {
+        "bind": "upload_file",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "file",
+            "accept": ".doc,.docx,.pdf,.xls,.xlsx,.ppt,.pptx",
+            "maxSize": "5M"
+          }
+        }
+      },
+
+      "Upload Image Multiple": {
+        "bind": "upload_image_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "maxCount": 3
+          }
+        }
+      },
+
+      "Upload Audio Multiple": {
+        "bind": "upload_audio_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "audio",
+            "accept": ".mp3,.wav,.ogg",
+            "maxSize": "5M",
+            "maxCount": 3
+          }
+        }
+      },
+
+      "Upload Video Multiple": {
+        "bind": "upload_video_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "5M",
+            "maxCount": 3
+          }
+        }
+      },
+
+      "Upload File Multiple": {
+        "bind": "upload_file_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "file",
+            "accept": ".doc,.docx,.pdf,.xls,.xlsx,.ppt,.pptx",
+            "maxSize": "5M",
+            "maxCount": 3
+          }
+        }
+      },
+
+      "Upload imageSize": {
+        "bind": "upload_image_size",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "imageSize": { "width": 210, "height": 90, "objectFit": "cover" },
+            "placeholder": "Upload Cover"
+          }
+        }
+      },
+
+      "Upload imageSize Multiple": {
+        "bind": "upload_image_size_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "imageSize": { "width": 210, "height": 90, "objectFit": "cover" },
+            "placeholder": "Upload Cover",
+            "maxCount": 20
+          }
+        }
+      },
+
+      "Upload imageSize Ratio": {
+        "bind": "upload_image_size_ratio",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "imageSize": { "ratio": 2.33, "objectFit": "cover" },
+            "placeholder": "Upload Cover"
+          }
+        }
+      },
+
+      "Upload videoSize": {
+        "bind": "upload_video_size",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "5M",
+            "videoSize": { "width": 210, "height": 90, "objectFit": "cover" }
+          }
+        }
+      },
+
+      "Upload videoSize Ratio": {
+        "bind": "upload_video_size_ratio",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "5M",
+            "videoSize": { "ratio": 2.33, "objectFit": "cover" }
+          }
+        }
+      },
+
+      "Upload height": {
+        "bind": "upload_height",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "height": 50
+          }
+        }
+      },
+
+      "Upload rows": {
+        "bind": "upload_height",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "rows": 2
+          }
+        }
+      },
+
+      "Upload placeholder": {
+        "bind": "upload_placeholder",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "placeholder": "Upload Cover"
+          }
+        }
+      },
+
+      "Upload placeholderIcon": {
+        "bind": "upload_placeholder_icon",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "placeholder": "Upload Cover",
+            "placeholderIcon": "icon-upload-cloud"
+          }
+        }
+      },
+
+      "Upload previewURL": {
+        "bind": "upload_preview_url",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+
+            // {{ PATH }} is the file path,
+            // {{ EXT }} is the file extension
+            // {{ NAME }} is the file name
+            // {{ BASE }} is the file base name
+            // {{ <key> }} the rest of the key returned by the upload API
+            "previewURL": "/assets/images/{{ path }}",
+            "$api": { "process": "scripts.upload.ImageToPublic" }
+          }
+        }
+      },
+
+      "Upload previewURL Multiple": {
+        "bind": "upload_preview_url_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+
+            // {{ PATH }} is the file path,
+            // {{ EXT }} is the file extension
+            // {{ NAME }} is the file name
+            // {{ BASE }} is the file base name
+            // {{ <key> }} the rest of the key returned by the upload API
+            "previewURL": "/assets/images/{{ PATH }}",
+            "$api": { "process": "scripts.upload.ImageToPublic" },
+            "maxCount": 3
+          }
+        }
+      },
+
+      "Upload chunckSize": {
+        "bind": "upload_chunck_size",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "chunkSize": "1M"
+          }
+        }
+      },
+
+      "Upload chunckSize Multiple": {
+        "bind": "upload_chunck_size_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "chunkSize": "1M",
+            "maxCount": 3
+          }
+        }
+      },
+
+      "Upload chunckSize API": {
+        "bind": "upload_chunck_size_api",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "1G",
+            "chunkSize": "1M",
+            "$api": { "process": "scripts.upload.ChunckSize" }
           }
         }
       }
