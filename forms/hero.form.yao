@@ -194,9 +194,6 @@
                     { "name": "Upload videoSize", "width": 24 },
                     { "name": "Upload videoSize Ratio", "width": 24 },
                     { "name": "Divider", "width": 24 },
-                    { "name": "Upload height", "width": 24 },
-                    { "name": "Upload rows", "width": 24 },
-                    { "name": "Divider", "width": 24 },
                     { "name": "Upload placeholder", "width": 24 },
                     { "name": "Upload placeholderIcon", "width": 24 },
                     { "name": "Divider", "width": 24 },
@@ -761,7 +758,7 @@
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
-            "imageSize": { "ratio": 2.33, "objectFit": "cover" },
+            "imageSize": { "ratio": 1.33, "objectFit": "cover" },
             "placeholder": "Upload Cover"
           }
         }
@@ -789,32 +786,6 @@
             "accept": ".mp4,.avi,.mov,.wmv",
             "maxSize": "5M",
             "videoSize": { "ratio": 2.33, "objectFit": "cover" }
-          }
-        }
-      },
-
-      "Upload height": {
-        "bind": "upload_height",
-        "edit": {
-          "type": "Upload",
-          "props": {
-            "filetype": "image",
-            "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
-            "height": 50
-          }
-        }
-      },
-
-      "Upload rows": {
-        "bind": "upload_height",
-        "edit": {
-          "type": "Upload",
-          "props": {
-            "filetype": "image",
-            "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
-            "rows": 2
           }
         }
       },
