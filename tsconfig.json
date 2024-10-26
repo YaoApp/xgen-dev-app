@@ -1,20 +1,10 @@
 {
-	"compilerOptions": {
-		"target": "ES2022",
-		"module": "ESNext",
-		"skipLibCheck": true,
-		"lib": ["ESNEXT", "DOM"],
-		"moduleResolution": "Node",
-		"declaration": true,
-		"emitDeclarationOnly": true,
-		"strict": true,
-		"outDir": "public/components",
-		"baseUrl": ".",
-		"esModuleInterop": true,
-		"paths": { "@/*": ["./components/*"] },
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"jsx": "react-jsx"
-	},
-	"include": ["components"]
+  "compilerOptions": {
+    "target": "es6",
+    "paths": {
+      "@yao/*": ["./.types/*"],
+      "@scripts/*": ["./scripts/*"]
+    },
+    "lib": ["es2017", "dom"]
+  }
 }

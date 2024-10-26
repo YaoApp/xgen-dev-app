@@ -188,10 +188,11 @@
                     { "name": "Upload Video Multiple", "width": 24 },
                     { "name": "Upload File Multiple", "width": 24 },
                     { "name": "Divider", "width": 24 },
-                    { "name": "Upload imageSize", "width": 24 },
-                    { "name": "Upload imageSize Multiple", "width": 24 },
-                    { "name": "Upload imageSize Ratio", "width": 24 },
+                    { "name": "Upload previewSize", "width": 24 },
+                    { "name": "Upload previewSize Multiple", "width": 24 },
+                    { "name": "Upload previewSize Ratio", "width": 24 },
                     { "name": "Upload videoSize", "width": 24 },
+                    { "name": "Upload videoSize Multiple", "width": 24 },
                     { "name": "Upload videoSize Ratio", "width": 24 },
                     { "name": "Divider", "width": 24 },
                     { "name": "Upload placeholder", "width": 24 },
@@ -282,7 +283,7 @@
           "compute": "Upload",
           "props": {
             "filetype": "image",
-            "imageSize": {
+            "previewSize": {
               "width": "300px",
               "height": "180px",
               "objectFit": "cover"
@@ -721,7 +722,7 @@
         }
       },
 
-      "Upload imageSize": {
+      "Upload previewSize": {
         "bind": "upload_image_size",
         "edit": {
           "type": "Upload",
@@ -729,13 +730,13 @@
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
-            "imageSize": { "width": 210, "height": 90, "objectFit": "cover" },
+            "previewSize": { "width": 210, "height": 90, "objectFit": "cover" },
             "placeholder": "Upload Cover"
           }
         }
       },
 
-      "Upload imageSize Multiple": {
+      "Upload previewSize Multiple": {
         "bind": "upload_image_size_multiple",
         "edit": {
           "type": "Upload",
@@ -743,14 +744,14 @@
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
-            "imageSize": { "width": 210, "height": 90, "objectFit": "cover" },
+            "previewSize": { "width": 210, "height": 90, "objectFit": "cover" },
             "placeholder": "Upload Cover",
             "maxCount": 20
           }
         }
       },
 
-      "Upload imageSize Ratio": {
+      "Upload previewSize Ratio": {
         "bind": "upload_image_size_ratio",
         "edit": {
           "type": "Upload",
@@ -758,7 +759,7 @@
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
-            "imageSize": { "ratio": 1.33, "objectFit": "cover" },
+            "previewSize": { "ratio": 1.33, "objectFit": "cover" },
             "placeholder": "Upload Cover"
           }
         }
@@ -772,7 +773,25 @@
             "filetype": "video",
             "accept": ".mp4,.avi,.mov,.wmv",
             "maxSize": "5M",
-            "videoSize": { "width": 210, "height": 90, "objectFit": "cover" }
+            "previewSize": { "width": 420, "height": 180, "objectFit": "cover" }
+          }
+        }
+      },
+
+      "Upload videoSize Multiple": {
+        "bind": "upload_video_size_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "5M",
+            "previewSize": {
+              "width": 420,
+              "height": 180,
+              "objectFit": "cover"
+            },
+            "maxCount": 3
           }
         }
       },
@@ -785,7 +804,7 @@
             "filetype": "video",
             "accept": ".mp4,.avi,.mov,.wmv",
             "maxSize": "5M",
-            "videoSize": { "ratio": 2.33, "objectFit": "cover" }
+            "previewSize": { "ratio": 2.33, "objectFit": "cover" }
           }
         }
       },
@@ -826,12 +845,13 @@
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
 
-            // {{ PATH }} is the file path,
-            // {{ EXT }} is the file extension
-            // {{ NAME }} is the file name
-            // {{ BASE }} is the file base name
-            // {{ <key> }} the rest of the key returned by the upload API
-            "previewURL": "/assets/images/{{ path }}",
+            // [[ $PATH ]] is the file path,
+            // [[ $TOKEN ]] is the admin panel user token
+            // [[ $EXT ]] is the file extension
+            // [[ $NAME ]] is the file name
+            // [[ $BASE ]] is the file base name
+            // [[ $<key> ]] the rest of the key returned by the upload API
+            "previewURL": "/assets/upload/images[[ $PATH ]]?additional=[[ $additional ]]",
             "$api": { "process": "scripts.upload.ImageToPublic" }
           }
         }
@@ -846,13 +866,14 @@
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
 
-            // {{ PATH }} is the file path,
-            // {{ EXT }} is the file extension
-            // {{ NAME }} is the file name
-            // {{ BASE }} is the file base name
-            // {{ <key> }} the rest of the key returned by the upload API
-            "previewURL": "/assets/images/{{ PATH }}",
-            "$api": { "process": "scripts.upload.ImageToPublic" },
+            // [[ $PATH ]] is the file path,
+            // [[ $TOKEN ]] is the admin panel user token
+            // [[ $EXT ]] is the file extension
+            // [[ $NAME ]] is the file name
+            // [[ $BASE ]] is the file base name
+            // [[ $<key> ]] the rest of the key returned by the upload API
+            "previewURL": "/assets/upload/images[[ $PATH ]]?additional=[[ $additional ]]",
+            "$api": { "process": "scripts.upload.ImageToPublicWithAdditional" },
             "maxCount": 3
           }
         }

@@ -263,30 +263,18 @@
           }
         }
       },
+
       "头像": {
         "bind": "avatar",
         "view": {
           "type": "Image",
-          "compute": "Download",
           "props": {
-            "style": {
-              "width": 36,
-              "height": 36,
-              "borderRadius": "50%"
-            }
+            "style": { "width": 36, "height": 36, "borderRadius": "50%" }
           }
         },
-        "edit": {
-          "type": "Upload",
-          "compute": "Upload",
-          "props": {
-            "filetype": "image",
-            "$api": {
-              "process": "fs.system.Upload"
-            }
-          }
-        }
+        "edit": { "type": "Upload", "props": { "filetype": "image" } }
       },
+
       "昵称": {
         "bind": "title",
         "view": {
