@@ -152,6 +152,10 @@ export class FS {
   }
   Copy(source: string, destination: string) {}
   Move(source: string, destination: string) {}
+  Size(path: string): number {
+    return 0;
+  }
+  MoveAppend(source: string, destination: string) {}
   Remove(path: string) {}
   RemoveAll(path: string) {}
 }
@@ -289,16 +293,22 @@ export interface Helper {
   (...args: any[]): any;
 }
 
-/**
- * Upload Temp File
- */
-export type UploadFile = {
-  error?: string; // Error message
-  header: Record<string, string[]>; // Headers
-  name: string; // File name
-  size: number; // File size
-  tempFile: string; // Temporary file path
-};
+export interface UploadFile {
+  uid?: string; // Content-Uid: The unique identifier of the file (for chunk upload)
+  range?: string; // Content-Range: bytes start-end/total (for chunk upload)
+  sync?: boolean; // Content-Sync: sync upload or not. Default is false
+  name: string;
+  tempFile: string;
+  size: number;
+  header: { [key: string]: string[] }; // Equivalent to textproto.MIMEHeader in Go
+  error?: string;
+}
+
+export interface UploadProgress {
+  total: number; // total bytes to upload
+  uploaded: number; // bytes uploaded
+  completed: boolean;
+}
 
 /**
  * Http Exception
@@ -318,6 +328,16 @@ export type UploadFileResponse =
        * File path or URL
        */
       path: string; // File path
+
+      /**
+       * Upload progress
+       */
+      progress?: UploadProgress;
+
+      /**
+       * Content-Uid: The unique identifier of the file (for chunk upload)
+       */
+      uid?: string;
 
       /**
        * additional information, can be used to previewURL, etc.

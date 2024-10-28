@@ -884,10 +884,10 @@
         "edit": {
           "type": "Upload",
           "props": {
-            "filetype": "image",
-            "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
-            "chunkSize": "1M"
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "1G",
+            "chunkSize": "2M"
           }
         }
       },
@@ -900,7 +900,7 @@
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
-            "chunkSize": "1M",
+            "chunkSize": "200K",
             "maxCount": 3
           }
         }
@@ -911,11 +911,12 @@
         "edit": {
           "type": "Upload",
           "props": {
-            "filetype": "image",
-            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
             "maxSize": "1G",
-            "chunkSize": "1M",
-            "$api": { "process": "scripts.upload.ChunckSize" }
+            "chunkSize": "2M",
+            "previewURL": "/assets/upload/chunks[[ $PATH ]]",
+            "$api": { "process": "scripts.upload.Chunk" }
           }
         }
       }

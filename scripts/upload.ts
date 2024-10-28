@@ -1,4 +1,10 @@
-import { Exception, FS, UploadFile, UploadFileResponse } from "@yao/runtime";
+import {
+  Exception,
+  FS,
+  Process,
+  UploadFile,
+  UploadFileResponse,
+} from "@yao/runtime";
 
 /**
  * Upload image to public
@@ -20,7 +26,7 @@ function ImageToPublic(file: UploadFile): UploadFileResponse {
     );
   }
 
-  const filename = `/${tempdir()}/${name()}.${ext}`;
+  const filename = `/${dir()}/${name()}.${ext}`;
   const target = `${root}${filename}`;
   fs.Move(tmpfile, target);
 
@@ -38,6 +44,45 @@ function ImageToPublicWithAdditional(file: UploadFile): UploadFileResponse {
   return {
     path: filename as string,
     additional: "additional information",
+  };
+}
+
+/**
+ * Upload file to public, support chunk upload
+ * @param file
+ * @returns
+ */
+function Chunk(file: UploadFile): UploadFileResponse {
+  if (!file.range) {
+    throw new Exception("Get error response. range is empty", 500);
+  }
+
+  if (!file.sync) {
+    throw new Exception("async upload is not supported yet", 500);
+  }
+
+  const root = `/public/assets/upload/chunks`;
+  const fs = new FS("app"); // root path is the application root directory
+  const tmpfile = file.tempFile;
+  const ext = fs.ExtName(file.name);
+  const filename = `/${hash(file.uid || file.tempFile)}.${ext}`;
+  const target = `${root}${filename}`;
+  fs.MoveAppend(tmpfile, target);
+
+  // Get total size
+  const size = fs.Size(target);
+  const total = parseInt(file.range.split("/")[1]);
+
+  // Check the file size
+  if (size != 0 && size == total) {
+    return filename; // Return the file path
+  }
+
+  // Return the upload progress
+  return {
+    path: filename,
+    uid: file.uid,
+    progress: { total: total, uploaded: size, completed: false },
   };
 }
 
@@ -62,7 +107,7 @@ function name(): string {
  * Generate a temporary directory name
  * @returns
  */
-function tempdir(): string {
+function dir(): string {
   const today: Date = new Date();
   const year: number = today.getFullYear();
   const month: number = today.getMonth() + 1;
@@ -73,4 +118,9 @@ function tempdir(): string {
     .toString()
     .padStart(2, "0")}${day.toString().padStart(2, "0")}`;
   return formattedDate;
+}
+
+function hash(input: string): string {
+  const hash = Process("yao.crypto.hash", "MD5", input);
+  return `${hash[0]}${hash[1]}/${hash[2]}${hash[3]}/${hash}`;
 }
