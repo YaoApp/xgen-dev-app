@@ -203,7 +203,12 @@
                     { "name": "Divider", "width": 24 },
                     { "name": "Upload chunckSize", "width": 24 },
                     { "name": "Upload chunckSize Multiple", "width": 24 },
-                    { "name": "Upload chunckSize API", "width": 24 }
+                    { "name": "Upload chunckSize API", "width": 24 },
+                    { "name": "Divider", "width": 24 },
+                    { "name": "Upload Progress", "width": 24 },
+                    { "name": "Upgraded Progress (Chunk)", "width": 24 },
+                    { "name": "Upload Error", "width": 24 },
+                    { "name": "Upload Error (Chunk)", "width": 24 }
                   ]
                 }
               ]
@@ -916,7 +921,62 @@
             "maxSize": "1G",
             "chunkSize": "2M",
             "previewURL": "/assets/upload/chunks[[ $PATH ]]",
-            "$api": { "process": "scripts.upload.Chunk" }
+            "$api": { "process": "scripts.upload.ChunkToPublic" }
+          }
+        }
+      },
+
+      "Upload Progress": {
+        "bind": "upload_progress",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "1G"
+          }
+        }
+      },
+
+      "Upgraded Progress (Chunk)": {
+        "bind": "upload_progress_chunk",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "1G",
+            "chunkSize": "2M",
+            "previewURL": "/assets/upload/chunks[[ $PATH ]]",
+            "$api": { "process": "scripts.upload.ChunkToPublic" }
+          }
+        }
+      },
+
+      "Upload Error": {
+        "bind": "upload_error",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "1G",
+            "$api": { "process": "scripts.upload.ErrorResponse" }
+          }
+        }
+      },
+
+      "Upload Error (Chunk)": {
+        "bind": "upload_error_chunk",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "1G",
+            "chunkSize": "1M",
+            "placeholder": "Select Video more than 10M",
+            "$api": { "process": "scripts.upload.ErrorChunkResponse" }
           }
         }
       }

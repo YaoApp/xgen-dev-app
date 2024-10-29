@@ -2,6 +2,7 @@ import {
   Exception,
   FS,
   Process,
+  Store,
   UploadFile,
   UploadFileResponse,
 } from "@yao/runtime";
@@ -52,7 +53,7 @@ function ImageToPublicWithAdditional(file: UploadFile): UploadFileResponse {
  * @param file
  * @returns
  */
-function Chunk(file: UploadFile): UploadFileResponse {
+function ChunkToPublic(file: UploadFile): UploadFileResponse {
   if (!file.range) {
     throw new Exception("Get error response. range is empty", 500);
   }
@@ -91,7 +92,59 @@ function Chunk(file: UploadFile): UploadFileResponse {
  * @param file
  */
 function ErrorResponse(file: UploadFile) {
-  throw new Exception(`Get error response. name: ${file.name}`, 500);
+  const now = new Date().toISOString();
+  throw new Exception(`Error response ${now}`, 500);
+}
+
+/**
+ * Chuk upload error response
+ * @param file
+ */
+function ErrorChunkResponse(file: UploadFile) {
+  const cache = new Store("cache");
+  const key = `error-chunk-${file.uid}`;
+
+  // Get the error chunk
+  const chunk = parseInt(cache.Get(key)) || 0;
+  if (chunk > 9) {
+    cache.Del(key);
+    throw new Exception(`Error Chunk Response ${chunk}`, 500);
+  }
+
+  cache.Set(key, chunk + 1);
+  return `/public/assets/upload/chunks/${chunk}`;
+}
+
+/**
+ * Backend API security check
+ * Test API for upload file
+ * yao run scripts.upload.Security [host]
+ * @param host
+ * @param file
+ */
+function Security(host?: string) {
+  host = host || "http://localhost:5099";
+  host = host.endsWith("/") ? host.slice(0, -1) : host;
+
+  const tests = [
+    { file: "/tests/security/success.jpg" },
+    { file: "/tests/security/error-large.jpg", error: true }, // File size is too large
+    { file: "/tests/security/error-type.jpg", error: true }, // Exetension crorect, but content-type is not image
+    { file: "/tests/security/error-ext.exe", error: true }, // Exetension is not image
+  ];
+
+  const urls = [
+    `${host}/api/__yao/form/hero/upload/fields.form.Upload+Image.edit.props/api`, // Image upload
+    `${host}/api/__yao/form/hero/upload/fields.form.Upload+chunckSize+Multiple.edit.props/api`, // Chunk upload
+  ];
+
+  // Check Authorization
+
+  // Check file size
+
+  // Check file extension
+
+  // Check file content-type
 }
 
 /**

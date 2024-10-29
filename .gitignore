@@ -1,4 +1,4 @@
-logs/application.log
+logs
 .DS_Store
 data
 db
