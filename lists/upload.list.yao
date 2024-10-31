@@ -1,0 +1,154 @@
+{
+  "name": "Upload Group",
+  "action": {},
+  "layout": {
+    "list": {
+      "columns": [
+        { "name": "Image", "width": 24 },
+        { "name": "Image Multiple", "width": 24 },
+        { "name": "Audio", "width": 24 },
+        { "name": "Audio Multiple", "width": 24 },
+        { "name": "Video", "width": 24 },
+        { "name": "Video Multiple", "width": 24 },
+        { "name": "File", "width": 24 },
+        { "name": "File Multiple", "width": 24 },
+        { "name": "Preview URL", "width": 24 }
+      ],
+      "props": { "placeholder": "Add Upload Group" }
+    }
+  },
+  "fields": {
+    "list": {
+      "Image": {
+        "bind": "image",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "placeholder": "Upload Image"
+          }
+        }
+      },
+      "Image Multiple": {
+        "bind": "image_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+            "previewSize": { "width": 210, "height": 90 },
+            "maxCount": 3,
+            "placeholder": "Upload Multiple"
+          }
+        }
+      },
+
+      "Audio": {
+        "bind": "audio",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "audio",
+            "accept": ".mp3,.wav,.ogg",
+            "maxSize": "5M",
+            "previewSize": { "width": 300 },
+            "placeholder": "Upload Audio"
+          }
+        }
+      },
+
+      "Audio Multiple": {
+        "bind": "audio_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "audio",
+            "accept": ".mp3,.wav,.ogg",
+            "maxSize": "5M",
+            "maxCount": 3,
+            "placeholder": "Upload Multiple"
+          }
+        }
+      },
+
+      "Video": {
+        "bind": "video",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "5M",
+            "placeholder": "Upload Video"
+          }
+        }
+      },
+      "Video Multiple": {
+        "bind": "video_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "video",
+            "accept": ".mp4,.avi,.mov,.wmv",
+            "maxSize": "5M",
+            "maxCount": 3,
+            "previewSize": { "ratio": 2.33 },
+            "placeholder": "Upload Multiple"
+          }
+        }
+      },
+
+      "File": {
+        "bind": "file",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "file",
+            "accept": ".doc,.docx,.pdf,.xls,.xlsx,.ppt,.pptx",
+            "maxSize": "5M",
+            "placeholder": "Upload File"
+          }
+        }
+      },
+
+      "File Multiple": {
+        "bind": "file_multiple",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "file",
+            "accept": ".doc,.docx,.pdf,.xls,.xlsx,.ppt,.pptx",
+            "maxSize": "5M",
+            "maxCount": 3,
+            "placeholder": "Upload Multiple"
+          }
+        }
+      },
+
+      "Preview URL": {
+        "bind": "preview_url",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxSize": "5M",
+
+            // [[ $PATH ]] is the file path,
+            // [[ $TOKEN ]] is the admin panel user token
+            // [[ $EXT ]] is the file extension
+            // [[ $NAME ]] is the file name
+            // [[ $BASE ]] is the file base name
+            // [[ $<key> ]] the rest of the key returned by the upload API
+            "previewURL": "/assets/upload/images[[ $PATH ]]?additional=[[ $additional ]]",
+            "$api": { "process": "scripts.upload.ImageToPublic" },
+            "placeholder": "Upload Preview"
+          }
+        }
+      }
+    }
+  }
+}

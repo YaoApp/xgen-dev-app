@@ -173,6 +173,13 @@
                   ]
                 },
                 {
+                  "title": "List Upgraded",
+                  "icon": { "name": "icon-list", "size": 14 },
+                  "weight": "medium",
+                  "color": "danger",
+                  "columns": [{ "name": "Upload Group", "width": 24 }]
+                },
+                {
                   "title": "Upload Upgraded",
                   "icon": { "name": "icon-upload", "size": 14 },
                   "weight": "medium",
@@ -735,7 +742,7 @@
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
-            "previewSize": { "width": 210, "height": 90, "objectFit": "cover" },
+            "previewSize": { "width": 210, "height": 90 },
             "placeholder": "Upload Cover"
           }
         }
@@ -749,7 +756,7 @@
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
-            "previewSize": { "width": 210, "height": 90, "objectFit": "cover" },
+            "previewSize": { "width": 210, "height": 90 },
             "placeholder": "Upload Cover",
             "maxCount": 20
           }
@@ -764,7 +771,7 @@
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
             "maxSize": "5M",
-            "previewSize": { "ratio": 1.33, "objectFit": "cover" },
+            "previewSize": { "ratio": 1.33 },
             "placeholder": "Upload Cover"
           }
         }
@@ -778,7 +785,7 @@
             "filetype": "video",
             "accept": ".mp4,.avi,.mov,.wmv",
             "maxSize": "5M",
-            "previewSize": { "width": 420, "height": 180, "objectFit": "cover" }
+            "previewSize": { "width": 420, "height": 180 }
           }
         }
       },
@@ -809,7 +816,7 @@
             "filetype": "video",
             "accept": ".mp4,.avi,.mov,.wmv",
             "maxSize": "5M",
-            "previewSize": { "ratio": 2.33, "objectFit": "cover" }
+            "previewSize": { "ratio": 2.33 }
           }
         }
       },
@@ -979,6 +986,11 @@
             "$api": { "process": "scripts.upload.ErrorChunkResponse" }
           }
         }
+      },
+
+      "Upload Group": {
+        "bind": "upload_group",
+        "edit": { "type": "List", "props": { "name": "upload" } }
       }
     }
   }
