@@ -70,12 +70,12 @@ function setData() {
 
   Process(
     "models.role.Insert",
-    ["name", "type"],
+    ["name", "type", "icon"],
     [
-      ["法师", "mage"],
-      ["战士", "fighter"],
-      ["坦克", "tank"],
-      ["辅助", "support"],
+      ["法师", "mage", "icon-shield"],
+      ["战士", "fighter", "material-favorite"],
+      ["坦克", "tank", "icon-pocket"],
+      ["辅助", "support", ""],
     ]
   );
 }

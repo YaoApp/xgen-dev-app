@@ -160,7 +160,9 @@
                   "columns": [
                     { "name": "AutoComplete", "width": 24 },
                     { "name": "AutoComplete Remote", "width": 24 },
-                    { "name": "AutoComplete Option with Icon", "width": 24 }
+                    { "name": "AutoComplete Option with Icon", "width": 24 },
+                    { "name": "AutoComplete Query Params", "width": 24 },
+                    { "name": "AutoComplete Query DSL", "width": 24 }
                   ]
                 },
                 {
@@ -169,7 +171,9 @@
                   "weight": "medium",
                   "color": "danger",
                   "columns": [
-                    { "name": "Select Option with Icon", "width": 24 }
+                    { "name": "Select Option with Icon", "width": 24 },
+                    { "name": "Select Query Params", "width": 24 },
+                    { "name": "Select Query DSL", "width": 24 }
                   ]
                 },
                 {
@@ -413,6 +417,67 @@
         }
       },
 
+      "Select Query Params": {
+        "bind": "identity",
+        "edit": {
+          "type": "Select",
+          "props": {
+            "query": {
+              // Specify the field name of the label, value, and icon
+              "labelField": "name", // required. the field name of the label
+              "valueField": "type", // required. the field name of the value
+              "iconField": "icon", // optional. the field name of the icon
+
+              // Query parameters
+              "from": "roles", // Model name
+              // [[ $KEYWORDS ]] is the search keyword
+              // [[ $SELECTED ]] is the selected value, the type could be a number, string or an array
+              "wheres": [
+                { "column": "name", "value": "[[ $KEYWORDS ]]", "op": "match" }, // if the search is enabled, the query will be executed when the user types in the search box
+                {
+                  "method": "orwhere",
+                  "type": "name",
+                  "value": "[[ $KEYWORDS ]]"
+                } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
+              ],
+              "limit": 20, // the number of records returned, default is 100. if it's 0, use the default value
+
+              // Format search results
+              "labelFormat": "%name-%type", // optional. the format of the label, field name should be add prefix '%'
+              "valueFormat": "%type", // required. the field name of the value should be add prefix '%'
+              "iconFormat": "%icon" // optional. the field name of the icon should be add prefix '%'
+            }
+          }
+        }
+      },
+
+      "Select Query DSL": {
+        "bind": "identity",
+        "edit": {
+          "type": "Select",
+          "props": {
+            "query": {
+              // Query DSL
+              "engine": "default", // The query engine name, if you want to use queryDSL, this field is required
+              "select": ["name as label", "type as value", "icon"], // required. must have label, value and icon fields. icon is optional
+              "from": "roles", // required. table name or model name. if it's a model name, should use '$' prefix. eg: '$roles'
+              // [[ $KEYWORDS ]] is the search keyword
+              // [[ $SELECTED ]] is the selected value, the type could be a number, string or an array
+              "wheres": [
+                { "field": "name", "match": "[[ $KEYWORDS ]]" }, // if the search is enabled, the query will be executed when the user types in the search box
+                { "or": true, ":type": "[[ $SELECTED ]" } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
+              ],
+              "limit": 20, // the number of records returned, default is 100. if it's 0, use the default value
+
+              // Format search results
+              "labelFormat": "%name-%type", // optional. the format of the label, field name should be add prefix '%'
+              "valueFormat": "%type", // required. the field name of the value should be add prefix '%'
+              "iconFormat": "%icon" // optional. the field name of the icon should be add prefix '%'
+            }
+          }
+        }
+      },
+
       "AutoComplete Option with Icon": {
         "bind": "identity",
         "edit": {
@@ -435,6 +500,63 @@
                 "value": "轻骑兵"
               }
             ]
+          }
+        }
+      },
+
+      "AutoComplete Query Params": {
+        "bind": "identity",
+        "edit": {
+          "type": "AutoComplete",
+          "props": {
+            "query": {
+              "labelField": "name", // required. the field name of the label
+              "valueField": "type", // required. the field name of the value
+              "iconField": "icon", // optional. the field name of the icon
+              "from": "roles", // Model name
+              "wheres": [
+                // [[ $KEYWORDS ]] is the search keyword
+                // [[ $SELECTED ]] is the selected value, the type could be a number, string or an array
+                { "column": "name", "value": "[[ $KEYWORDS ]]", "op": "match" }, // if the search is enabled, the query will be executed when the user types in the search box
+                {
+                  "method": "orwhere",
+                  "type": "name",
+                  "value": "[[ $KEYWORDS ]]"
+                } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
+              ],
+              "limit": 20, // the number of records returned, default is 100. if it's 0, use the default value
+
+              // Format search results
+              "labelFormat": "%name-%type", // optional. the format of the label, field name should be add prefix '%'
+              "valueFormat": "%type", // required. the field name of the value should be add prefix '%'
+              "iconFormat": "%icon" // optional. the field name of the icon should be add prefix '%'
+            }
+          }
+        }
+      },
+
+      "AutoComplete Query DSL": {
+        "bind": "identity",
+        "edit": {
+          "type": "AutoComplete",
+          "props": {
+            "query": {
+              "engine": "default", // The query engine name, if you want to use queryDSL, this field is required
+              "select": ["name as label", "type as value", "icon"], // required. must have label,value and icon fields, icon is optional
+              "from": "roles", // required. table name or model name. if it's a model name, should use '$' prefix. eg: '$roles'
+              "wheres": [
+                // [[ $KEYWORDS ]] is the search keyword
+                // [[ $SELECTED ]] is the selected value, the type could be a number, string or an array
+                { "field": "name", "match": "[[ $KEYWORDS ]]" }, // if the search is enabled, the query will be executed when the user types in the search box
+                { "or": true, ":type": "[[ $SELECTED ]" } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
+              ],
+              "limit": 20, // the number of records returned, default is 100. if it's 0, use the default value
+
+              // Format search results
+              "labelFormat": "%name-%type", // optional. the format of the label, field name should be add prefix '%'
+              "valueFormat": "%type", // required. the field name of the value should be add prefix '%'
+              "iconFormat": "%icon" // optional. the field name of the icon should be add prefix '%'
+            }
           }
         }
       },
@@ -593,6 +715,7 @@
           }
         }
       },
+
       "AutoComplete Remote": {
         "bind": "identity",
         "edit": {

@@ -19,6 +19,14 @@
       "length": 20,
       "index": true,
       "nullable": true
+    },
+    {
+      "name": "icon",
+      "label": "图标",
+      "comment": "图标",
+      "type": "string",
+      "length": 200,
+      "nullable": true
     }
   ],
   "relations": {},
