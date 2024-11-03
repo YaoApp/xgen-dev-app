@@ -177,15 +177,11 @@
         "edit": {
           "type": "Select",
           "props": {
-            "xProps": {
-              "$remote": {
-                "process": "yao.component.SelectOptions",
-                "query": {
-                  "model": "role",
-                  "label": "name",
-                  "value": "type"
-                }
-              }
+            "query": {
+              "from": "role",
+              "select": ["name", "type"],
+              "labelField": "name",
+              "valueField": "type"
             }
           }
         }
@@ -293,15 +289,11 @@
         "view": {
           "type": "Tag",
           "props": {
-            "xProps": {
-              "$remote": {
-                "process": "yao.component.SelectOptions",
-                "query": {
-                  "model": "role",
-                  "label": "name",
-                  "value": "type"
-                }
-              }
+            "query": {
+              "from": "role",
+              "select": ["name", "type"],
+              "labelField": "name",
+              "valueField": "type"
             }
           }
         },
@@ -309,15 +301,11 @@
           "type": "Select",
           "props": {
             "mode": "multiple",
-            "xProps": {
-              "$remote": {
-                "process": "yao.component.SelectOptions",
-                "query": {
-                  "model": "role",
-                  "label": "name",
-                  "value": "type"
-                }
-              }
+            "query": {
+              "from": "role",
+              "select": ["name", "type"],
+              "labelField": "name",
+              "valueField": "type"
             }
           }
         }
