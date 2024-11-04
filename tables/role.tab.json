@@ -46,7 +46,8 @@
       "columns": [
         { "name": "角色名称" },
         { "name": "角色类型" },
-        { "name": "角色图标" }
+        { "name": "角色图标" },
+        { "name": "角色颜色" }
       ],
       "operation": {
         "fold": false,
@@ -128,6 +129,17 @@
       },
       "角色图标": {
         "bind": "icon",
+        "view": {
+          "type": "Text",
+          "props": {}
+        },
+        "edit": {
+          "type": "Input",
+          "props": {}
+        }
+      },
+      "角色颜色": {
+        "bind": "color",
         "view": {
           "type": "Text",
           "props": {}

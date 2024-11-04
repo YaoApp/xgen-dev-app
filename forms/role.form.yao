@@ -71,7 +71,8 @@
           "columns": [
             { "name": "角色名称", "width": 24 },
             { "name": "角色类型", "width": 24 },
-            { "name": "图标", "width": 24 }
+            { "name": "图标", "width": 24 },
+            { "name": "颜色", "width": 24 }
           ]
         }
       ]

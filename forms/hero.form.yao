@@ -418,10 +418,13 @@
       },
 
       "Select QueryParam": {
-        "bind": "identity",
+        "bind": "identity_multiple",
         "edit": {
           "type": "Select",
           "props": {
+            "allowClear": true,
+            "showSearch": true,
+            "mode": "multiple",
             "query": {
               "debug": true, // optional. show the debug information
 
@@ -440,11 +443,13 @@
               // [[ $keywords ]] is the search keywords, xgen request will be send if the search is enabled
               // [[ $selected ]] is the selected value, the type could be a number, string or an array. xgen request will be send if some options are selected
               "wheres": [
+                { "column": "name", "op": "notnull" },
                 { "column": "name", "value": "[[ $keywords ]]", "op": "match" }, // if the search is enabled, the query will be executed when the user types in the search box
                 {
                   "method": "orwhere",
-                  "column": "name",
-                  "value": "[[ $keywords ]]"
+                  "column": "type",
+                  "op": "in",
+                  "value": "[[ $selected ]]"
                 } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
               ],
               "limit": 20, // the number of records returned, default is 100. if it's 0, use the default value
@@ -463,6 +468,8 @@
         "edit": {
           "type": "Select",
           "props": {
+            "allowClear": true,
+            "showSearch": true,
             "query": {
               "debug": true, // optional. show the debug information
 
@@ -480,8 +487,9 @@
               // [[ $keywords ]] is the search keywords, xgen request will be send if the search is enabled
               // [[ $selected ]] is the selected value, the type could be a number, string or an array. xgen request will be send if some options are selected
               "wheres": [
+                { "field": "name", "is": "not null" },
                 { "field": "name", "match": "[[ $keywords ]]" }, // if the search is enabled, the query will be executed when the user types in the search box
-                { "or": true, ":value": "[[ $selected ]]" } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
+                { "or": true, "field": "value", "eq": "[[ $selected ]]" } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
               ],
 
               "limit": 20, // the number of records returned, default is 100. if it's 0, use the default value
@@ -543,12 +551,12 @@
               // @see QueryParams for more details
               // You can use the query variables
               // [[ $keywords ]] is the search keywords, xgen request will be send if the search is enabled
-              // [[ $selected ]] is the selected value, the type could be a number, string or an array. xgen request will be send if some options are selected
               "wheres": [
+                { "column": "name", "op": "notnull" },
                 { "column": "name", "value": "[[ $keywords ]]", "op": "match" }, // if the search is enabled, the query will be executed when the user types in the search box
                 {
                   "method": "orwhere",
-                  "column": "name",
+                  "column": "type",
                   "value": "[[ $keywords ]]"
                 } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
               ],
@@ -583,10 +591,10 @@
               // @see QueryDSL for more details
               // You can use the query variables
               // [[ $keywords ]] is the search keywords, xgen request will be send if the search is enabled
-              // [[ $selected ]] is the selected value, the type could be a number, string or an array. xgen request will be send if some options are selected
               "wheres": [
+                { "field": "name", "is": "not null" },
                 { "field": "name", "match": "[[ $keywords ]]" }, // if the search is enabled, the query will be executed when the user types in the search box
-                { "or": true, ":value": "[[ $selected ]]" } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
+                { "or": true, ":type": "[[ $keywords ]]" } // suggest showing the selected value, if the selected value is not in the search result, it will be added to the search result
               ],
 
               "limit": 20, // the number of records returned, default is 100. if it's 0, use the default value

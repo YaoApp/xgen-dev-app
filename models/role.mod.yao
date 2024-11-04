@@ -27,6 +27,14 @@
       "type": "string",
       "length": 200,
       "nullable": true
+    },
+    {
+      "name": "color",
+      "label": "颜色",
+      "comment": "颜色",
+      "type": "string",
+      "length": 20,
+      "nullable": true
     }
   ],
   "relations": {},

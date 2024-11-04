@@ -291,9 +291,9 @@
           "props": {
             "query": {
               "from": "role",
-              "select": ["name", "type"],
               "labelField": "name",
-              "valueField": "type"
+              "valueField": "type",
+              "colorField": "color"
             }
           }
         },
