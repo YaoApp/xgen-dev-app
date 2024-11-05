@@ -208,6 +208,7 @@
                     { "name": "Divider", "width": 24 },
                     { "name": "Upload placeholder", "width": 24 },
                     { "name": "Upload placeholderIcon", "width": 24 },
+                    { "name": "Upload maxFilesize", "width": 24 },
                     { "name": "Divider", "width": 24 },
                     { "name": "Upload previewURL", "width": 24 },
                     { "name": "Upload previewURL Multiple", "width": 24 },
@@ -810,7 +811,7 @@
           "type": "Upload",
           "props": {
             "filetype": "image",
-            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "accept": "image/*",
             "maxSize": "5M"
           }
         }
@@ -834,7 +835,7 @@
           "type": "Upload",
           "props": {
             "filetype": "video",
-            "accept": ".mp4,.avi,.mov,.wmv",
+            "accept": "video/*",
             "maxSize": "5M"
           }
         }
@@ -859,7 +860,6 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
             "maxCount": 3
           }
         }
@@ -872,7 +872,6 @@
           "props": {
             "filetype": "audio",
             "accept": ".mp3,.wav,.ogg",
-            "maxSize": "5M",
             "maxCount": 3
           }
         }
@@ -885,7 +884,6 @@
           "props": {
             "filetype": "video",
             "accept": ".mp4,.avi,.mov,.wmv",
-            "maxSize": "5M",
             "maxCount": 3
           }
         }
@@ -898,7 +896,6 @@
           "props": {
             "filetype": "file",
             "accept": ".doc,.docx,.pdf,.xls,.xlsx,.ppt,.pptx",
-            "maxSize": "5M",
             "maxCount": 3
           }
         }
@@ -911,7 +908,6 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
             "previewSize": { "width": 210, "height": 90 },
             "placeholder": "Upload Cover"
           }
@@ -925,7 +921,6 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
             "previewSize": { "width": 210, "height": 90 },
             "placeholder": "Upload Cover",
             "maxCount": 20
@@ -940,7 +935,6 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
             "previewSize": { "ratio": 1.33 },
             "placeholder": "Upload Cover"
           }
@@ -954,7 +948,6 @@
           "props": {
             "filetype": "video",
             "accept": ".mp4,.avi,.mov,.wmv",
-            "maxSize": "5M",
             "previewSize": { "width": 420, "height": 180 }
           }
         }
@@ -967,7 +960,6 @@
           "props": {
             "filetype": "video",
             "accept": ".mp4,.avi,.mov,.wmv",
-            "maxSize": "5M",
             "previewSize": {
               "width": 420,
               "height": 180,
@@ -985,7 +977,6 @@
           "props": {
             "filetype": "video",
             "accept": ".mp4,.avi,.mov,.wmv",
-            "maxSize": "5M",
             "previewSize": { "ratio": 2.33 }
           }
         }
@@ -998,7 +989,6 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
             "placeholder": "Upload Cover"
           }
         }
@@ -1011,9 +1001,21 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
             "placeholder": "Upload Cover",
             "placeholderIcon": "icon-upload-cloud"
+          }
+        }
+      },
+
+      "Upload maxFilesize": {
+        "bind": "upload_max_filesize",
+        "edit": {
+          "type": "Upload",
+          "props": {
+            "placeholder": "Select Image less than 1M",
+            "filetype": "image",
+            "accept": ".jpg,.jpeg,.png,.gif,.webp",
+            "maxFilesize": "1M"
           }
         }
       },
@@ -1025,7 +1027,6 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
 
             // [[ $PATH ]] is the file path,
             // [[ $TOKEN ]] is the admin panel user token
@@ -1046,7 +1047,6 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
 
             // [[ $PATH ]] is the file path,
             // [[ $TOKEN ]] is the admin panel user token
@@ -1067,7 +1067,7 @@
           "type": "Upload",
           "props": {
             "filetype": "video",
-            "accept": ".mp4,.avi,.mov,.wmv",
+            "accept": "video/*",
             "maxSize": "1G",
             "chunkSize": "2M"
           }
@@ -1081,7 +1081,6 @@
           "props": {
             "filetype": "image",
             "accept": ".jpg,.jpeg,.png,.gif,.webp",
-            "maxSize": "5M",
             "chunkSize": "200K",
             "maxCount": 3
           }
