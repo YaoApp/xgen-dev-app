@@ -275,9 +275,10 @@
         "bind": "title",
         "view": {
           "type": "A",
-          "props": {
-            "href": "http://localhost:8000/yao/x/Form/hero/1/edit"
-          }
+          // You can also use the following configuration to customize the download API logic
+          // api: /apis/download.http.yao
+          // process: /scripts/download.ts
+          "props": { "href": "/api/download/README.md?from={{ id }}" }
         }
       },
       "角色（数值）": {

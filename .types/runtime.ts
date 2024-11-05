@@ -124,7 +124,9 @@ export class FS {
   ReadDir(path: string, recursive: boolean = false): string[] {
     return [];
   }
-
+  Download(path: string): { content: ReadCloser; type: MimeType } {
+    return { content: 0, type: "" };
+  }
   Zip(source: string, destination: string) {}
   MkdirAll(path: string) {}
   DirName(path: string): string {
@@ -158,6 +160,9 @@ export class FS {
   MoveAppend(source: string, destination: string) {}
   Remove(path: string) {}
   RemoveAll(path: string) {}
+  MimeType(name: string): string {
+    return "";
+  }
 }
 
 export const http = {
@@ -344,3 +349,7 @@ export type UploadFileResponse =
        */
       [key: string]: any;
     };
+
+type ReadCloser = number;
+
+type MimeType = string;
