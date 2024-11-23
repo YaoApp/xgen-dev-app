@@ -1,12 +1,14 @@
 # Usage
 
-[中文](README.zh-CN.md) | [العربية](README.ar-AE.md)
-
 This example demonstrates how to use Yao to implement basic functionalities for managing backend or internal business systems, focusing primarily on the usage of XGEN components.
 
 It is recommended to run this example with Yao version 0.10.4. TypeScript is recommended as the scripting language.
 
 [Online Demo](https://xgen-dev.iqka.com/)
+
+[Yao v0.10.4 Documentation](https://yaoweb.iqka.com/docs/documentation/en-us/getting-started) (In progress)
+
+_**Note:** The website is currently under construction, not yet live, and some pages may be inaccessible._
 
 ## Yao v0.10.4 Installation & Download
 
